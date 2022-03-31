@@ -1,22 +1,22 @@
-# Game-Online-Store 
+# Game-Online-Store
 The MERN Stack Project(MongoDB Express React Node)
 FridayNight is an online store specialized in selling computer game virtual items.
 
 
 
-## Iteration 1
+### Iteration 1
 **Division of labor**
 In the first week, we will work on the initial setting up of our app.
 - Frontend %Cuiting Huang
 React components created to represent the functionality you will be building.
 The overall structure of your website
 - Backend %Shi Shuai
-Routing, links, and the basis of CRUD operations should be established. 
-- frontend running on 3000 while backend running on 5000
-## Update & Progress**
+Routing, links, and the basis of CRUD operations should be established.
+
+## Update & Progress
 **CuitingHuang**
 22/3/30
-1. Init react and implment homepage 
+1. Init react and implment homepage
 a.banner with search box
 b.show all items of eg
 c.creat rating star for each items
@@ -27,17 +27,20 @@ npx create-react-app frontend
 cd frontend
 npm start
 ```
+
 2. init node.js for backend
 - create *ROUTE* products.js
 - Link to database mongodb atlas with functions
 ```
 connectDB
 saveItem
-findItem or deleteItem by id 
+findItem or deleteItem by id
 findAll
 ```
-- authURI for development 
+- authURI for development
 "mongodb+srv://yellow:125512@cs5610.kgnh2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+**Shi Shuai**
 
 
 
@@ -52,7 +55,7 @@ findAll
 ## Environment Variable
 Create a file name .env then add:
 1. NODE_ENV = development
-2. MONGO_URI = 
+2. MONGO_URI =
 3. PORT = 5000
 4. PAYPAL_CLIENT_ID =
 
