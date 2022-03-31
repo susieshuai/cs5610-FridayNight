@@ -4,7 +4,7 @@ FridayNight is an online store specialized in selling computer game virtual item
 
 
 
-## Iteration 1
+### Iteration 1
 **Division of labor**
 In the first week, we will work on the initial setting up of our app.
 - Frontend %Cuiting Huang
