@@ -13,7 +13,7 @@ The overall structure of your website
 - Backend %Shi Shuai
 Routing, links, and the basis of CRUD operations should be established. 
 
-### Update & Progress
+## Update & Progress
 **CuitingHuang**
 22/3/30
 1. Init react and implment homepage 
