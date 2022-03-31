@@ -13,8 +13,20 @@ The overall structure of your website
 - Backend %Shi Shuai
 Routing, links, and the basis of CRUD operations should be established. 
 
-**Update & Progress**
-- Init react and implent homepage (Huang 22/3/30)
+## Update & Progress**
+**CuitingHuang**
+22/3/30
+1. Init react and implment homepage 
+a.banner with search box
+b.show all items of eg
+c.creat rating star for each items
+d.click item link to products/:id   / click login to /login click shoppintcart to /cart
+
+```
+npx create-react-app frontend
+cd frontend
+npm start
+```
 
 
 
