@@ -12,7 +12,7 @@ React components created to represent the functionality you will be building.
 The overall structure of your website
 - Backend %Shi Shuai
 Routing, links, and the basis of CRUD operations should be established. 
-
+- frontend running on 3000 while backend running on 5000
 ## Update & Progress**
 **CuitingHuang**
 22/3/30
@@ -27,6 +27,17 @@ npx create-react-app frontend
 cd frontend
 npm start
 ```
+2. init node.js for backend
+- create *ROUTE* products.js
+- Link to database mongodb atlas with functions
+```
+connectDB
+saveItem
+findItem or deleteItem by id 
+findAll
+```
+- authURI for development 
+"mongodb+srv://yellow:125512@cs5610.kgnh2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 
 
@@ -41,7 +52,7 @@ npm start
 ## Environment Variable
 Create a file name .env then add:
 1. NODE_ENV = development
-2. MONGO_URI =
+2. MONGO_URI = 
 3. PORT = 5000
 4. PAYPAL_CLIENT_ID =
 
