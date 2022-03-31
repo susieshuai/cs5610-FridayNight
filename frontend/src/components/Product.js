@@ -8,7 +8,7 @@ const Product = ({ product }) => {
     <>
       <Card className='my-3 py-3 rounded' style={{ width: '23rem' }}>
         <Link to={`/products/${product._id}`}>
-          <Card.Img src={product.image} variant='top' />
+          <Card.Img src={product.cover} variant='top' />
         </Link>
         <Card.Body>
           <Link to={`/products/${product._id}`}>
