@@ -20,6 +20,7 @@ import {
 const DetailScreen = () => {
 
   const { id } = useParams()
+  // console.log(id)
   const [product, setProduct] = useState({})
 
   const [qty, setQty] = useState(1)
@@ -28,6 +29,7 @@ const DetailScreen = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       const { data } = await axios.get(`/products/${id}`)
+      console.log(data)
       setProduct(data)
     }
     fetchProduct()

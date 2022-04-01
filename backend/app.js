@@ -1,14 +1,18 @@
 const express = require('express')
+
 const products = require('./data/products')
 const connectDB = require('./database/connect')
+
 
 require('dotenv').config();
 
 const app = express()
 
+
 app.get('/', (req, res) => {
     res.send('Hello')
 })
+
 
 app.get('/products', (req, res) => {
     res.json(products)
