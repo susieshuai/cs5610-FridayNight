@@ -1,16 +1,42 @@
-main{
+main {
   min-height: 80vh;
 }
 
 h4 {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
+  
 }
+
+h3 {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+
+h5 {
+  padding-top: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+
+
+}
+
+h6 {
+  font-size: small;
+  border-bottom: 1px solid gray;
+}
+
+p {
+  font-weight: bold;
+}
+
 
 .rating span {
   margin: 0.1rem;
 }
 
+
 .row {
-  margin-top: -10px;
-  margin-bottom: -24px;
+  margin-top: -8px;
+  margin-bottom: -20px;
 }
