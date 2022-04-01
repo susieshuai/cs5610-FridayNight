@@ -48,6 +48,9 @@ findAll
 - update data, add parameters: tag, Highlights, Reviews, Customer Comments for each products
 - in detais page add to cart need a function, comments part not implemented
 - login and register page need to have the function of submit
+
+
+
 **Shi Shuai**
 
 
