@@ -1,5 +1,8 @@
 const express = require('express')
 const products = require('./data/products')
+const connectDB = require('./database/connect')
+
+require('dotenv').config();
 
 const app = express()
 
@@ -19,6 +22,9 @@ app.get('/products/:id', (req, res) => {
     res.json(product)
 })
 
-app.listen(5000, () => {
-    console.log('server is running on port 5000');
-})
+// connect MongoDB then run server
+connectDB().then(() =>
+    app.listen(process.env.PORT || 5000, () => {
+        console.log('server is running on port 5000');
+    })
+)

@@ -48,8 +48,19 @@ findAll
 - update data, add parameters: tag, Highlights, Reviews, Customer Comments for each products
 - in detais page add to cart need a function, comments part not implemented
 - login and register page need to have the function of submit
-**Shi Shuai**
 
+**Shi Shuai**
+### 22/3/31
+1. set up server
+2. connect frontend and backend to enable frontend to fetch hard coded products data from backend
+
+### 22/4/1
+1. set up MongoDB
+- connect MongoDB Atlas
+2. populate database
+- populate database with sample products data
+- populate database with sample users data
+3. create basic routes and controllers to realize CRUD operationss, use postman to test
 
 
 ## Structure of website
