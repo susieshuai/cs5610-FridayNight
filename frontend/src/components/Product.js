@@ -7,12 +7,12 @@ const Product = ({ product }) => {
   return (
     <>
       <Card className='my-3 py-3 rounded' style={{ width: '23rem' }}>
-        <Link to={`/products/${product._id}`}>
-          <Card.Img src={product.image} variant='top' />
+        <Link to={`/details/${product._id}`}>
+          <Card.Img src={product.cover} variant='top' />
         </Link>
         <Card.Body>
-          <Link to={`/products/${product._id}`}>
-            <Card.Title as='h6'>{product.name}</Card.Title>
+          <Link to={`/details/${product._id}`}>
+            <Card.Title><small>{product.name}</small></Card.Title>
           </Link>
           <Card.Text as='div'>
             <Rating value={product.rating} text={` ${product.numReviews} views`} as='h6' />

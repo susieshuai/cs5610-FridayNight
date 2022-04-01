@@ -17,22 +17,23 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <LinkContainer to='/home'>
+              <LinkContainer to='/'>
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
               <LinkContainer to='/products'>
-                <Nav.Link>Deals</Nav.Link>
+                <Nav.Link>Top Sellers</Nav.Link>
               </LinkContainer>
               <LinkContainer to='/products/new'>
                 <Nav.Link>What's new</Nav.Link>
               </LinkContainer>
 
               <NavDropdown title="Categories" id="navbarDropdown">
-                <NavDropdown.Item href="#action3">Pending realization</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Pending realization</NavDropdown.Item>
+                <NavDropdown.Item href="#action3">RPG</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action5">Strategy</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action5">
-                  Something else here
+                  All of the nav are Not Implemented
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

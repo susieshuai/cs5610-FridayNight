@@ -3,6 +3,26 @@ const req = require("express/lib/request")
 const router = express.Router();
 const db = require('../db.js')
 
+//local data
+const products = require('../data/products')
+router.get('/', async function (req, res) {
+  try {
+    res.json(products)
+  } catch (err) {
+    console.log(err)
+  }
+
+})
+router.get('/details/:id/', async function (req, res) {
+  try {
+    const data = products.find(product=> product._id===req.params.id)
+    res.json(data)
+  } catch (err) {
+    console.log(err)
+  }
+})
+//end of local data
+
 
 router.get('/', async function (req, res) {
   try {
@@ -15,7 +35,7 @@ router.get('/', async function (req, res) {
 
 })
 
-router.get('/:id/', async function (req, res) {
+router.get('/:id', async function (req, res) {
   try {
     const cursor = await db.findItem(req.params.id)
     res.json(cursor)

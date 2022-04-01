@@ -1,10 +1,13 @@
 
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 //components and screen
 import Header from "./components/Header";
 import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import DetailScreen from "./screens/DetailScreen";
 
 function App() {
   return (
@@ -14,7 +17,10 @@ function App() {
       <main>
         <Container>
           <Routes>
-            <Route path='/' element={<HomeScreen/>} exact />
+            <Route path='/' element={<HomeScreen />} exact />
+            <Route path='/details/:id' element={<DetailScreen />} exact />
+            <Route path='/login' element={<LoginScreen />} exact />
+            <Route path='/register' element={<RegisterScreen />} exact />
           </Routes>
         </Container>
       </main>

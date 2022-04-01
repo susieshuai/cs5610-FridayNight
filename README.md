@@ -15,10 +15,10 @@ Routing, links, and the basis of CRUD operations should be established.
 
 ## Update & Progress
 **CuitingHuang**
-22/3/30
-1. Init react and implment homepage
+### 22/3/30
+1. Init react and implment homepage, view of login and register page
 a.banner with search box
-b.show all items of eg
+b.show all items of all eg. *and link to backend*
 c.creat rating star for each items
 d.click item link to products/:id   / click login to /login click shoppintcart to /cart
 
@@ -40,6 +40,14 @@ findAll
 - authURI for development
 "mongodb+srv://yellow:125512@cs5610.kgnh2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
+### 22/3/31
+1. update the data of eg. and put them in backend/data file
+2. implment view of details page , login and register page
+3. get all data from backend.(show all items on home and each item details)
+4. to be completed
+- update data, add parameters: tag, Highlights, Reviews, Customer Comments for each products
+- in detais page add to cart need a function, comments part not implemented
+- login and register page need to have the function of submit
 **Shi Shuai**
 
 
