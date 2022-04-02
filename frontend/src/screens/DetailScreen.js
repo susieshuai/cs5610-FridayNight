@@ -89,7 +89,6 @@ const DetailScreen = () => {
                 </Form.Control>
               </Col>
               <Col xs={{ span: 6 }}><Button
-                onClick=''
                 className='btn-block'
                 type='button'
                 disabled={product.countInStock === 0}
