@@ -1,46 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Link } from 'react-router-dom'
-import Rating from '../components/Rating'
-
+import { listProductDetails } from '../actions/productActions'
 
 import {
   Row,
   Col,
   Image,
-
   Button,
-
   Form,
   Badge
 } from 'react-bootstrap'
 
+import Rating from '../components/Rating'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
+
 const DetailScreen = () => {
 
   const { id } = useParams()
-  // console.log(id)
-  const [product, setProduct] = useState({})
+  const dispatch = useDispatch()
+  const productDetails = useSelector((state) => state.productDetails)
+  const { loading, error,product } = productDetails
 
   const [qty, setQty] = useState(1)
   const [rating, setRating] = useState(0)
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/products/${id}`)
-      // console.log(data)
-      setProduct(data)
-    }
-    fetchProduct()
-  }, [id])
+
+    dispatch(listProductDetails(id))
+
+
+  }, [id, dispatch])
+
 
   return (
     <>
       <Link className='btn btn-primary my-5' to='/'>
         Back to Home
       </Link>
-      {/* first row */}
+      {loading ? <Loader/> : error ? <Message variant='danger'>{error}</Message> : 
+      (
+        <>
       <Row>
         <Col md={7}>
           <Image src={product.cover} alt={product.name} fluid />
@@ -103,7 +106,7 @@ const DetailScreen = () => {
         </Col>
       </Row>
 
-      {/* second row */}
+
       <Row className="mt-5 justify-content-md-center" as='h5' >
         About This Game
       </Row>
@@ -137,6 +140,8 @@ const DetailScreen = () => {
       <Row className="mt-5">
         <Col>{product.description}</Col>
       </Row>
+      </>
+      )}
 
     </>
   )
