@@ -69,5 +69,9 @@
     "url": "https://github.ccs.neu.edu/yellowberry/game-online-store.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
 }
