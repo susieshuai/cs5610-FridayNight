@@ -4,8 +4,10 @@ import { Row, Col } from 'react-bootstrap'
 
 import Product from '../components/Product'
 import Subtitle from '../components/Subtitle'
-
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
+
 
 const HomeScreen = () => {
 
@@ -24,7 +26,8 @@ const HomeScreen = () => {
   return (
 
     <>
-      {loading ? <h1>loading...</h1> : error ? <h3>{error}</h3> : (
+      {loading ? <Loader/> : error ? <Message variant='danger'>{error}</Message> : 
+      (
         <>
           <Row className='mt-4 '  >
             <Col>

@@ -29,7 +29,7 @@ const DetailScreen = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       const { data } = await axios.get(`/products/${id}`)
-      console.log(data)
+      // console.log(data)
       setProduct(data)
     }
     fetchProduct()
