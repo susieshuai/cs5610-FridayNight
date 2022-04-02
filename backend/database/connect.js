@@ -5,8 +5,6 @@ var dev_db_url = 'Please put your MongoDB Atlas uri here'
 
 var mongoDB = process.env.MONGODB_URI || dev_db_url
 
-console.log(mongoDB);
-
 const connectDB = async () => {
     try {
         await mongoose.connect(mongoDB, {

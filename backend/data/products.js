@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'ELDEN RING',
     cover: '/images/1.jpg',
     tag: 'Souls-like',
@@ -12,10 +11,9 @@ const products = [
     price: 79.99,
     countInStock: 99,
     rating: 4.6,
-    numReviews: 2077,    
+    numReviews: 2077,
   },
   {
-    _id: '2',
     name: 'Midnight Ghost Hunt',
     cover: '/images/2.jpg',
     tag: 'Combat',
@@ -30,7 +28,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '3',
     name: 'DEATH STRANDING DIRECTOR CUT',
     cover: '/images/3.jpg',
     tag: 'Walking Simulator',
@@ -45,7 +42,6 @@ const products = [
     numReviews: 328,
   },
   {
-    _id: '4',
     name: 'Weird West',
     cover: '/images/4.jpg',
     tag: 'Western',
@@ -60,7 +56,6 @@ const products = [
     numReviews: 123,
   },
   {
-    _id: '5',
     name: 'LEGO® Star Wars™: The Skywalker Saga',
     cover: '/images/5.jpg',
     tag: 'LEGO',
@@ -75,7 +70,6 @@ const products = [
     numReviews: 77,
   },
   {
-    _id: '6',
     name: 'Spiritfarer®: Farewell Edition',
     cover: '/images/6.jpg',
     tag: 'Story Rich',
@@ -90,7 +84,6 @@ const products = [
     numReviews: 15077,
   },
   {
-    _id: '7',
     name: 'TUNIC',
     cover: '/images/7.jpg',
     tag: 'Puzzle',
@@ -105,7 +98,6 @@ const products = [
     numReviews: 1692,
   },
   {
-    _id: '8',
     name: 'Cyberpunk 2077',
     cover: '/images/8.jpg',
     tag: 'Cyberpunk',
@@ -120,7 +112,6 @@ const products = [
     numReviews: 4325,
   },
   {
-    _id: '9',
     name: 'Planet Zoo',
     cover: '/images/9.jpg',
     tag: 'Management',
@@ -135,7 +126,6 @@ const products = [
     numReviews: 6091,
   },
   {
-    _id: '10',
     name: 'Raft',
     cover: '/images/10.jpg',
     tag: 'Survival',
