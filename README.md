@@ -48,6 +48,11 @@ findAll
 - in detais page add to cart need a function, comments part not implemented
 - login and register page need to have the function of submit
 
+#### 22/4/1
+1. import redux to store the state of app, add products reducers, actions and content
+2. modify homepage and detailspage using reducer
+3. create loading and message(error) components
+
 ### Shi Shuai
 #### 22/3/31
 1. set up server
