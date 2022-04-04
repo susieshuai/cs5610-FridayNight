@@ -8,7 +8,7 @@ FridayNight is an online store specialized in selling computer game virtual item
 In the first week, we will work on the initial setting up of our app.
 - Frontend %Cuiting Huang
 React components created to represent the functionality you will be building.
-The overall structure of your website
+The overall structure of your website should be in place.
 - Backend %Shi Shuai
 Routing, links, and the basis of CRUD operations should be established.
 
@@ -62,8 +62,14 @@ findAll
 1. set up MongoDB
 - connect MongoDB Atlas
 2. populate database
-- populate database with sample products data
-- populate database with sample users data
+- populate database with sample products and users data
+```
+npm backend/database/populate.js 
+```
+- clear database
+```
+npm backend/database/clear.js 
+```
 3. create basic routes and controllers to realize CRUD operationss, use postman to test
 
 
@@ -88,7 +94,8 @@ Create a file name .env then add:
 3. npm install
 
 ## RUN
-both front and back end
-- npm run dev
-only backend
--npm run server
+frontend
+- npm run client
+
+backend
+- npm run server
