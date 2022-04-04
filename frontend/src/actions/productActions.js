@@ -8,10 +8,10 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-  PRODUCT_DETAILS_RESET,
 
 
-} from '../contents/productConstents'
+
+} from '../constants/productConstants'
 
 //the action of get all items
 export const listProducts = () => async (
