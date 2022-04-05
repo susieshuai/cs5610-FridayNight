@@ -1,9 +1,29 @@
+const { $options } = require('sift');
 const productModel = require('../models/productModel')
 
 // READ all products
 exports.getAllProducts = async (req, res) => {
     try {
         const products = await productModel.find({})
+        res.json(products)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// READ search products
+exports.getSearchProducts = async (req, res) => {
+    try {
+        // console.log(req.params.searchCriteria);
+        const criteria =
+        {
+            name: {
+                $regex: req.params.searchCriteria,
+                $options: 'i'
+            }
+        }
+
+        const products = await productModel.find({ ...criteria })
         res.json(products)
     } catch (error) {
         console.log(error);

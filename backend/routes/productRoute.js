@@ -8,4 +8,6 @@ router.get('/', productController.getAllProducts)
 
 router.get('/:id', productController.getOneProduct)
 
+router.get('/search/:searchCriteria', productController.getSearchProducts)
+
 module.exports = router
