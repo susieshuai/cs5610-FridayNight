@@ -77,6 +77,21 @@ npm backend/database/clear.js
 ```
 3. create basic routes and controllers to realize CRUD operationss, use postman to test
 
+#### 22/4/4
+**Sreach Feature**
+1. frontend
+- add event handler to search box and search button
+- add search screen to show search results
+- reuse product list reducers and contants, add actions to get search product list
+2. backend
+- add route and controller to get search result from database
+3. modification
+- handle edge cases where no search criteria is input or no result found
+
+#### 22/4/5
+**Review Feature**
+1. frontend
+- ajust detail page layout, four tabs to show description, hightlights, reviews and comments of a product seperately
 
 ## Structure of website
 1. Homepage

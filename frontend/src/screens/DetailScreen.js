@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { Route, Routes, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { listProductDetails } from '../actions/productActions'
@@ -18,6 +18,11 @@ import {
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+
+import DescriptionScreen from "./_detail_screen/DescriptionScreen"
+import HighlightScreen from './_detail_screen/HighlightScreen'
+import ReviewScreen from './_detail_screen/ReviewScreen'
+import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
 
@@ -94,19 +99,19 @@ const DetailScreen = () => {
                       </Form.Control>
                     </Col>
                     <Col xs={{ span: 6 }}>
-                   
-                        <Button
-                          onClick={addCartHandler}
-                          className='btn-block'
-                          type='button'
-                          disabled={product.countInStock === 0}
-                          size='sm'
-                          style={{ width: '18em' }}
 
-                        >
-                          Add to Cart
-                        </Button>
-                   
+                      <Button
+                        onClick={addCartHandler}
+                        className='btn-block'
+                        type='button'
+                        disabled={product.countInStock === 0}
+                        size='sm'
+                        style={{ width: '18em' }}
+
+                      >
+                        Add to Cart
+                      </Button>
+
                     </Col>
 
                   </Row>
@@ -114,43 +119,41 @@ const DetailScreen = () => {
               </Col>
             </Row>
 
-
+            {/* ABOUT section */}
             <Row className="mt-5 justify-content-md-center" as='h5' >
               About This Game
             </Row>
-            <Row className="mt-4" as='h6' >
-              <Col xs={{ span: 1, offset: 4 }}>Description</Col>
-              <Col xs={{ span: 1 }}>Highlights</Col>
-              <Col xs={{ span: 1 }}>Reviews</Col>
-              <Col>Comments</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Description
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Highlights
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Reviews
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Customer Comments
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
-          </>
-        )}
+            <Row className="mt-4" as='h6'>
+              <Link to={`/details/${id}/description`}>
+                <Col>Description</Col>
+              </Link>
 
+              <Link to={`/details/${id}/highlights`}>
+                <Col>Highlights</Col>
+              </Link>
+
+              <Link to={`/details/${id}/reviews`}>
+                <Col>Reviews</Col>
+              </Link>
+
+              <Link to={`/details/${id}/comments`}>
+                <Col>Comments</Col>
+              </Link>
+            </Row>
+            <Routes>
+              {/* description */}
+              <Route path={`/details/${id}/description`} element={<DescriptionScreen description={product.description} />} exact />
+              {/* hightlight */}
+              <Route path={`/details/${id}/highlights`} element={<HighlightScreen description={product.description} />} exact />
+              {/* review */}
+              <Route path={`/details/${id}/reviews`} element={<ReviewScreen description={product.description} />} exact />
+              {/* comment */}
+              <Route path={`/details/${id}/comments`} element={<CommentScreen description={product.description} />} exact />
+
+            </Routes>
+          </>
+        )
+      }
     </>
   )
 }

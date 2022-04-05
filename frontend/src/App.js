@@ -22,8 +22,9 @@ function App() {
             <Route path='/' element={<HomeScreen />} exact />
             <Route path='/search' element={<SearchScreen />} exact />
             <Route path='/search/:searchCriteria' element={<SearchScreen />} exact />
-            <Route path='/details/:id' element={<DetailScreen />} exact />
-            
+
+            <Route path='/details/:id/*' element={<DetailScreen />} exact />
+
             <Route path='/cart/' element={<CartScreen />} exact />
             <Route path='/cart/:id' element={<CartScreen />} exact />
 
