@@ -1,13 +1,18 @@
 const express = require('express')
 const path = require('path')
 const productRoute = require('./routes/productRoute')
+const userRoute = require('./routes/userRoute')
 const connectDB = require('./database/connect')
+const bodyParser = require('body-parser')
 
 require('dotenv').config();
 
 const app = express()
 
+app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use('/products', productRoute)
+app.use('/users', userRoute)
 
 // deployment prep
 // resolve current dir name
@@ -23,6 +28,17 @@ if (process.env.NODE_ENV === 'production') {
         res.send('Hello')
     })
 }
+
+app.use((err, req, res, next) => {
+	const result = JSON.parse(err);
+	let params = [];
+	for (let attr in result) {
+		if (attr != 'path') {
+			params.push(attr + '=' + result[attr]);
+		}
+	}
+	res.redirect(`${result.path}?${params.join('&')}`);
+})
 
 // connect MongoDB then run server
 connectDB().then(() =>

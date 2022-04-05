@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 var userSchema = new mongoose.Schema(
     {
         username: {
@@ -25,6 +26,7 @@ var userSchema = new mongoose.Schema(
         timestamps: true,
     }
 )
+
 
 const userModel = mongoose.model('users', userSchema)
 

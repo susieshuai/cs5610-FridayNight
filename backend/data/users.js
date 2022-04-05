@@ -5,6 +5,7 @@ const users = [
         password: '123456',
         isAdmin: true,
     },
+
     {
         username: 'Test',
         email: 'test@test.com',
@@ -12,5 +13,7 @@ const users = [
         isAdmin: false,
     }
 ]
+
+
 
 module.exports = users
