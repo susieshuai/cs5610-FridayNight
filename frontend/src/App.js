@@ -19,6 +19,7 @@ function App() {
         <Container>
           <Routes>
             <Route path='/' element={<HomeScreen />} exact />
+            <Route path='/search' element={<SearchScreen />} exact />
             <Route path='/search/:searchCriteria' element={<SearchScreen />} exact />
             <Route path='/details/:id' element={<DetailScreen />} exact />
             <Route path='/login' element={<LoginScreen />} exact />

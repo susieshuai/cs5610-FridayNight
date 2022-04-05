@@ -12,7 +12,7 @@ import { listSearchProducts } from '../actions/productActions'
 const SearchScreen = () => {
 
   const { searchCriteria } = useParams()
-  // console.log(searchCriteria);
+  // console.log('search for', searchCriteria);
 
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList)
@@ -24,23 +24,29 @@ const SearchScreen = () => {
 
   return (
     <>
-      {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
-        (
-          <>
-            <Row className='mt-4 '  >
-              <Col>
-                <Subtitle text='Search Result' />
-              </Col>
-            </Row>
-            <Row className="mx-5 " >
-              {products.map((product) => (
-                <Col key={product._id} sm={12} md={6} lg={4} xl={4}>
-                  <Product product={product} />
-                </Col>
-              ))}
-            </Row>
-          </>
-        )}
+      {
+        loading ?
+          <Loader /> : error ?
+            <Message variant='danger'>{error}</Message> :
+            searchCriteria ? (products.length === 0 ?
+              <h3>No result found.</h3> : (
+                <>
+                  <Row className='mt-4 '  >
+                    <Col>
+                      <Subtitle text='Search Result' />
+                    </Col>
+                  </Row>
+                  <Row className="mx-5 " >
+                    {products.map((product) => (
+                      <Col key={product._id} sm={12} md={6} lg={4} xl={4}>
+                        <Product product={product} />
+                      </Col>
+                    ))}
+                  </Row>
+                </>
+              )) :
+              <h3>Please enter search criteria.</h3>
+      }
     </>
   )
 }
