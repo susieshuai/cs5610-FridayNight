@@ -7,10 +7,10 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-  PRODUCT_DETAILS_RESET,
 
 
-} from '../contents/productConstents'
+
+} from '../constants/productConstants'
 
 //the reducer of get all items
 export const productListReducer = (state = { products: [] }, action) => {
@@ -41,8 +41,6 @@ export const productDeatilsReducer = (state = { product: {} }, action) => {
       return { loading: false, product: action.payload }
     case PRODUCT_DETAILS_FAIL:
       return { loading: false, error: action.payload }
-    case PRODUCT_DETAILS_RESET:
-      return { product: {} }
     default:
       return state
   }
