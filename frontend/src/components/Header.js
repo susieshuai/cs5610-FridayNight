@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 const Header = () => {
+
+  const [searchCriteria, setSearchCriteria] = useState('')
+  let navigate = useNavigate()
+
+  const handleSearch = (e) => {
+    console.log('click search');
+    e.preventDefault()
+    if (searchCriteria.trim()) {
+      navigate(`/search/${searchCriteria}`)
+    }
+    else {
+      navigate('/search')
+    }
+  }
+
   return (
 
     <header>
@@ -37,18 +53,23 @@ const Header = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form className="d-flex mx-auto ">
+
+            {/* Search Begins! */}
+            <Form className="d-flex mx-auto" onSubmit={handleSearch}>
               <FormControl
                 className='input'
                 type="search"
                 placeholder="search"
                 size='sm'
                 aria-label="Search"
+                onChange={e => setSearchCriteria(e.target.value)}
               />
-              <Button variant="primary" size='sm' >
+              <Button type='submit' variant="primary" size='sm' >
                 <i className='fa fa-magnifying-glass'></i>
               </Button>
             </Form>
+            {/* Search Ends! */}
+
             <Nav className='ms-auto'>
               <LinkContainer to='/login'>
                 <Nav.Link>
