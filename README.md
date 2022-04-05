@@ -49,9 +49,14 @@ findAll
 - login and register page need to have the function of submit
 
 #### 22/4/1
-1. import redux to store the state of app, add products reducers, actions and content
+1. import redux to store the state of app, add products reducers, actions and constant
 2. modify homepage and detailspage using reducer
 3. create loading and message(error) components
+
+#### 22/4/4
+1. add cart reducers, actions, constant and cart Screen
+2. modify message page
+3. implement action of add to cart, remove cart.
 
 ### Shi Shuai
 #### 22/3/31
