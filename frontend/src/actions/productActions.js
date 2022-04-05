@@ -56,7 +56,7 @@ export const listSearchProducts = (searchCriteria) => async (
 ) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
-    const { data } = await axios.get(`/products/${searchCriteria}`)
+    const { data } = await axios.get(`/products/search/${searchCriteria}`)
     // console.log(data)
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data })
   } catch (error) {

@@ -11,8 +11,8 @@ import { listSearchProducts } from '../actions/productActions'
 
 const SearchScreen = () => {
 
-  const searchCriteria = useParams()
-  console.log(searchCriteria);
+  const { searchCriteria } = useParams()
+  // console.log(searchCriteria);
 
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList)
@@ -20,7 +20,7 @@ const SearchScreen = () => {
   const { loading, error, products } = productList
   useEffect(() => {
     dispatch(listSearchProducts(searchCriteria))
-  }, [dispatch])
+  }, [dispatch, searchCriteria])
 
   return (
     <>
@@ -29,7 +29,7 @@ const SearchScreen = () => {
           <>
             <Row className='mt-4 '  >
               <Col>
-                <Subtitle text='Featured &amp; Recommended' />
+                <Subtitle text='Search Result' />
               </Col>
             </Row>
             <Row className="mx-5 " >
