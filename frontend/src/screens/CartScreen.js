@@ -17,7 +17,7 @@ import {
 } from 'react-bootstrap'
 
 import Message from '../components/Message'
-
+import cartIcon from '../cart.png'
 
 
 const CartScreen = () => {
@@ -52,7 +52,8 @@ const CartScreen = () => {
     <Row>
       {cartItems.length === 0 ? (
         <Message variant='light'>
-          <h1 className='mt-4'></h1>
+          <br className='mt-4' />
+          <br className='mt-4' />
           <br className='mt-4' />
           <h2 >Your Cart is Empty</h2>
           <small>Check out what we're featuring now!</small><br /><br />
@@ -64,7 +65,8 @@ const CartScreen = () => {
             }}
 
           >Go to Homepage</Button></Link><br />
-          <Image src='./cart.png'
+          <Image src={cartIcon}
+            alt='cartIcon'
             style={{
               width: '250px',
               display: 'block',
