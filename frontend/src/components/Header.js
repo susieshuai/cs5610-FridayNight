@@ -9,7 +9,7 @@ const Header = () => {
   let navigate = useNavigate()
 
   const handleSearch = (e) => {
-    console.log('click search');
+    // console.log(searchCriteria);
     e.preventDefault()
     if (searchCriteria.trim()) {
       navigate(`/search/${searchCriteria}`)
