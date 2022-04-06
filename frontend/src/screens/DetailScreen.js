@@ -12,7 +12,9 @@ import {
   Image,
   Button,
   Form,
-  Badge
+  Badge,
+  Tabs,
+  Tab
 } from 'react-bootstrap'
 
 import Rating from '../components/Rating'
@@ -123,34 +125,20 @@ const DetailScreen = () => {
             <Row className="mt-5 justify-content-md-center" as='h5' >
               About This Game
             </Row>
-            <Row className="mt-4" as='h6'>
-              <Link to={`/details/${id}/description`}>
-                <Col>Description</Col>
-              </Link>
-
-              <Link to={`/details/${id}/highlights`}>
-                <Col>Highlights</Col>
-              </Link>
-
-              <Link to={`/details/${id}/reviews`}>
-                <Col>Reviews</Col>
-              </Link>
-
-              <Link to={`/details/${id}/comments`}>
-                <Col>Comments</Col>
-              </Link>
-            </Row>
-            <Routes>
-              {/* description */}
-              <Route path={`/details/${id}/description`} element={<DescriptionScreen description={product.description} />} exact />
-              {/* hightlight */}
-              <Route path={`/details/${id}/highlights`} element={<HighlightScreen description={product.description} />} exact />
-              {/* review */}
-              <Route path={`/details/${id}/reviews`} element={<ReviewScreen description={product.description} />} exact />
-              {/* comment */}
-              <Route path={`/details/${id}/comments`} element={<CommentScreen description={product.description} />} exact />
-
-            </Routes>
+            <Tabs defaultActiveKey="about" id="about-product" className="mb-3">
+              <Tab eventKey="description" title="Description">
+                <DescriptionScreen description={product.description} />
+              </Tab>
+              <Tab eventKey="hightlights" title="Hightlights">
+                <DescriptionScreen description={product.description} />
+              </Tab>
+              <Tab eventKey="reviews" title="Reviews">
+                <DescriptionScreen description={product.description} />
+              </Tab>
+              <Tab eventKey="comments" title="Comments">
+                <DescriptionScreen description={product.description} />
+              </Tab>
+            </Tabs>
           </>
         )
       }
