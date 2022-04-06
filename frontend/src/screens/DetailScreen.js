@@ -130,13 +130,13 @@ const DetailScreen = () => {
                 <DescriptionScreen description={product.description} />
               </Tab>
               <Tab eventKey="hightlights" title="Hightlights">
-                <DescriptionScreen description={product.description} />
+                <HighlightScreen description={product.description} />
               </Tab>
               <Tab eventKey="reviews" title="Reviews">
-                <DescriptionScreen description={product.description} />
+                <ReviewScreen reviews={product.reviews} />
               </Tab>
               <Tab eventKey="comments" title="Comments">
-                <DescriptionScreen description={product.description} />
+                <CommentScreen description={product.description} />
               </Tab>
             </Tabs>
           </>

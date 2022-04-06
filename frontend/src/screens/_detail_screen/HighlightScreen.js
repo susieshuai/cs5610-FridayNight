@@ -2,7 +2,6 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 
 const HighlightScreen = ({ description }) => {
-    console.log('loading high screen');
     return (
         <>
             <Row className="mt-5" as='p'>
