@@ -92,6 +92,9 @@ npm backend/database/clear.js
 **Review Feature**
 1. frontend
 - ajust detail page layout, four tabs to show description, hightlights, reviews and comments of a product seperately
+- render reviews in detail page
+2. backend
+- create post route and controller to create new review (currently I make it public, need to make it private with login feature)
 
 ## Structure of website
 1. Homepage

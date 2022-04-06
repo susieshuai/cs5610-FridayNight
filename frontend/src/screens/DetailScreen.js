@@ -125,7 +125,7 @@ const DetailScreen = () => {
             <Row className="mt-5 justify-content-md-center" as='h5' >
               About This Game
             </Row>
-            <Tabs defaultActiveKey="about" id="about-product" className="mb-3">
+            <Tabs defaultActiveKey="description" id="about-product" className="mb-3">
               <Tab eventKey="description" title="Description">
                 <DescriptionScreen description={product.description} />
               </Tab>
