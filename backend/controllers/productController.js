@@ -128,3 +128,34 @@ exports.updateOneProductconst = async (req, res) => {
         res.json(updatedProduct)
     }
 }
+
+// CREATE product review
+exports.createReview = async (req, res) => {
+    try {
+        const { user, username, rating, review } = req.body
+        const id = req.params.id
+        const product = await productModel.findById(id)
+        if (!product) {
+            console.log('no item found with this id');
+        } else {
+            // create review
+            const newReview = {
+                user,
+                username,
+                rating: parseInt(rating),
+                review,
+            }
+            product.reviews.push(newReview)
+            // update number of reviews and rating
+            product.numReviews = product.reviews.length
+            const totalRating = product.reviews.reduce((sum, review) =>
+                sum + review.rating, 0
+            )
+            product.rating = totalRating / product.reviews.length
+            const updatedProduct = await product.save()
+            res.json(updatedProduct)
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}

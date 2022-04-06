@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { Route, Routes, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { listProductDetails } from '../actions/productActions'
@@ -12,12 +12,19 @@ import {
   Image,
   Button,
   Form,
-  Badge
+  Badge,
+  Tabs,
+  Tab
 } from 'react-bootstrap'
 
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+
+import DescriptionScreen from "./_detail_screen/DescriptionScreen"
+import HighlightScreen from './_detail_screen/HighlightScreen'
+import ReviewScreen from './_detail_screen/ReviewScreen'
+import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
 
@@ -94,19 +101,19 @@ const DetailScreen = () => {
                       </Form.Control>
                     </Col>
                     <Col xs={{ span: 6 }}>
-                   
-                        <Button
-                          onClick={addCartHandler}
-                          className='btn-block'
-                          type='button'
-                          disabled={product.countInStock === 0}
-                          size='sm'
-                          style={{ width: '18em' }}
 
-                        >
-                          Add to Cart
-                        </Button>
-                   
+                      <Button
+                        onClick={addCartHandler}
+                        className='btn-block'
+                        type='button'
+                        disabled={product.countInStock === 0}
+                        size='sm'
+                        style={{ width: '18em' }}
+
+                      >
+                        Add to Cart
+                      </Button>
+
                     </Col>
 
                   </Row>
@@ -114,43 +121,27 @@ const DetailScreen = () => {
               </Col>
             </Row>
 
-
+            {/* ABOUT section */}
             <Row className="mt-5 justify-content-md-center" as='h5' >
               About This Game
             </Row>
-            <Row className="mt-4" as='h6' >
-              <Col xs={{ span: 1, offset: 4 }}>Description</Col>
-              <Col xs={{ span: 1 }}>Highlights</Col>
-              <Col xs={{ span: 1 }}>Reviews</Col>
-              <Col>Comments</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Description
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Highlights
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Reviews
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
-            <Row className="mt-5" as='p'>
-              Customer Comments
-            </Row>
-            <Row className="mt-5">
-              <Col>{product.description}</Col>
-            </Row>
+            <Tabs defaultActiveKey="description" id="about-product" className="mb-3">
+              <Tab eventKey="description" title="Description">
+                <DescriptionScreen description={product.description} />
+              </Tab>
+              <Tab eventKey="hightlights" title="Hightlights">
+                <HighlightScreen description={product.description} />
+              </Tab>
+              <Tab eventKey="reviews" title="Reviews">
+                <ReviewScreen reviews={product.reviews} />
+              </Tab>
+              <Tab eventKey="comments" title="Comments">
+                <CommentScreen description={product.description} />
+              </Tab>
+            </Tabs>
           </>
-        )}
-
+        )
+      }
     </>
   )
 }

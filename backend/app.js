@@ -6,6 +6,7 @@ const connectDB = require('./database/connect')
 require('dotenv').config();
 
 const app = express()
+app.use(express.json())
 
 app.use('/products', productRoute)
 
