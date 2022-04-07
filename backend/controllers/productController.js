@@ -1,6 +1,6 @@
 const { $options } = require('sift');
 const productModel = require('../models/productModel')
-
+const asyncHandler = require('express-async-handler')
 // READ all products
 exports.getAllProducts = async (req, res) => {
     try {
@@ -129,6 +129,7 @@ exports.updateOneProductconst = async (req, res) => {
     }
 }
 
+
 // CREATE product review
 exports.createReview = async (req, res) => {
     try {
@@ -159,3 +160,4 @@ exports.createReview = async (req, res) => {
         console.log(error);
     }
 }
+

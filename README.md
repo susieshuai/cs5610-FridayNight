@@ -58,6 +58,10 @@ findAll
 2. modify message page
 3. implement action of add to cart, remove cart.
 
+#### 22/4/7
+1. implement login in both backend and frontend
+2. create error middleware
+
 ### Shi Shuai
 #### 22/3/31
 1. set up server
