@@ -1,9 +1,15 @@
-import React from 'react'
+
+
 import { useDispatch, useSelector } from 'react-redux'
+
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { logout } from "../actions/userActions";
 const Header = () => {
+
 
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
@@ -11,6 +17,19 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch(logout())
+  }
+  const [searchCriteria, setSearchCriteria] = useState('')
+  let navigate = useNavigate()
+
+  const handleSearch = (e) => {
+    // console.log(searchCriteria);
+    e.preventDefault()
+    if (searchCriteria.trim()) {
+      navigate(`/search/${searchCriteria}`)
+    }
+    else {
+      navigate('/search')
+    }
   }
 
   return (
@@ -47,18 +66,23 @@ const Header = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form className="d-flex mx-auto ">
+
+            {/* Search Begins! */}
+            <Form className="d-flex mx-auto" onSubmit={handleSearch}>
               <FormControl
                 className='input'
                 type="search"
                 placeholder="search"
                 size='sm'
                 aria-label="Search"
+                onChange={e => setSearchCriteria(e.target.value)}
               />
-              <Button variant="primary" size='sm' >
+              <Button type='submit' variant="primary" size='sm' >
                 <i className='fa fa-magnifying-glass'></i>
               </Button>
             </Form>
+            {/* Search Ends! */}
+
             <Nav className='ms-auto'>
               {userInfo ? (
 

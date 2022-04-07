@@ -49,3 +49,23 @@ export const listProductDetails = (id) => async (dispatch) => {
     })
   }
 }
+
+//the action of get searched items
+export const listSearchProducts = (searchCriteria) => async (
+  dispatch
+) => {
+  try {
+    dispatch({ type: PRODUCT_LIST_REQUEST })
+    const { data } = await axios.get(`/products/search/${searchCriteria}`)
+    // console.log(data)
+    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}

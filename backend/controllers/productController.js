@@ -1,9 +1,29 @@
+const { $options } = require('sift');
 const productModel = require('../models/productModel')
 const asyncHandler = require('express-async-handler')
 // READ all products
 exports.getAllProducts = async (req, res) => {
     try {
         const products = await productModel.find({})
+        res.json(products)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// READ search products
+exports.getSearchProducts = async (req, res) => {
+    try {
+        // console.log(req.params.searchCriteria);
+        const criteria =
+        {
+            name: {
+                $regex: req.params.searchCriteria,
+                $options: 'i'
+            }
+        }
+
+        const products = await productModel.find({ ...criteria })
         res.json(products)
     } catch (error) {
         console.log(error);
@@ -106,6 +126,38 @@ exports.updateOneProductconst = async (req, res) => {
 
         const updatedProduct = await product.save()
         res.json(updatedProduct)
+    }
+}
+
+
+// CREATE product review
+exports.createReview = async (req, res) => {
+    try {
+        const { user, username, rating, review } = req.body
+        const id = req.params.id
+        const product = await productModel.findById(id)
+        if (!product) {
+            console.log('no item found with this id');
+        } else {
+            // create review
+            const newReview = {
+                user,
+                username,
+                rating: parseInt(rating),
+                review,
+            }
+            product.reviews.push(newReview)
+            // update number of reviews and rating
+            product.numReviews = product.reviews.length
+            const totalRating = product.reviews.reduce((sum, review) =>
+                sum + review.rating, 0
+            )
+            product.rating = totalRating / product.reviews.length
+            const updatedProduct = await product.save()
+            res.json(updatedProduct)
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 
