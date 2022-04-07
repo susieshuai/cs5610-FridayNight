@@ -4,11 +4,11 @@ const productRoute = require('./routes/productRoute')
 const userRoute = require('./routes/userRoute')
 const connectDB = require('./database/connect')
 const bodyParser = require('body-parser')
-
+const { notFound, errorHandler } =require( './middleware/errorMiddleware')
 require('dotenv').config();
 
 const app = express()
-
+app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/products', productRoute)
@@ -30,6 +30,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 
+app.use(notFound)
+app.use(errorHandler)
 
 // connect MongoDB then run server
 connectDB().then(() =>

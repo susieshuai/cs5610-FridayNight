@@ -1,13 +1,23 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-
+import { logout } from "../actions/userActions";
 const Header = () => {
+
+  const dispatch = useDispatch()
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  const logoutHandler = () => {
+    dispatch(logout())
+  }
+
   return (
 
     <header>
       <Navbar bg="primary" variant='dark' expand="lg" collapseOnSelect>
-        <Container fluid>
+        <Container >
           <LinkContainer to='/'>
             <Navbar.Brand>
               <i className='fas fa-gamepad fa-lg'>&nbsp;</i>
@@ -50,13 +60,25 @@ const Header = () => {
               </Button>
             </Form>
             <Nav className='ms-auto'>
-              <LinkContainer to='/login'>
-                <Nav.Link>
-                  <i className="fa-solid fa-user-astronaut">&nbsp;</i>
-                  {/* <i className='fa fa-user fa-sm'>&nbsp;</i> */}
-                  Sign in
-                </Nav.Link>
-              </LinkContainer>
+              {userInfo ? (
+
+                <NavDropdown title={userInfo.name} id="username">
+                  <NavDropdown.Item href="/profile">My profile</NavDropdown.Item>
+                  <NavDropdown.Item href="/profile/order">My orders</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    Sign out
+                  </NavDropdown.Item>
+                </NavDropdown>
+
+              ) : (
+                <LinkContainer to='/login'>
+                  <Nav.Link>
+                    <i className="fa-solid fa-user-astronaut">&nbsp;</i>
+                    Sign in
+                  </Nav.Link>
+                </LinkContainer>)}
+
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart fa-sm'></i>

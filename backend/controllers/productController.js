@@ -1,5 +1,5 @@
 const productModel = require('../models/productModel')
-
+const asyncHandler = require('express-async-handler')
 // READ all products
 exports.getAllProducts = async (req, res) => {
     try {
@@ -108,3 +108,4 @@ exports.updateOneProductconst = async (req, res) => {
         res.json(updatedProduct)
     }
 }
+

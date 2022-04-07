@@ -53,8 +53,8 @@ const RegisterScreen = () => {
         </Form.Group>
         <Form.Group>
           <br/>
-          <Button type='submit' variant='primary'>
-            Submit
+          <Button type='submit' variant='primary' style={{ width: '10rem' }}>
+            Get Started
           </Button>
         </Form.Group>
       </Form>
