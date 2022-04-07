@@ -29,16 +29,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.use((err, req, res, next) => {
-	const result = JSON.parse(err);
-	let params = [];
-	for (let attr in result) {
-		if (attr != 'path') {
-			params.push(attr + '=' + result[attr]);
-		}
-	}
-	res.redirect(`${result.path}?${params.join('&')}`);
-})
+
 
 // connect MongoDB then run server
 connectDB().then(() =>

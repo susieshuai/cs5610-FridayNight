@@ -1,10 +1,11 @@
 const express = require('express')
 const userController = require('../controllers/userController')
-
+const { protect } = require('../middleware/authMiddleware')
 
 const router = express.Router()
 
 router.post('/login', userController.authUser)
-router.route('/profile').get(userController.getUserProfile)
+router.post('/', userController.registerUser)
+router.route('/profile').get(protect, userController.getUserProfile)
 
 module.exports = router
