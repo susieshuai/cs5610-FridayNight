@@ -1,4 +1,3 @@
-const { $options } = require('sift');
 const productModel = require('../models/productModel')
 // const asyncHandler = require('express-async-handler')
 // READ all products
