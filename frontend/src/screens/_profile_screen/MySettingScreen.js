@@ -6,8 +6,9 @@ import Message from '../../components/Message'
 import { getUserDetails, updateUserDetails } from "../../actions/userActions";
 
 import { useNavigate } from 'react-router-dom';
+import { USER_UPDATE_PROFILE_RESET } from '../../constants/userConstants'
 
-import { createBrowserHistory } from "history";
+
 
 
 
@@ -33,8 +34,8 @@ const MySettingScreen = () => {
     if (!userInfo) {
       navigate('/login')
     } else {
-      if (!user.name) {
-
+      if (!user.name ||success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
 
       } else {
@@ -49,7 +50,6 @@ const MySettingScreen = () => {
     dispatch(updateUserDetails({ id: user._id, username, email, password }))
   }
 
-  const history = createBrowserHistory();
   const refreshPage = () => {
 
     window.location.reload(false);

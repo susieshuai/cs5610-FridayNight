@@ -68,7 +68,7 @@ const Header = () => {
             </Nav>
 
             {/* Search Begins! */}
-            <Form className="d-flex mx-auto" onSubmit={handleSearch}>
+            <Form className="d-flex mx-auto" onSubmit={handleSearch} style={{position:'blocked'}}>
               <FormControl
                 className='input'
                 type="search"
