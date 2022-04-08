@@ -7,7 +7,7 @@ import Subtitle from '../components/Subtitle'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
-
+import Banner from '../components/Banner'
 
 const HomeScreen = () => {
 
@@ -23,9 +23,7 @@ const HomeScreen = () => {
 
   }, [dispatch])
 
-  // const top1 = products[3]
-  // const top2 = products[4]
-  // const top3 = products[7]
+
   return (
 
     <>
@@ -33,10 +31,7 @@ const HomeScreen = () => {
         (
           <>
             <Row className="justify-content-md-center mt-3 mx-5" >
-              <Col xl={7}>
-                some thing wrong with banner, when refresh, it will broke
-              {/* <Banner top1={top1} top2={top2} top3={top3}/> */}
-              </Col>
+              <Banner />
             </Row>
             <Row className='mt-1' >
               <Col md={{ span: 5 }}>
