@@ -13,7 +13,6 @@ import {
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
 
-
 } from '../constants/productConstants'
 
 //the action of get all items
