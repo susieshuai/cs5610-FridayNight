@@ -9,7 +9,7 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
-  
+
   USER_DETAILS_FAIL,
   USER_DETAILS_SUCCESS,
   USER_DETAILS_REQUEST,
@@ -93,7 +93,7 @@ export const register = (username, email, password) => async (
 }
 
 //user details
-export const userDetails = (id) => async (
+export const getUserDetails = (id) => async (
   dispatch, getState
 ) => {
   try {

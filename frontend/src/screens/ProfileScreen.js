@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col, ListGroup, ListGroupItem, Nav, Tab, Tabs } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { userDetails } from "../actions/userActions";
+import { getUserDetails } from "../actions/userActions";
 
 import { useNavigate } from 'react-router-dom';
-// import { createBrowserHistory } from "history";
+import Subtitle from '../components/Subtitle'
+import MyReviewScreen from './_profile_screen/MyReviewScreen'
+import MySettingScreen from './_profile_screen/MySettingScreen'
+import MyOrderScreen from './_profile_screen/MyOrderScreen'
 
 const ProfileScreen = () => {
 
@@ -21,25 +23,26 @@ const ProfileScreen = () => {
   const dispatch = useDispatch()
   const userDetails = useSelector((state) => state.userDetails)
   const { loading, error, user } = userDetails
-  // const history = createBrowserHistory();
-  // const redirect = history.location.search ? history.location.search.split('=')[1] : '/'
+  console.log(user)
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   const navigate = useNavigate()
-  // useEffect(() => {
-  //   if (!userInfo) {
-  //     navigate('/login')
-  //   } else {
-  //     if (!user.username) {
-  //       dispatch(userDetails('profile'))
-  //     } else {
-  //       setUsername(user.username)
-  //       setEmail(user.email)
-  //     }
-  //   }
-  // }, [navigate, userInfo, user])
+  useEffect(() => {
+    if (!userInfo) {
+      navigate('/login')
+    } else {
+      if (!user.name) {
+
+        dispatch(getUserDetails('profile'))
+
+      } else {
+        setUsername(user.name)
+        setEmail(user.email)
+      }
+    }
+  }, [dispatch, navigate, userInfo, user])
 
   //update info of user
   const submitHandler = (e) => {
@@ -48,60 +51,54 @@ const ProfileScreen = () => {
 
 
   return (
-    <Row>
-      <Col md={3}>
-        <h3>Create Your Account</h3>
-        {message && <Message variant='danger'>{message}</Message>}
-        {error && <Message variant='danger'>{error}</Message>}
-        {loading && <Loader />}
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId='username'>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              type='username'
-              placeholder='the number of characters is 2 to 12'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group controlId='email'>
-            <Form.Label>Email Address</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='please enter your email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='please enter your password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group controlId='confirmPassword'>
-            <Form.Label>Confirm Password:</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='please confirm your password'
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-          <Form.Group>
-            <br />
-            <Button type='submit' variant='primary' style={{ width: '10rem' }}>
-              Get Started
-            </Button>
-          </Form.Group>
-        </Form>
-      </Col>
-      <Col md={9}>
-      </Col>
-    </Row>
+    <Tab.Container id="left profile" defaultActiveKey="orders">
+      <Row>
+        <Col md={3}>
+          <Row className='mt-5 mb-5'>
+            <h3>Hello, {username}</h3>
+          </Row>
+          {message && <Message variant='danger'>{message}</Message>}
+          {error && <Message variant='danger'>{error}</Message>}
+          {loading && <Loader />}
+          <ListGroup>
+            <ListGroupItem>
+              <i class="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}
+            </ListGroupItem>
+            <ListGroupItem>
+              <i class="fa-solid fa-envelope">&nbsp;</i>Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Van
+            </ListGroupItem>
+          </ListGroup>
+
+          <Nav variant="pills" className="flex-column">
+            <Nav.Item>
+              <Nav.Link eventKey="orders"><i class="fa-solid fa-box-open">&nbsp;</i>Orders</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="reviews"><i class="fa-solid fa-star">&nbsp;</i>Reviews</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="settings"><i class="fa-solid fa-gear">&nbsp;</i>Settings</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Col>
+        <Col md={9}>
+          <Tab.Content>
+            <Tab.Pane eventKey="orders">
+              <h3><Subtitle text='Orders History ' /></h3>
+              <MyOrderScreen />
+            </Tab.Pane>
+            <Tab.Pane eventKey="reviews">
+            <h3><Subtitle text='My Reviews ' /></h3>
+              <MyReviewScreen />
+            </Tab.Pane>
+            <Tab.Pane eventKey="settings">
+            <h3> <Subtitle text='My Settings ' /></h3>
+              <MySettingScreen />
+            </Tab.Pane>
+          </Tab.Content>
+        </Col>
+      </Row>
+    </Tab.Container>
   )
 }
 

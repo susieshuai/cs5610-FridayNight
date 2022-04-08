@@ -88,11 +88,10 @@ exports.updateUserProfile = asyncHandler(async (req, res) => {
   if (user) {
     user.username = req.body.username || user.username
     user.email = req.body.email || user.email
-    if (req.body.password) {
-      user.password = req.body.password
+    if(req.body.password){
+      user.password =req.body.password
     }
     const updateUser = await user.save()
-    
     res.json({
       _id: updateUser._id,
       name: updateUser.username,
@@ -100,7 +99,6 @@ exports.updateUserProfile = asyncHandler(async (req, res) => {
       isAdmin: updateUser.isAdmin,
       token: generateToken(updateUser._id),
     })
-
   } else {
     // console.log('User does not exist');
     res.status(404)
