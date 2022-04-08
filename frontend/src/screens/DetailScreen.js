@@ -135,9 +135,9 @@ const DetailScreen = () => {
               <Tab eventKey="reviews" title="Reviews">
                 <ReviewScreen reviews={product.reviews} />
               </Tab>
-              <Tab eventKey="comments" title="Comments">
+              {/* <Tab eventKey="comments" title="Comments">
                 <CommentScreen description={product.description} />
-              </Tab>
+              </Tab> */}
             </Tabs>
           </>
         )

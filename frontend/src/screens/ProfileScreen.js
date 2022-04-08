@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col, ListGroup, ListGroupItem, Nav, Tab, Tabs } from 'react-bootstrap'
+import { Form, Button, Row, Col, ListGroup, ListGroupItem, Nav, Tab, Breadcrumb } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -15,15 +15,12 @@ const ProfileScreen = () => {
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState(null)
 
 
   const dispatch = useDispatch()
   const userDetails = useSelector((state) => state.userDetails)
   const { loading, error, user } = userDetails
-  console.log(user)
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
@@ -43,11 +40,6 @@ const ProfileScreen = () => {
       }
     }
   }, [dispatch, navigate, userInfo, user])
-
-  //update info of user
-  const submitHandler = (e) => {
-    e.preventDefault()
-  }
 
 
   return (
@@ -84,16 +76,28 @@ const ProfileScreen = () => {
         <Col md={9}>
           <Tab.Content>
             <Tab.Pane eventKey="orders">
+              <Breadcrumb as='small'>
+                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
+                <Breadcrumb.Item active>Orders</Breadcrumb.Item>
+              </Breadcrumb>
               <h3><Subtitle text='Orders History ' /></h3>
               <MyOrderScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
-            <h3><Subtitle text='My Reviews ' /></h3>
+            <Breadcrumb as='small'>
+                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
+                <Breadcrumb.Item active>Reviews</Breadcrumb.Item>
+              </Breadcrumb>
+              <h3><Subtitle text='My Reviews ' /></h3>
               <MyReviewScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
-            <h3> <Subtitle text='My Settings ' /></h3>
-              <MySettingScreen />
+            <Breadcrumb as='small'>
+                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
+                <Breadcrumb.Item active>Settings</Breadcrumb.Item>
+              </Breadcrumb>
+              <h3> <Subtitle text='My Settings ' /></h3>
+              <MySettingScreen></MySettingScreen>
             </Tab.Pane>
           </Tab.Content>
         </Col>
