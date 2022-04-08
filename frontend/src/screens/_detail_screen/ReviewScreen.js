@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, ListGroup } from 'react-bootstrap'
+import { Row, ListGroup } from 'react-bootstrap'
 
 import Rating from '../../components/Rating'
 import Message from '../../components/Message'

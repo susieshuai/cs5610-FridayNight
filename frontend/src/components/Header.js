@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -85,16 +85,21 @@ const Header = () => {
 
             <Nav className='ms-auto'>
               {userInfo ? (
-
-                <NavDropdown title={userInfo.name} id="username">
-                  <NavDropdown.Item href="/profile">My profile</NavDropdown.Item>
-                  <NavDropdown.Item href="/profile/order">My orders</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={logoutHandler}>
-                    Sign out
-                  </NavDropdown.Item>
-                </NavDropdown>
-
+                <>
+                  <LinkContainer to='/profile'>
+                    <Nav.Link>
+                      <i className="fa-solid fa-user-astronaut" />
+                    </Nav.Link>
+                  </LinkContainer>
+                  <NavDropdown title={userInfo.name} id="username" style={{marginLeft:'-10px'}}>
+                    <NavDropdown.Item href="/profile">My profile</NavDropdown.Item>
+                    <NavDropdown.Item href="/profile/order">My orders</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={logoutHandler}>
+                      Sign out
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </>
               ) : (
                 <LinkContainer to='/login'>
                   <Nav.Link>

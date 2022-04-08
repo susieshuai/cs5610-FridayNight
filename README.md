@@ -61,6 +61,8 @@ findAll
 #### 22/4/7
 1. implement login in both backend and frontend
 2. create error middleware
+3. add register action and reducer to backend and implement it in frontend
+4. add bcrypt when user register and login . 
 
 ### Shi Shuai
 #### 22/3/31

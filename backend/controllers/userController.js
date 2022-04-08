@@ -2,17 +2,22 @@ const userModel = require('../models/userModel')
 const generateToken = require('../utils/generateToken')
 const asyncHandler = require('express-async-handler')
 
+// const { check, validationResult } = require('express-validator');
 //@desc User Register
 //@router POST/users/register
 //@access public
 exports.registerUser = asyncHandler(async (req, res) => {
 
   const { username, email, password } = req.body
+  // check(username).isLength({ min: 2, max: 12 }),
+  // check(email).isEmail(),
+  // check('password').isLength({ min: 3 })
   const userExists = await userModel.findOne({ email })
   if (userExists) {
     res.status(400)
     throw new Error('User Already Existed')
   }
+
   const user = await userModel.create({ username, email, password })
   if (user) {
     res.status(201).json({
@@ -21,6 +26,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       token: generateToken(user._id),
+      // psw:user.password
     })
   } else {
     res.status(400)
@@ -35,22 +41,22 @@ exports.registerUser = asyncHandler(async (req, res) => {
   //@router POST/users/login
   //@access public
   exports.authUser = asyncHandler(async (req, res) => {
-    
-      const { email, password } = req.body
-      const user = await userModel.findOne({ email })
-      if (user && (await (password === user.password))) {
-        res.json({
-          _id: user._id,
-          name: user.username,
-          email: user.email,
-          isAdmin: user.isAdmin,
-          token: generateToken(user._id),
-        })
-      } else {
-        res.status(401)
-        throw new Error('Email or Password Incorrect')
-      }
-    
+
+    const { email, password } = req.body
+    const user = await userModel.findOne({ email })
+    if (user && (await user.matchPassword(password))) {
+      res.json({
+        _id: user._id,
+        name: user.username,
+        email: user.email,
+        isAdmin: user.isAdmin,
+        token: generateToken(user._id),
+      })
+    } else {
+      res.status(401)
+      throw new Error('Email or Password Incorrect')
+    }
+
   })
 
 //@desc Obtain the details about the successful login user
