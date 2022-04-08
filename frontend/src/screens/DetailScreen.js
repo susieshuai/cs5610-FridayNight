@@ -24,7 +24,7 @@ import Message from '../components/Message'
 import DescriptionScreen from "./_detail_screen/DescriptionScreen"
 import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
-import CommentScreen from './_detail_screen/CommentScreen'
+// import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
 
@@ -125,7 +125,7 @@ const DetailScreen = () => {
             <Row className="mt-5 justify-content-md-center" as='h5' >
               About This Game
             </Row>
-            <Tabs defaultActiveKey="description" id="about-product" className="mb-3">
+            <Tabs defaultActiveKey="description" id="about-product" className="mb-3 mt-3" fill>
               <Tab eventKey="description" title="Description">
                 <DescriptionScreen description={product.description} />
               </Tab>
@@ -135,9 +135,9 @@ const DetailScreen = () => {
               <Tab eventKey="reviews" title="Reviews">
                 <ReviewScreen reviews={product.reviews} />
               </Tab>
-              <Tab eventKey="comments" title="Comments">
+              {/* <Tab eventKey="comments" title="Comments">
                 <CommentScreen description={product.description} />
-              </Tab>
+              </Tab> */}
             </Tabs>
           </>
         )

@@ -63,6 +63,8 @@ findAll
 2. create error middleware
 3. add register action and reducer to backend and implement it in frontend
 4. add bcrypt when user register and login . 
+5. add banner to homepage, and prepare for reviews part screen.
+6. implent profilepage and update user info
 
 ### Shi Shuai
 #### 22/3/31

@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import React, { useState } from 'react'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
@@ -50,10 +50,10 @@ const Header = () => {
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
               <LinkContainer to='/products'>
-                <Nav.Link>Top Sellers</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to='/products/new'>
                 <Nav.Link>What's new</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to='/products/top'>
+                <Nav.Link>Top Sellers</Nav.Link>
               </LinkContainer>
 
               <NavDropdown title="Categories" id="navbarDropdown">
@@ -68,7 +68,7 @@ const Header = () => {
             </Nav>
 
             {/* Search Begins! */}
-            <Form className="d-flex mx-auto" onSubmit={handleSearch}>
+            <Form className="d-flex mx-auto" onSubmit={handleSearch} style={{ position: 'blocked' }}>
               <FormControl
                 className='input'
                 type="search"
@@ -91,13 +91,13 @@ const Header = () => {
                       <i className="fa-solid fa-user-astronaut" />
                     </Nav.Link>
                   </LinkContainer>
-                  <NavDropdown title={userInfo.name} id="username" style={{marginLeft:'-10px'}}>
-                    <NavDropdown.Item href="/profile">My profile</NavDropdown.Item>
-                    <NavDropdown.Item href="/profile/order">My orders</NavDropdown.Item>
+                  <NavDropdown title={userInfo.name} id="username" style={{ marginLeft: '-10px' }}>
+                    <small><NavDropdown.Item href="/profile">My profile</NavDropdown.Item></small>
+                    {/* <NavDropdown.Item href="/profile/order">My orders</NavDropdown.Item> */}
                     <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={logoutHandler}>
+                    <small><NavDropdown.Item onClick={logoutHandler}>
                       Sign out
-                    </NavDropdown.Item>
+                    </NavDropdown.Item></small>
                   </NavDropdown>
                 </>
               ) : (
