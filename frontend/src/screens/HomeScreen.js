@@ -35,7 +35,8 @@ const HomeScreen = () => {
           <>
             <Row className="justify-content-md-center mt-3 mx-5" >
               <Col xl={7}>
-              <Banner top1={top1} top2={top2} top3={top3}/>
+                some thing wrong with banner, when refresh, it will broke
+              {/* <Banner top1={top1} top2={top2} top3={top3}/> */}
               </Col>
             </Row>
             <Row className='mt-1' >
