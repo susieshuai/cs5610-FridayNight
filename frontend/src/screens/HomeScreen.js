@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Card } from 'react-bootstrap'
 
-import Banner from '../components/Banner'
 import Product from '../components/Product'
 import Subtitle from '../components/Subtitle'
 import Loader from '../components/Loader'
@@ -24,9 +23,9 @@ const HomeScreen = () => {
 
   }, [dispatch])
 
-  const top1 = products[3]
-  const top2 = products[4]
-  const top3 = products[7]
+  // const top1 = products[3]
+  // const top2 = products[4]
+  // const top3 = products[7]
   return (
 
     <>

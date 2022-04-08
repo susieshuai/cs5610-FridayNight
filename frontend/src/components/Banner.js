@@ -1,5 +1,5 @@
 import React from 'react'
-import { Carousel, Container } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 const Banner = ({ top1, top2, top3 }) => {
   return (
     <Carousel>
@@ -10,7 +10,7 @@ const Banner = ({ top1, top2, top3 }) => {
         alt="First slide"
       />
       <Carousel.Caption>
-        <h3></h3>
+        
         <p>{top1.name}</p>
       </Carousel.Caption>
     </Carousel.Item>
@@ -22,7 +22,7 @@ const Banner = ({ top1, top2, top3 }) => {
       />
 
       <Carousel.Caption>
-        <h3></h3>
+       
         <p>{top2.name}</p>
       </Carousel.Caption>
     </Carousel.Item>
@@ -34,7 +34,7 @@ const Banner = ({ top1, top2, top3 }) => {
       />
 
       <Carousel.Caption>
-        <h3></h3>
+      
         <p>{top3.name}</p>
       </Carousel.Caption>
     </Carousel.Item>
