@@ -24,7 +24,7 @@ import Message from '../components/Message'
 import DescriptionScreen from "./_detail_screen/DescriptionScreen"
 import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
-import CommentScreen from './_detail_screen/CommentScreen'
+// import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
 

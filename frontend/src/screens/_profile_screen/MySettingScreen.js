@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col, ListGroup, ListGroupItem, Nav, Tab, Breadcrumb } from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
@@ -7,7 +7,7 @@ import { getUserDetails, updateUserDetails } from "../../actions/userActions";
 
 import { useNavigate } from 'react-router-dom';
 
-
+import { createBrowserHistory } from "history";
 
 
 
@@ -17,7 +17,6 @@ const MySettingScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
   const userDetails = useSelector((state) => state.userDetails)
@@ -50,10 +49,17 @@ const MySettingScreen = () => {
     dispatch(updateUserDetails({ id: user._id, username, email, password }))
   }
 
+  const history = createBrowserHistory();
+  const refreshPage = () => {
+
+    window.location.reload(false);
+  }
 
   return (
     <>
       {success && <Message variant='success'>Update Success！</Message>}
+      {error && <Message variant='danger'>{error}</Message>}
+      {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Row>
           <Col md={{ span: 4 }}>
@@ -112,7 +118,11 @@ const MySettingScreen = () => {
         <Row>
           <Col>
             <Form.Group>
-              <Button type='button' variant='secondary' style={{ width: '18rem' }}>
+              <Button
+                type='button'
+                variant='secondary'
+                style={{ width: '18rem' }}
+                onClick={refreshPage}>
                 Cancel
               </Button>
             </Form.Group>
