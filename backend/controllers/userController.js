@@ -63,7 +63,6 @@ exports.registerUser = asyncHandler(async (req, res) => {
 //@router GET/users/profile
 //@access private
 exports.getUserProfile = asyncHandler(async (req, res) => {
-
   const user = await userModel.findById(req.user._id)
 
   if (user) {
@@ -76,8 +75,36 @@ exports.getUserProfile = asyncHandler(async (req, res) => {
   } else {
     // console.log('User does not exist');
     res.status(404)
-    throw new Error('User does not exist')
+    throw new Error('User does not Exist')
   }
+})
 
+//@desc UPDATE the details about user
+//@router PUT/users/profile
+//@access private
+exports.updateUserProfile = asyncHandler(async (req, res) => {
+  const user = await userModel.findById(req.user._id)
+
+  if (user) {
+    user.username = req.body.username || user.username
+    user.email = req.body.email || user.email
+    if (req.body.password) {
+      user.password = req.body.password
+    }
+    const updateUser = await user.save()
+    
+    res.json({
+      _id: updateUser._id,
+      name: updateUser.username,
+      email: updateUser.email,
+      isAdmin: updateUser.isAdmin,
+      token: generateToken(updateUser._id),
+    })
+
+  } else {
+    // console.log('User does not exist');
+    res.status(404)
+    throw new Error('User does not Exist')
+  }
 })
 
