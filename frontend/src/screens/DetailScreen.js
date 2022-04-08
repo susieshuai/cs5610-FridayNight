@@ -24,6 +24,7 @@ import Message from '../components/Message'
 import DescriptionScreen from "./_detail_screen/DescriptionScreen"
 import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
+import Meta from "../components/Meta";
 // import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
@@ -47,12 +48,14 @@ const DetailScreen = () => {
   }
   return (
     <>
+     
       <Link className='btn btn-primary my-5' to='/'>
         Back to Home
       </Link>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
         (
           <>
+          <Meta title={product.name}/>
             <Row>
               <Col md={7}>
                 <Image src={product.cover} alt={product.name} fluid />

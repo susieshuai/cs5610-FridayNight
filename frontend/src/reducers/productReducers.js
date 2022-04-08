@@ -12,8 +12,6 @@ import {
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
 
-
-
 } from '../constants/productConstants'
 
 //the reducer of get all items

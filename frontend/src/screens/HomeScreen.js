@@ -8,25 +8,19 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { listProducts } from '../actions/productActions'
 import Banner from '../components/Banner'
+import Meta from '../components/Meta'
 
 const HomeScreen = () => {
-
-
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList)
-  // console.log(productList)
   const { loading, error, products } = productList
-
   useEffect(() => {
-
     dispatch(listProducts())
-
   }, [dispatch])
 
-
   return (
-
     <>
+      <Meta />
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
         (
           <>
