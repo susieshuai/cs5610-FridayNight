@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {  Row, Col, ListGroup, ListGroupItem, Nav, Tab, Breadcrumb } from 'react-bootstrap'
+import { Row, Col, ListGroup, ListGroupItem, Nav, Tab, Breadcrumb } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -31,7 +31,7 @@ const ProfileScreen = () => {
       navigate('/login')
     } else {
       if (!user.name) {
-       
+
         dispatch(getUserDetails('profile'))
 
       } else {
@@ -54,22 +54,22 @@ const ProfileScreen = () => {
           {loading && <Loader />}
           <ListGroup>
             <ListGroupItem>
-              <i class="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}
+              <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}
             </ListGroupItem>
             <ListGroupItem>
-              <i class="fa-solid fa-envelope">&nbsp;</i>Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Van
+              <i className="fa-solid fa-envelope">&nbsp;</i>Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Van
             </ListGroupItem>
           </ListGroup>
 
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
-              <Nav.Link eventKey="orders"><i class="fa-solid fa-box-open">&nbsp;</i>Orders</Nav.Link>
+              <Nav.Link eventKey="orders"><i className="fa-solid fa-box-open">&nbsp;</i>Orders</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="reviews"><i class="fa-solid fa-star">&nbsp;</i>Reviews</Nav.Link>
+              <Nav.Link eventKey="reviews"><i className="fa-solid fa-star">&nbsp;</i>Reviews</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="settings"><i class="fa-solid fa-gear">&nbsp;</i>Settings</Nav.Link>
+              <Nav.Link eventKey="settings"><i className="fa-solid fa-gear">&nbsp;</i>Settings</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
@@ -84,7 +84,7 @@ const ProfileScreen = () => {
               <MyOrderScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
-            <Breadcrumb as='small'>
+              <Breadcrumb as='small'>
                 <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
                 <Breadcrumb.Item active>Reviews</Breadcrumb.Item>
               </Breadcrumb>
@@ -92,7 +92,7 @@ const ProfileScreen = () => {
               <MyReviewScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
-            <Breadcrumb as='small'>
+              <Breadcrumb as='small'>
                 <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
                 <Breadcrumb.Item active>Settings</Breadcrumb.Item>
               </Breadcrumb>
