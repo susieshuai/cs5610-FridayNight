@@ -32,6 +32,8 @@ const CartScreen = () => {
   //  console.log(cart);
   const { cartItems } = cart
 
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   useEffect(() => {
     if (id) {
@@ -45,7 +47,12 @@ const CartScreen = () => {
 
   const navigate = useNavigate()
   const checkoutHandler = () => {
-    navigate('/login?redirect=shipping')
+    if (userInfo) {
+      navigate('/checkout')
+    }
+    else {
+      navigate('/login')
+    }
   }
 
   return (
