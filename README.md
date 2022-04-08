@@ -106,6 +106,8 @@ npm backend/database/clear.js
 **Checkout Feature**
 1. frontend
 - add checkout screen
+2. backend
+- create post route and controller to create new order (currently I make it public, need to make it private with login feature)
 
 ## Structure of website
 1. Homepage
