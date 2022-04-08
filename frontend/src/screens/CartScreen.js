@@ -111,7 +111,7 @@ const CartScreen = () => {
                         }} />
                     </Col>
                     <Col xs={{ span: 4 }}>
-                      <Row><small><Link to={`/products/${item.product}`}>{item.name}</Link></small></Row>
+                      <Row><small><Link to={`/details/${item.product}`}>{item.name}</Link></small></Row>
                       <Row>
                         <br></br>
 

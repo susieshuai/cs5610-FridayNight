@@ -5,7 +5,7 @@ import Rating from '../../components/Rating'
 import Message from '../../components/Message'
 
 const ReviewScreen = ({ reviews }) => {
-    console.log(reviews);
+    // console.log(reviews);
     return (
         <>
             <Row className="mt-5" as='p'>

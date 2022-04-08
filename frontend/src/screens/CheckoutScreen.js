@@ -10,7 +10,7 @@ const CheckoutScreen = () => {
 
     const cart = useSelector(state => state.cart)
 
-    console.log(cart);
+    // console.log(cart);
 
     const orderCreate = useSelector(state => state.orderCreate)
     const { order, success, error } = orderCreate
@@ -19,7 +19,7 @@ const CheckoutScreen = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (success) {
-            navigate(`/order/${order._id}`)
+            navigate(`/checkout/${order._id}`)
         }
     }, [success])
 
