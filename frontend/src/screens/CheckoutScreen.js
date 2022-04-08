@@ -1,19 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { createOrder } from '../actions/orderAction'
+import { Link, useNavigate } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Button, Table, } from 'react-bootstrap'
 import Message from '../components/Message'
 
 const CheckoutScreen = () => {
+    const dispatch = useDispatch()
+
     const cart = useSelector(state => state.cart)
 
+    // console.log(cart);
+
+    const orderCreate = useSelector(state => state.orderCreate)
+    const { order, success, error } = orderCreate
+
+    // redirect to payment page if successfully create order
+    const navigate = useNavigate()
+    useEffect(() => {
+        if (success) {
+            navigate(`/checkout/${order._id}`)
+        }
+    }, [success])
+
     const confirmOrder = () => {
-        console.log('confirm order');
+        // console.log('confirm order');
+        dispatch(
+            createOrder({
+                orderItems: cart.cartItems,
+                totalPrice: cart.cartItems.reduce((acc, item) => (acc + item.qty * item.price) * 1.12, 0).toFixed(2)
+            })
+        )
     }
 
     return (
         <>
             <ListGroup variant='flush'>
+                <ListGroup.Item>
+                    {error && <Message variant='danger'>{error}</Message>}
+                </ListGroup.Item>
                 <ListGroup.Item>
                     <h2>My Items</h2>
                     {cart.cartItems.length === 0 ? (

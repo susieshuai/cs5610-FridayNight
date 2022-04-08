@@ -5,7 +5,7 @@ exports.createOrder = async (req, res) => {
     try {
         const order = new orderModel(
             {
-                user: req.body.user,
+                user: req.user._id,
                 orderItems: req.body.orderItems,
                 totalPrice: req.body.totalPrice,
             }

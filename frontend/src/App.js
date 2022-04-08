@@ -10,11 +10,11 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import DetailScreen from "./screens/DetailScreen";
 import CartScreen from "./screens/CartScreen";
-
 import ProfileScreen from "./screens/ProfileScreen";
 import AllProductScreen from "./screens/AllProductScreen";
 import TopProductScreen from "./screens/TopProductScreen";
 import CheckoutScreen from './screens/CheckoutScreen'
+import PaymentScreen from "./screens/PaymentScreen";
 
 
 function App() {
@@ -33,17 +33,14 @@ function App() {
 
             <Route path='/products' element={<AllProductScreen />} exact />
             <Route path='/products/top' element={<TopProductScreen />} exact />
-          
-
-            <Route path='/details/:id/*' element={<DetailScreen />} exact />
 
             <Route path='/details/:id' element={<DetailScreen />} exact />
-
 
             <Route path='/cart/' element={<CartScreen />} exact />
             <Route path='/cart/:id' element={<CartScreen />} exact />
 
             <Route path='/checkout' element={<CheckoutScreen />} exact />
+            <Route path='/checkout/:id' element={<PaymentScreen />} exact />
 
             <Route path='/login' element={<LoginScreen />} exact />
             <Route path='/register' element={<RegisterScreen />} exact />
