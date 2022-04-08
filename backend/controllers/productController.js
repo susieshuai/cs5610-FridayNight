@@ -132,7 +132,7 @@ exports.updateOneProductconst = async (req, res) => {
 // CREATE product review
 exports.createReview = async (req, res) => {
     try {
-        const { user, username, rating, review } = req.body
+        const { rating, review } = req.body
         const id = req.params.id
         const product = await productModel.findById(id)
         if (!product) {
@@ -140,8 +140,8 @@ exports.createReview = async (req, res) => {
         } else {
             // create review
             const newReview = {
-                user,
-                username,
+                user: req.user._id,
+                username: req.user, username,
                 rating: parseInt(rating),
                 review,
             }
