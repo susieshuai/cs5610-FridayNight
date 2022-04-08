@@ -30,7 +30,7 @@ function App() {
             <Route path='/cart/' element={<CartScreen />} exact />
             <Route path='/cart/:id' element={<CartScreen />} exact />
 
-            <Route path='/register/shipping' element={<CheckoutScreen />} exact />
+            <Route path='/checkout' element={<CheckoutScreen />} exact />
 
             <Route path='/login' element={<LoginScreen />} exact />
             <Route path='/register' element={<RegisterScreen />} exact />
