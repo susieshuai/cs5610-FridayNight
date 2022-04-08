@@ -66,6 +66,10 @@ findAll
 5. add banner to homepage, and prepare for reviews part screen.
 6. implent profilepage and update user info
 
+#### 22/4/8
+1. for each page import Custom title
+2. create banner on homepage
+
 ### Shi Shuai
 #### 22/3/31
 1. set up server
