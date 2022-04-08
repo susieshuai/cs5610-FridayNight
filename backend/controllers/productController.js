@@ -141,7 +141,7 @@ exports.createReview = async (req, res) => {
             // create review
             const newReview = {
                 user: req.user._id,
-                username: req.user, username,
+                username: req.user.username,
                 rating: parseInt(rating),
                 review,
             }
