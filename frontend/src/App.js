@@ -11,6 +11,8 @@ import RegisterScreen from "./screens/RegisterScreen";
 import DetailScreen from "./screens/DetailScreen";
 import CartScreen from "./screens/CartScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import AllProductScreen from "./screens/AllProductScreen";
+import TopProductScreen from "./screens/TopProductScreen";
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
             <Route path='/' element={<HomeScreen />} exact />
             <Route path='/search' element={<SearchScreen />} exact />
             <Route path='/search/:searchCriteria' element={<SearchScreen />} exact />
+
+            <Route path='/products' element={<AllProductScreen />} exact />
+            <Route path='/products/top' element={<TopProductScreen />} exact />
+          
 
             <Route path='/details/:id/*' element={<DetailScreen />} exact />
 

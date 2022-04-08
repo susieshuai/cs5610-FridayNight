@@ -34,7 +34,7 @@ const MySettingScreen = () => {
     if (!userInfo) {
       navigate('/login')
     } else {
-      if (!user.name ||success) {
+      if (!user.name || success) {
         dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
 
@@ -43,7 +43,7 @@ const MySettingScreen = () => {
         setEmail(user.email)
       }
     }
-  }, [dispatch, navigate, userInfo, user])
+  }, [dispatch, navigate, userInfo, user,success])
 
   const submitHandler = (e) => {
     e.preventDefault()
