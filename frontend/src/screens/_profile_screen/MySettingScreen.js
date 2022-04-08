@@ -28,7 +28,6 @@ const MySettingScreen = () => {
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
-
   const navigate = useNavigate()
   useEffect(() => {
     if (!userInfo) {
@@ -43,7 +42,7 @@ const MySettingScreen = () => {
         setEmail(user.email)
       }
     }
-  }, [dispatch, navigate, userInfo, user,success])
+  }, [dispatch, navigate, userInfo, user, success])
 
   const submitHandler = (e) => {
     e.preventDefault()
