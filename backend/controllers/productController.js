@@ -45,6 +45,19 @@ exports.getOneProduct = async (req, res) => {
     }
 }
 
+// get top3 products
+// GET/products/top
+exports.getTopProducts = async (req, res) => {
+    try {
+        const id = req.params.id
+        const products = await productModel.find().sort({ price: -1 }).limit(3)
+        res.json(products)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // CREATE one product
 exports.createOneProduct = async (req, res) => {
     try {
@@ -159,4 +172,3 @@ exports.createReview = async (req, res) => {
         console.log(error);
     }
 }
-

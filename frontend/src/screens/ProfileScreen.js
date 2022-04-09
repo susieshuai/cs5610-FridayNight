@@ -10,6 +10,7 @@ import Subtitle from '../components/Subtitle'
 import MyReviewScreen from './_profile_screen/MyReviewScreen'
 import MySettingScreen from './_profile_screen/MySettingScreen'
 import MyOrderScreen from './_profile_screen/MyOrderScreen'
+import Meta from '../components/Meta'
 
 const ProfileScreen = () => {
 
@@ -43,6 +44,8 @@ const ProfileScreen = () => {
 
 
   return (
+    <>
+    <Meta title={`Hello, ${user.name}`}/>
     <Tab.Container id="left profile" defaultActiveKey="orders">
       <Row>
         <Col md={3}>
@@ -103,6 +106,7 @@ const ProfileScreen = () => {
         </Col>
       </Row>
     </Tab.Container>
+    </>
   )
 }
 
