@@ -92,7 +92,7 @@ export const addReview = (productId, review) => async (dispatch, getState) => {
 
     // call API to create new review
     const { data } = await axios.post(
-      `/api/products/${productId}/reviews`,
+      `/products/${productId}/reviews`,
       review,
       config
     )

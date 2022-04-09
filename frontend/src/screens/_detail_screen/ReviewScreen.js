@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, ListGroup, Form, Button } from 'react-bootstrap'
 import { addReview } from '../../actions/productActions'
@@ -8,6 +8,8 @@ import Rating from '../../components/Rating'
 import Message from '../../components/Message'
 
 const ReviewScreen = ({ reviews }) => {
+    const { id: productId } = useParams()
+
     const [rating, setRating] = useState(0)
     const [review, setReview] = useState('')
 
@@ -18,8 +20,18 @@ const ReviewScreen = ({ reviews }) => {
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
 
-    const submitReview = () => {
-        console.log('submit review');
+    useEffect(() => {
+        if (success) {
+            setRating(0)
+            setReview('')
+        }
+    }, [success])
+
+    const submitReview = (e) => {
+        e.preventDefault()
+        dispatch(
+            addReview(productId, { rating, review })
+        )
     }
 
     return (
@@ -76,14 +88,13 @@ const ReviewScreen = ({ reviews }) => {
                             <Form.Control
                                 as='textarea'
                                 value={review}
-                                row='5'
-                                onChange={(e) => setRating(e.target.value)}
+                                onChange={(e) => setReview(e.target.value)}
                             >
                             </Form.Control>
                         </Form.Group>
 
                         {/* submit button */}
-                        <Button type='submit' className='btn-block mt-5'>
+                        <Button type='submit' className='mt-5'>
                             Submit
                         </Button>
                     </Form>) : (
