@@ -9,8 +9,9 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
 
-
-
+  PRODUCT_ADD_REVIEW_REQUEST,
+  PRODUCT_ADD_REVIEW_SUCCESS,
+  PRODUCT_ADD_REVIEW_FAIL
 } from '../constants/productConstants'
 
 //the action of get all items
@@ -62,6 +63,43 @@ export const listSearchProducts = (searchCriteria) => async (
   } catch (error) {
     dispatch({
       type: PRODUCT_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+// the action of add new review
+export const addReview = (productId, review) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: PRODUCT_ADD_REVIEW_REQUEST,
+    })
+
+    // get login user info
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+
+    // call API to create new review
+    const { data } = await axios.post(
+      `/api/products/${productId}/reviews`,
+      review,
+      config
+    )
+    dispatch({ type: PRODUCT_ADD_REVIEW_SUCCESS })
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_ADD_REVIEW_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
