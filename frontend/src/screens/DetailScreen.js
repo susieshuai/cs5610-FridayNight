@@ -25,6 +25,7 @@ import DescriptionScreen from "./_detail_screen/DescriptionScreen"
 import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
 import Meta from "../components/Meta";
+import { PRODUCT_DETAILS_RESET } from "../constants/productConstants";
 // import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
@@ -39,7 +40,9 @@ const DetailScreen = () => {
   // const [rating, setRating] = useState(0)
 
   useEffect(() => {
+    dispatch({ type: PRODUCT_DETAILS_RESET })
     dispatch(listProductDetails(id))
+    
   }, [id, dispatch])
 
   const navigate = useNavigate()
