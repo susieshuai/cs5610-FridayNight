@@ -1,4 +1,3 @@
-
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -7,6 +6,11 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
+
+
+  PRODUCT_ADD_REVIEW_REQUEST,
+  PRODUCT_ADD_REVIEW_SUCCESS,
+  PRODUCT_ADD_REVIEW_FAIL,
 
   PRODUCT_TOP_REQUEST,
   PRODUCT_TOP_SUCCESS,
@@ -42,6 +46,20 @@ export const productDeatilsReducer = (state = { product: {} }, action) => {
     case PRODUCT_DETAILS_SUCCESS:
       return { loading: false, product: action.payload }
     case PRODUCT_DETAILS_FAIL:
+      return { loading: false, error: action.payload }
+    default:
+      return state
+  }
+}
+
+// reducer of add new review
+export const productAddReviewReducer = (state = {}, action) => {
+  switch (action.type) {
+    case PRODUCT_ADD_REVIEW_REQUEST:
+      return { loading: true }
+    case PRODUCT_ADD_REVIEW_SUCCESS:
+      return { loading: false, success: true }
+    case PRODUCT_ADD_REVIEW_FAIL:
       return { loading: false, error: action.payload }
     default:
       return state

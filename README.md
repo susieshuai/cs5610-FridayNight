@@ -115,6 +115,10 @@ npm backend/database/clear.js
 2. backend
 - create post route and controller to create new order (currently I make it public, need to make it private with login feature)
 
+#### 22/4/8
+1. complete checkout feature, only login users can place a new order
+2. complete review feature, only login users can add a new review
+
 ## Structure of website
 1. Homepage
 2. Profile
