@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, ListGroup, Form, Button } from 'react-bootstrap'
-import { addReview } from '../../actions/productActions'
+import { listProductDetails, addReview } from '../../actions/productActions'
 
 import Rating from '../../components/Rating'
 import Message from '../../components/Message'
@@ -25,7 +25,10 @@ const ReviewScreen = ({ reviews }) => {
             setRating(0)
             setReview('')
         }
-    }, [success])
+        dispatch(
+            listProductDetails(productId)
+        )
+    }, [dispatch, success])
 
     const submitReview = (e) => {
         e.preventDefault()
