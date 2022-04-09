@@ -79,26 +79,14 @@ const ProfileScreen = () => {
         <Col md={9}>
           <Tab.Content>
             <Tab.Pane eventKey="orders">
-              <Breadcrumb as='small'>
-                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
-                <Breadcrumb.Item active>Orders</Breadcrumb.Item>
-              </Breadcrumb>
               <h3><Subtitle text='Orders History ' /></h3>
               <MyOrderScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
-              <Breadcrumb as='small'>
-                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
-                <Breadcrumb.Item active>Reviews</Breadcrumb.Item>
-              </Breadcrumb>
               <h3><Subtitle text='My Reviews ' /></h3>
               <MyReviewScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
-              <Breadcrumb as='small'>
-                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
-                <Breadcrumb.Item active>Settings</Breadcrumb.Item>
-              </Breadcrumb>
               <h3> <Subtitle text='My Settings ' /></h3>
               <MySettingScreen></MySettingScreen>
             </Tab.Pane>

@@ -24,7 +24,7 @@ const Banner = () => {
     <>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
 
-        <Carousel pause='hover' className='bg-light'>
+        <Carousel pause='hover' >
 
           {products.map((product) => (
             <Carousel.Item key={product._id}>

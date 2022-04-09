@@ -4,13 +4,15 @@ main {
 
 h4 {
   padding: 0.5rem 0;
+  font-size:20px
   
 }
 
 h3 {
   padding: 1rem 0;
   text-align: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  
   
 }
 
@@ -45,28 +47,31 @@ p {
 .carousel-caption {
   position: absolute;
   top: 10px;
-  left:750px
+  left:700px
 }
 
 .carousel-caption h2 {
-  color: rgb(206, 9, 72);
+  color: rgb(89, 209, 105);
   font-size:20px;
+  font-family: 'Times New Roman', Times, serif;
 
 }
 .carousel-caption{
-  color:rgb(45, 42, 42);
+  color:rgb(255, 255, 255);
   text-align: left;
   font-size: 14px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  
 
 }
 
 .carousel img {
   height: 300px;
   padding: 5px;
-  margin: 20px;
+  margin: 30px;
   /* border-radius: 50%; */
   margin-left: auto;
-  margin-right: 350px;
+  margin-right: 400px;
 }
 .carousel a {
   margin: 0 auto;

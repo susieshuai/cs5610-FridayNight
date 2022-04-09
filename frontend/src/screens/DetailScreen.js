@@ -49,7 +49,7 @@ const DetailScreen = () => {
   return (
     <>
      
-      <Link className='btn btn-primary my-5' to='/'>
+      <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
       </Link>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
@@ -70,7 +70,7 @@ const DetailScreen = () => {
                   <Badge pill bg="success" as='title'>{product.category}</Badge>
                 </Col>
                 <big>
-                  <Col style={{ color: '#FF0000' }}>${product.price} sale</Col>
+                  <Col style={{ color: '#FF6666' }}>${product.price} sale</Col>
                 </big>
 
                 <small>
@@ -81,11 +81,12 @@ const DetailScreen = () => {
                     />
                   </Col>
 
-                  <Col style={{ color: '#A9A9A9' }}>{product.countInStock > 0 ? 'in stock' : 'out of stock'}</Col>
-                  <p></p>
+                  <Col style={{ color: 'lightblue' }}>{product.countInStock > 0 ? 'in stock' : 'out of stock'}</Col>
+                  <br/>
+                  <small>
                   <Col>RELEASE DATE：{product.releasedate}</Col>
                   <Col>DEVELOPER:：{product.developer}</Col>
-                  <Col>PUBLISHER：{product.publisher}</Col>
+                  <Col>PUBLISHER：{product.publisher}</Col></small>
 
                   <Row className="mt-4">
                     <Col xs={1}>Qty.</Col>
@@ -107,7 +108,7 @@ const DetailScreen = () => {
 
                       <Button
                         onClick={addCartHandler}
-                        className='btn-block'
+                        className='btn-block bg-success'
                         type='button'
                         disabled={product.countInStock === 0}
                         size='sm'

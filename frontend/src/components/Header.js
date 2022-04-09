@@ -35,7 +35,7 @@ const Header = () => {
   return (
 
     <header>
-      <Navbar bg="primary" variant='dark' expand="lg" collapseOnSelect>
+      <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container >
           <LinkContainer to='/'>
             <Navbar.Brand>
@@ -77,7 +77,7 @@ const Header = () => {
                 aria-label="Search"
                 onChange={e => setSearchCriteria(e.target.value)}
               />
-              <Button type='submit' variant="primary" size='sm' >
+              <Button type='submit' variant="dark" size='sm' >
                 <i className='fa fa-magnifying-glass'></i>
               </Button>
             </Form>

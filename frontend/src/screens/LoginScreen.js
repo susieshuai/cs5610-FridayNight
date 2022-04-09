@@ -60,7 +60,7 @@ const LoginScreen = () => {
           </Form.Group>
           <Form.Group>
             <br />
-            <Button type='submit' variant='primary' style={{ width: '10rem' }} className='mt-3'>
+            <Button type='submit' variant='success' style={{ width: '10rem' }} className='mt-3'>
               Go Ahead
             </Button>
           </Form.Group>
