@@ -14,10 +14,19 @@ const Banner = () => {
   const productTopRated = useSelector((state) => state.productTopRated)
   const { loading, error, products } = productTopRated
   // console.log(products)
-
+  const screenwidth= (document.documentElement.clientWidth * 668) / 1620 + "px"
   useEffect(() => {
     dispatch(listTopProducts())
   }, [dispatch])
+
+  window.onresize = () => {
+    return (() => {
+      if (document.documentElement.clientWidth > 960) {
+        screenwidth =
+          (document.documentElement.clientWidth * 668) / 1620 + "px";
+      }
+    })();
+  }
 
 
   return (
@@ -29,10 +38,11 @@ const Banner = () => {
           {products.map((product) => (
             <Carousel.Item key={product._id}>
               <Link to={`/details/${product._id}`}>
-                <Image src={product.cover} alt={product.name} />
+                <div height="screenwidth"><Image src={product.cover} alt={product.name} /></div>
+
                 <Carousel.Caption className='carousel-caption'>
                   <h2>{product.name}</h2>
-                  <p>{product.description}</p>
+                  <div dangerouslySetInnerHTML={{ __html: `${product.description}` }} ></div>
                 </Carousel.Caption>
               </Link>
             </Carousel.Item>
