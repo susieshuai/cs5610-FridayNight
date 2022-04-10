@@ -5,7 +5,7 @@ import Ad from '../../components/Ad'
 const DescriptionScreen = ({ description }) => {
     return (
         <>
-            <Row className="mt-5" as='p'>
+            <Row className="mt-5">
                 Description
             </Row>
             <Row className="mt-3">

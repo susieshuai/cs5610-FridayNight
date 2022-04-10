@@ -41,7 +41,7 @@ const ReviewScreen = ({ reviews }) => {
     return (
         <>
             {/* ROW 1 : title */}
-            <Row className="mt-5" as='p'>
+            <Row className="mt-5">
                 <Col>Guest Ratings &amp; Reviews</Col>
 
             </Row>
