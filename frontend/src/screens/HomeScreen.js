@@ -23,7 +23,7 @@ const HomeScreen = () => {
       <Meta />
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
         (
-          <>
+          <main>
             <Row className="justify-content-md-center mt-3 mx-5" >
               <Banner />
             </Row>
@@ -49,7 +49,7 @@ const HomeScreen = () => {
                 </Col>
               ))}
             </Row>
-          </>
+          </main>
         )}
 
     </>

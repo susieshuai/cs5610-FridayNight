@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, ListGroup, Form, Button } from 'react-bootstrap'
+import { Row, ListGroup, Form, Button, Col } from 'react-bootstrap'
 import { listProductDetails, addReview } from '../../actions/productActions'
-
+import { ScrollTo } from "react-scroll-to";
 import Rating from '../../components/Rating'
 import Message from '../../components/Message'
 
 const ReviewScreen = ({ reviews }) => {
     const { id: productId } = useParams()
-
     const [rating, setRating] = useState(0)
     const [review, setReview] = useState('')
 
@@ -37,22 +36,39 @@ const ReviewScreen = ({ reviews }) => {
         )
     }
 
+
+
     return (
         <>
             {/* ROW 1 : title */}
             <Row className="mt-5" as='p'>
-                Reviews
-            </Row>
+                <Col>Guest Ratings &amp; Reviews</Col>
 
+            </Row>
+            <ScrollTo>
+                {({ scroll }) => (
+                    <Button
+                        className='bg-success mb-4'
+                        style={{ fontSize: '8px' }}
+                   
+                        onClick={() => scroll({ x: 20, y: 10000 })}
+                    >Write a Review</Button>)}
+            </ScrollTo>
             {/* ROW 2 : review list */}
             <Row>
                 {reviews ? (reviews.length === 0 ? (<Message>No Reviews.</Message>) : (<ListGroup variant='flush'>
                     {reviews.map((review) => (
                         <ListGroup.Item key={review._id}>
-                            <h4>{review.username}</h4>
-                            <Rating value={review.rating} />
-                            <p>{review.createdAt.substring(0, 10)}</p>
-                            <p>{review.review}</p>
+                            <small>
+                                <Row>
+                                    <Col style={{ color: '#B0C4DE', fontSize: '17px' }}><i className="fa-solid fa-user-astronaut" /> {review.username}</Col>
+                                    <Col md={{ offset: 10 }} style={{ color: 'grey' }}>POSTED: {review.createdAt.substring(0, 10)}</Col>
+                                </Row>
+                                <Rating value={review.rating} /></small>
+
+                            <p className='mt-4'>{review.review}</p>
+
+
                         </ListGroup.Item>
                     ))}
                 </ListGroup>)) : (<Message>No Reviews.</Message>)
@@ -67,7 +83,7 @@ const ReviewScreen = ({ reviews }) => {
             {/* ROW 4 :  form*/}
             <Row>
                 {userInfo ? (
-                    <Form onSubmit={submitReview}>
+                    <Form onSubmit={submitReview} >
                         {/* rating */}
                         <Form.Group>
                             <Form.Label>Rating:</Form.Label>
