@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, ListGroup, Form, Button, Col } from 'react-bootstrap'
@@ -45,33 +45,34 @@ const ReviewScreen = ({ reviews }) => {
                 <Col>Guest Ratings &amp; Reviews</Col>
 
             </Row>
-            <ScrollTo>
-                {({ scroll }) => (
-                    <Button
-                        className='bg-success mb-4'
-                        style={{ fontSize: '8px' }}
-                   
-                        onClick={() => scroll({ x: 20, y: 10000 })}
-                    >Write a Review</Button>)}
-            </ScrollTo>
             {/* ROW 2 : review list */}
             <Row>
-                {reviews ? (reviews.length === 0 ? (<Message>No Reviews.</Message>) : (<ListGroup variant='flush'>
-                    {reviews.map((review) => (
-                        <ListGroup.Item key={review._id}>
-                            <small>
-                                <Row>
-                                    <Col style={{ color: '#B0C4DE', fontSize: '17px' }}><i className="fa-solid fa-user-astronaut" /> {review.username}</Col>
-                                    <Col md={{ offset: 10 }} style={{ color: 'grey' }}>POSTED: {review.createdAt.substring(0, 10)}</Col>
-                                </Row>
-                                <Rating value={review.rating} /></small>
+                {reviews ? (reviews.length === 0 ? (<Message>No Reviews.</Message>) : (
+                    <><ScrollTo>
+                        {({ scroll }) => (
+                            <Button
+                                className='bg-info mb-4'
+                                style={{ width:'25em',fontSize: '8px' }}
 
-                            <p className='mt-4'>{review.review}</p>
+                                onClick={() => scroll({ x: 20, y: 10000 })}
+                            >Write a Review</Button>)}
+                    </ScrollTo><ListGroup variant='flush'>
+                            {reviews.map((review) => (
+                                <ListGroup.Item key={review._id}>
+                                    <small>
+                                        <Row>
+                                            <Col style={{ color: '#B0C4DE', fontSize: '17px' }}><i className="fa-solid fa-user-astronaut" /> {review.username}</Col>
+                                            <Col md={{ offset: 10 }} style={{ color: 'grey' }}>POSTED: {review.createdAt.substring(0, 10)}</Col>
+                                        </Row>
+                                        <Rating value={review.rating} /></small>
+
+                                    <p className='mt-4'>{review.review}</p>
 
 
-                        </ListGroup.Item>
-                    ))}
-                </ListGroup>)) : (<Message>No Reviews.</Message>)
+                                </ListGroup.Item>
+                            ))}
+                        </ListGroup>
+                    </>)) : (<Message>No Reviews.</Message>)
                 }
             </Row>
 
@@ -113,7 +114,7 @@ const ReviewScreen = ({ reviews }) => {
                         </Form.Group>
 
                         {/* submit button */}
-                        <Button type='submit' className='mt-5'>
+                        <Button type='submit' className='mt-5 bg-info'>
                             Submit
                         </Button>
                     </Form>) : (
