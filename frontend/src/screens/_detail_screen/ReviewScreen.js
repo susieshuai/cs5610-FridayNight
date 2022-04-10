@@ -27,7 +27,7 @@ const ReviewScreen = ({ reviews }) => {
         dispatch(
             listProductDetails(productId)
         )
-    }, [dispatch, success])
+    }, [dispatch, success,productId])
 
     const submitReview = (e) => {
         e.preventDefault()
@@ -47,12 +47,13 @@ const ReviewScreen = ({ reviews }) => {
             </Row>
             {/* ROW 2 : review list */}
             <Row>
+                {error && <Message variant='danger'>{error}</Message>}
                 {reviews ? (reviews.length === 0 ? (<Message>No Reviews.</Message>) : (
                     <><ScrollTo>
                         {({ scroll }) => (
                             <Button
                                 className='bg-info mb-4'
-                                style={{ width:'25em',fontSize: '8px' }}
+                                style={{ width: '25em', fontSize: '8px' }}
 
                                 onClick={() => scroll({ x: 20, y: 10000 })}
                             >Write a Review</Button>)}
