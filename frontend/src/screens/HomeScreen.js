@@ -27,7 +27,7 @@ const HomeScreen = () => {
             <Row className="justify-content-md-center mt-3 mx-5" >
               <Banner />
             </Row>
-            <Row className='mt-1' >
+            {/* <Row className='mt-1' >
               <Col md={{ span: 5 }}>
                 <Subtitle text=' Customer Reviews' />
               </Col>
@@ -36,7 +36,7 @@ const HomeScreen = () => {
               <Col>
                 <Card>find the lastest reviews 4 or 5, replace it in each col</Card>
               </Col>
-            </Row>
+            </Row> */}
             <Row className='mt-4 '  >
               <Col>
                 <Subtitle text='Featured &amp; Recommended' />

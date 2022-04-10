@@ -26,7 +26,7 @@ import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
 import Meta from "../components/Meta";
 import { PRODUCT_DETAILS_RESET } from "../constants/productConstants";
-import Ad from "../components/Ad";
+
 // import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {

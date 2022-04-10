@@ -5,8 +5,6 @@ import {
   Row,
   Col,
   Image,
-  Button,
-  Form,
   Badge,
 } from 'react-bootstrap'
 import Loader from '../components/Loader'
