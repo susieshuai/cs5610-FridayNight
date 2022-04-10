@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row} from 'react-bootstrap'
 
 const HighlightScreen = ({ description }) => {
     return (
@@ -8,7 +8,7 @@ const HighlightScreen = ({ description }) => {
                 Highlights
             </Row>
             <Row className="mt-5">
-                <Col>{description}</Col>
+            <div dangerouslySetInnerHTML={{ __html: `${description}` }} ></div>
             </Row>
            
         </>

@@ -3,7 +3,7 @@ import Ad from '../components/Ad'
 const AdScreen = () => {
   return (
     <>
-    <Ad/>
+      <Ad />
     </>
   )
 }

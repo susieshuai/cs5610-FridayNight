@@ -135,10 +135,11 @@ const DetailScreen = () => {
             </Row>
             <Tabs defaultActiveKey="description" id="about-product" className="mb-3 mt-3" fill>
               <Tab eventKey="description" title="Description">
-                <div dangerouslySetInnerHTML={{ __html: `${product.description}` }} ></div>
+                <DescriptionScreen description={product.description} />
               </Tab>
               <Tab eventKey="hightlights" title="Hightlights">
-              <div dangerouslySetInnerHTML = {{__html:`${product.description}`}} ></div>
+              <HighlightScreen description={product.description} />
+           
               </Tab>
               <Tab eventKey="reviews" title="Reviews">
                 <ReviewScreen reviews={product.reviews} />
@@ -147,6 +148,7 @@ const DetailScreen = () => {
                 <CommentScreen description={product.description} />
               </Tab> */}
             </Tabs>
+
 
           </>
         )
