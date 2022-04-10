@@ -15,6 +15,7 @@ import AllProductScreen from "./screens/AllProductScreen";
 import TopProductScreen from "./screens/TopProductScreen";
 import CheckoutScreen from './screens/CheckoutScreen'
 import PaymentScreen from "./screens/PaymentScreen";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           </Routes>
         </Container>
       </main>
+      <Footer/>
 
     </Router>
   );
