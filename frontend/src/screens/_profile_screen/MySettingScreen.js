@@ -6,10 +6,6 @@ import Message from '../../components/Message'
 import { getUserDetails, updateUserDetails } from "../../actions/userActions";
 
 import { useNavigate } from 'react-router-dom';
-import { USER_UPDATE_PROFILE_RESET } from '../../constants/userConstants'
-
-
-
 
 
 const MySettingScreen = () => {
@@ -18,6 +14,7 @@ const MySettingScreen = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
   const userDetails = useSelector((state) => state.userDetails)
@@ -33,7 +30,7 @@ const MySettingScreen = () => {
     if (!userInfo) {
       navigate('/login')
     } else {
-      if (!user.name ) {
+      if (!user.name) {
         // dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
 
@@ -46,10 +43,15 @@ const MySettingScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(updateUserDetails({ id: user._id, username, email, password }))
+    if (password &&password !== confirmPassword) {
+      setMessage('The passwords entered twice are Inconsistent')
+    } else {
+      dispatch(updateUserDetails({ id: user._id, username, email, password }))
+    }
+
     window.setTimeout(function () {
       window.location.reload(false);
-},1000)
+    }, 2000)
   }
 
   const refreshPage = () => {
@@ -61,6 +63,7 @@ const MySettingScreen = () => {
     <>
       {success && <Message variant='success' >Update Success！</Message>}
       {error && <Message variant='danger'>{error}</Message>}
+      {message && <Message variant='danger'>{message}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Row>
@@ -73,7 +76,7 @@ const MySettingScreen = () => {
                 placeholder='the number of characters is 2 to 12'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-              
+
               ></Form.Control>
             </Form.Group>
           </Col>
@@ -86,7 +89,7 @@ const MySettingScreen = () => {
                 placeholder='please enter your email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              
+
               ></Form.Control>
             </Form.Group>
           </Col>
@@ -101,7 +104,7 @@ const MySettingScreen = () => {
                 placeholder='please enter your password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-               
+
               ></Form.Control>
             </Form.Group>
             <Form.Group controlId='confirmPassword'>
@@ -112,7 +115,7 @@ const MySettingScreen = () => {
                 placeholder='please confirm your password'
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-               
+
               ></Form.Control>
             </Form.Group>
           </Col>
