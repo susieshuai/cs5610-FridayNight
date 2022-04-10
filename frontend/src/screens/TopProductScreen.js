@@ -32,7 +32,6 @@ const TopProductScreen = () => {
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
         <>
           {products.map((product) => (
-
             <Row className='mt-2'>
               <Col md={4}>
                 <Link to={`/details/${product._id}`}>
@@ -56,7 +55,8 @@ const TopProductScreen = () => {
                     <Col>PUBLISHER：{product.publisher}</Col></small>
                 </small>
               </Col>
-              <Col style={{fontSize:'15px', color:'smokewhite'}}>{product.description}
+              <Col style={{fontSize:'15px', color:'smokewhite'}}>
+              <div dangerouslySetInnerHTML = {{__html:`${product.description}`}} ></div>
               </Col>
             </Row>
 

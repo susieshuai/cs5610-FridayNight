@@ -92,6 +92,7 @@ var productSchema = new mongoose.Schema(
         highlights: {
             type: String,
             required: true,
+            default:' '
         },
         reviews: [reviewSchema],
     },

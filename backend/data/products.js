@@ -7,11 +7,12 @@ const products = [
     category: 'Roguelite',
     developer: 'Klei Entertainment',
     publisher: 'Klei Entertainment',
-    description: 'Fight, Farm, Build and Explore Together in the standalone multiplayer expansion to the uncompromising wilderness survival game, Do not Starve.',
+    description: "<b>Fight, </b>Farm, Build and<div style='color:red'> Explore Together </div>in the standalone multiplayer expansion to the uncompromising wilderness survival game, Do not Starve.",
     price: 79.99,
     countInStock: 99,
     rating: 4.6,
     numReviews: 2077,
+    highlights:""
   },
   {
     name: 'DayZ',
@@ -21,11 +22,14 @@ const products = [
     category: 'Action',
     developer: 'Bohemia Interactive',
     publisher: 'Bohemia Interactive',
-    description: 'How long can you survive a post-apocalyptic world? A land overrun with an infected "zombie" population, where you compete with other survivors for limited resources. Will you team up with strangers and stay strong together? Or play as a lone wolf to avoid betrayal? This is DayZ – this is your story.',
+    description: `How long can you survive a post-apocalyptic world? A land overrun \n
+    with an infected "zombie" population, where you compete with other survivors for \n
+    limited resources. Will you team up with strangers and stay strong together? Or play as a lone wolf to avoid betrayal? This is DayZ – this is your story.`,
     price: 71.08,
     countInStock: 99,
     rating: 3.9,
     numReviews: 10,
+    highlights:""
   },
   {
     name: 'Sea of Thieves',
@@ -40,6 +44,7 @@ const products = [
     countInStock: 99,
     rating: 4.7,
     numReviews: 328,
+    highlights:""
   },
   {
     name: 'Ori and the Will of the Wisps',
@@ -54,6 +59,7 @@ const products = [
     countInStock: 99,
     rating: 4.6,
     numReviews: 123,
+    highlights:""
   },
   {
     name: 'LEGO® Star Wars™: The Skywalker Saga',
@@ -68,6 +74,7 @@ const products = [
     countInStock: 99,
     rating: 5,
     numReviews: 77,
+    highlights:""
   },
   {
     name: 'Halo Infinite',
@@ -82,6 +89,7 @@ const products = [
     countInStock: 99,
     rating: 5,
     numReviews: 15077,
+    highlights:""
   },
   {
     name: 'Forza Horizon 5',
@@ -96,6 +104,7 @@ const products = [
     countInStock: 99,
     rating: 3,
     numReviews: 1692,
+    highlights:""
   },
   {
     name: 'Cyberpunk 2077',
@@ -105,11 +114,12 @@ const products = [
     category: 'RPG',
     developer: 'CD PROJEKT RED',
     publisher: 'CD PROJEKT RED',
-    description: 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.',
+    description: '<b> Cyberpunk 2077 is an open-world, action-adventure RPG</b> set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.',
     price: 89.99,
     countInStock: 99,
     rating: 5,
     numReviews: 4325,
+    highlights:""
   },
   {
     name: 'Planet Zoo',
@@ -124,6 +134,7 @@ const products = [
     countInStock: 99,
     rating: 5,
     numReviews: 6091,
+    highlights:""
   },
   {
     name: 'Raft',
@@ -138,6 +149,7 @@ const products = [
     countInStock: 99,
     rating: 5,
     numReviews: 819,
+    highlights:" "
   },
 ]
 
