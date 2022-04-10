@@ -66,6 +66,10 @@ findAll
 5. add banner to homepage, and prepare for reviews part screen.
 6. implent profilepage and update user info
 
+#### 22/4/8
+1. for each page import Custom title
+2. create banner on homepage
+
 ### Shi Shuai
 #### 22/3/31
 1. set up server
@@ -77,11 +81,11 @@ findAll
 2. populate database
 - populate database with sample products and users data
 ```
-npm backend/database/populate.js 
+node backend/database/populate.js 
 ```
 - clear database
 ```
-npm backend/database/clear.js 
+node backend/database/clear.js 
 ```
 3. create basic routes and controllers to realize CRUD operationss, use postman to test
 
@@ -110,6 +114,10 @@ npm backend/database/clear.js
 - add checkout screen
 2. backend
 - create post route and controller to create new order (currently I make it public, need to make it private with login feature)
+
+#### 22/4/8
+1. complete checkout feature, only login users can place a new order
+2. complete review feature, only login users can add a new review
 
 ## Structure of website
 1. Homepage

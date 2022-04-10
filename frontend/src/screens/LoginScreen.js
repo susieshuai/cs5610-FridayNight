@@ -18,7 +18,7 @@ const LoginScreen = () => {
   const userLogin = useSelector((state) => state.userLogin)
   const { loading, error, userInfo } = userLogin
   const redirect = history.location.search ? history.location.search.split('=')[1] : '/'
-  console.log(redirect)
+  // console.log(redirect)
 
   const navigate = useNavigate()
   useEffect(() => {
@@ -60,7 +60,7 @@ const LoginScreen = () => {
           </Form.Group>
           <Form.Group>
             <br />
-            <Button type='submit' variant='primary' style={{ width: '10rem' }} className='mt-3'>
+            <Button type='submit' variant='success' style={{ width: '10rem' }} className='mt-3'>
               Go Ahead
             </Button>
           </Form.Group>

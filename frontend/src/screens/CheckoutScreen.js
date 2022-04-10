@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { createOrder } from '../actions/orderAction'
 import { Link, useNavigate } from 'react-router-dom'
@@ -21,6 +21,7 @@ const CheckoutScreen = () => {
         if (success) {
             navigate(`/checkout/${order._id}`)
         }
+        // eslint-disable-next-line
     }, [success])
 
     const confirmOrder = () => {

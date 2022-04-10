@@ -1,15 +1,16 @@
 import React from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
-const HighlightScreen = ({ description }) => {
+const HighlightScreen = ({ highlights }) => {
     return (
         <>
-            <Row className="mt-5" as='p'>
+            {/* <Row className="mt-5" as='p'>
                 Highlights
-            </Row>
+            </Row> */}
             <Row className="mt-5">
-                <Col>{description}</Col>
+                <div dangerouslySetInnerHTML={{ __html: `${highlights}` }} ></div>
             </Row>
+
         </>
     )
 }

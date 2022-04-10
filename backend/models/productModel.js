@@ -69,6 +69,10 @@ var productSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        highlight: {
+            type: String,
+            required: true,
+        },
         price: {
             type: Number,
             required: true,

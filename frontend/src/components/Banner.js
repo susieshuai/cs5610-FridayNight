@@ -13,26 +13,25 @@ const Banner = () => {
 
   const productTopRated = useSelector((state) => state.productTopRated)
   const { loading, error, products } = productTopRated
-  console.log(products)
-
+  // console.log(products)
   useEffect(() => {
     dispatch(listTopProducts())
   }, [dispatch])
-
 
   return (
     <>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
 
-        <Carousel pause='hover' className='bg-light'>
+        <Carousel pause='hover' >
 
           {products.map((product) => (
             <Carousel.Item key={product._id}>
               <Link to={`/details/${product._id}`}>
                 <Image src={product.cover} alt={product.name} />
+
                 <Carousel.Caption className='carousel-caption'>
                   <h2>{product.name}</h2>
-                  <p>{product.description}</p>
+                  <div dangerouslySetInnerHTML={{ __html: `${product.description}` }} ></div>
                 </Carousel.Caption>
               </Link>
             </Carousel.Item>

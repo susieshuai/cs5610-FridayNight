@@ -1,17 +1,19 @@
 import React from 'react'
-import { Navbar, Container } from 'react-bootstrap'
+import { Navbar, Container, Nav} from 'react-bootstrap'
 
 
 const Subtitle = ({ text }) => {
   return (
 
-    <Navbar bg="light" variant='info'>
+    <Navbar bg="" variant=''>
       <Container fluid>
-        <Navbar.Brand href="#home">
+      
+        <Nav.Link>
           <i className="fa-brands fa-battle-net">&nbsp;</i>
 
-          <small>{text}</small>
-        </Navbar.Brand>
+         {text}
+        </Nav.Link>
+     
       </Container>
     </Navbar>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Row, Col, ListGroup, ListGroupItem, Nav, Tab, Breadcrumb } from 'react-bootstrap'
+import { Row, Col, ListGroup, ListGroupItem, Nav, Tab} from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
@@ -10,6 +10,7 @@ import Subtitle from '../components/Subtitle'
 import MyReviewScreen from './_profile_screen/MyReviewScreen'
 import MySettingScreen from './_profile_screen/MySettingScreen'
 import MyOrderScreen from './_profile_screen/MyOrderScreen'
+import Meta from '../components/Meta'
 
 const ProfileScreen = () => {
 
@@ -43,6 +44,8 @@ const ProfileScreen = () => {
 
 
   return (
+    <>
+    <Meta title={`Hello, ${user.name}`}/>
     <Tab.Container id="left profile" defaultActiveKey="orders">
       <Row>
         <Col md={3}>
@@ -76,26 +79,14 @@ const ProfileScreen = () => {
         <Col md={9}>
           <Tab.Content>
             <Tab.Pane eventKey="orders">
-              <Breadcrumb as='small'>
-                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
-                <Breadcrumb.Item active>Orders</Breadcrumb.Item>
-              </Breadcrumb>
               <h3><Subtitle text='Orders History ' /></h3>
               <MyOrderScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
-              <Breadcrumb as='small'>
-                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
-                <Breadcrumb.Item active>Reviews</Breadcrumb.Item>
-              </Breadcrumb>
               <h3><Subtitle text='My Reviews ' /></h3>
               <MyReviewScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
-              <Breadcrumb as='small'>
-                <Breadcrumb.Item href="#">Account</Breadcrumb.Item>
-                <Breadcrumb.Item active>Settings</Breadcrumb.Item>
-              </Breadcrumb>
               <h3> <Subtitle text='My Settings ' /></h3>
               <MySettingScreen></MySettingScreen>
             </Tab.Pane>
@@ -103,6 +94,7 @@ const ProfileScreen = () => {
         </Col>
       </Row>
     </Tab.Container>
+    </>
   )
 }
 

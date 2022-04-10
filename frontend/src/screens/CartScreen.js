@@ -17,7 +17,6 @@ import {
 } from 'react-bootstrap'
 
 import Message from '../components/Message'
-import cartIcon from '../cart.png'
 
 
 const CartScreen = () => {
@@ -58,7 +57,7 @@ const CartScreen = () => {
   return (
     <Row>
       {cartItems.length === 0 ? (
-        <Message variant='light'>
+        <Message variant=''>
           <br className='mt-4' />
           <br className='mt-4' />
           <br className='mt-4' />
@@ -67,12 +66,13 @@ const CartScreen = () => {
           <Link to='/'><Button
             style={{
               width: '350px',
-              display: 'block',
+            
               margin: 'auto',
             }}
+            className='bg-success'
 
-          >Go to Homepage</Button></Link><br />
-          <Image src={cartIcon}
+          >Go to Homepage</Button></Link><br/>
+          <Image src={'/images/cart.png'}
             alt='cartIcon'
             style={{
               width: '250px',
@@ -106,15 +106,15 @@ const CartScreen = () => {
                     <Col md={3}>
                       <Image src={item.cover} alt={item.name} fluid rounded
                         style={{
-                          width: '80px',
+                          width: '180px',
 
                         }} />
                     </Col>
                     <Col xs={{ span: 4 }}>
                       <Row><small><Link to={`/details/${item.product}`}>{item.name}</Link></small></Row>
+                    
                       <Row>
-                        <br></br>
-
+                        
                         <Col xs={1} className='mt-2'><h6>Qty.</h6></Col>
                         <Col xs={3}>
                           <Form.Control
@@ -144,13 +144,14 @@ const CartScreen = () => {
                       <Button
                         type='button'
                         onClick={() => removerFromCartHandler(item.product)}
-                        variant="light"
+                        variant="dark"
                         size='sm'
                       >
                         <i className="fa-solid fa-trash-can" ></i>
                       </Button>
                     </Col>
                   </Row>
+                  <br/>
 
 
                 </ListGroup.Item>
@@ -163,9 +164,9 @@ const CartScreen = () => {
             <Card>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
-                  <Table striped bordered hover>
-                    <thead>
-                    </thead>
+                  <Table striped  hover>
+                   
+                    
                     <tbody>
                       <tr style={{ color: 'red', fontSize: '15px' }}>
                         <td>Subtotal
@@ -174,7 +175,7 @@ const CartScreen = () => {
                       </tr>
                       <tr style={{ fontSize: '15px' }}>
                         <td >Delivery</td>
-                        <td style={{ color: 'red' }}> Free</td>
+                        <td style={{ color: '#FF6666' }}> Free</td>
                       </tr>
                       <tr style={{ fontSize: '15px' }}>
                         <td>Estimated tax rate</td>
@@ -190,7 +191,7 @@ const CartScreen = () => {
                 <ListGroup.Item>
                   <Button
                     type='button'
-                    className='btn-block'
+                    className='btn-block bg-success'
                     disabled={cartItems.length === 0}
                     style={{
                       width: '350px',

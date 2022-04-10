@@ -1,6 +1,7 @@
 const connectDB = require('./connect')
 const productModel = require('../models/productModel')
 const userModel = require('../models/userModel')
+const orderModel = require('../models/orderModel')
 const products = require('../data/products')
 const users = require('../data/users')
 
@@ -12,6 +13,7 @@ const populateDB = async () => {
         // initialize db
         await productModel.deleteMany()
         await userModel.deleteMany()
+        await orderModel.deleteMany()
 
         // insert sample data
         // insert sample users
