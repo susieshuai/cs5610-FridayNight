@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { listProductDetails } from '../actions/productActions'
@@ -43,7 +43,7 @@ const DetailScreen = () => {
   useEffect(() => {
     dispatch({ type: PRODUCT_DETAILS_RESET })
     dispatch(listProductDetails(id))
-    
+
   }, [id, dispatch])
 
   const navigate = useNavigate()
@@ -52,14 +52,14 @@ const DetailScreen = () => {
   }
   return (
     <>
-     
+
       <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
       </Link>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
         (
           <>
-          <Meta title={product.name}/>
+            <Meta title={product.name} />
             <Row>
               <Col md={7}>
                 <Image src={product.cover} alt={product.name} fluid />
@@ -86,11 +86,11 @@ const DetailScreen = () => {
                   </Col>
 
                   <Col style={{ color: 'lightblue' }}>{product.countInStock > 0 ? 'in stock' : 'out of stock'}</Col>
-                  <br/>
+                  <br />
                   <small>
-                  <Col>RELEASE DATE：{product.releasedate}</Col>
-                  <Col>DEVELOPER:：{product.developer}</Col>
-                  <Col>PUBLISHER：{product.publisher}</Col></small>
+                    <Col>RELEASE DATE：{product.releasedate}</Col>
+                    <Col>DEVELOPER:：{product.developer}</Col>
+                    <Col>PUBLISHER：{product.publisher}</Col></small>
 
                   <Row className="mt-4">
                     <Col xs={1}>Qty.</Col>
@@ -135,10 +135,10 @@ const DetailScreen = () => {
             </Row>
             <Tabs defaultActiveKey="description" id="about-product" className="mb-3 mt-3" fill>
               <Tab eventKey="description" title="Description">
-                <DescriptionScreen description={product.description} />
+                <div dangerouslySetInnerHTML={{ __html: `${product.description}` }} ></div>
               </Tab>
               <Tab eventKey="hightlights" title="Hightlights">
-                <HighlightScreen description={product.description} />
+              <div dangerouslySetInnerHTML = {{__html:`${product.description}`}} ></div>
               </Tab>
               <Tab eventKey="reviews" title="Reviews">
                 <ReviewScreen reviews={product.reviews} />

@@ -89,11 +89,6 @@ var productSchema = new mongoose.Schema(
             required: true,
             default: 0
         },
-        highlights: {
-            type: String,
-            required: true,
-            default:' '
-        },
         reviews: [reviewSchema],
     },
     {

@@ -7,12 +7,12 @@ const products = [
     category: 'Roguelite',
     developer: 'Klei Entertainment',
     publisher: 'Klei Entertainment',
-    description: "<b>Fight, </b>Farm, Build and<div style='color:red'> Explore Together </div>in the standalone multiplayer expansion to the uncompromising wilderness survival game, Do not Starve.",
+    description: `Fight, Farm, Build and Explore Together in the standalone 
+    multiplayer expansion to the uncompromising wilderness survival game, Do not Starve.`,
     price: 79.99,
     countInStock: 99,
     rating: 4.6,
     numReviews: 2077,
-    highlights:""
   },
   {
     name: 'DayZ',
@@ -22,14 +22,14 @@ const products = [
     category: 'Action',
     developer: 'Bohemia Interactive',
     publisher: 'Bohemia Interactive',
-    description: `How long can you survive a post-apocalyptic world? A land overrun \n
-    with an infected "zombie" population, where you compete with other survivors for \n
-    limited resources. Will you team up with strangers and stay strong together? Or play as a lone wolf to avoid betrayal? This is DayZ – this is your story.`,
+    description: `How long can you survive a post-apocalyptic world? A land overrun
+    with an infected "zombie" population, where you compete with other survivors for
+    limited resources. Will you team up with strangers and stay strong together? Or play
+    as a lone wolf to avoid betrayal? This is DayZ – this is your story.`,
     price: 71.08,
     countInStock: 99,
     rating: 3.9,
     numReviews: 10,
-    highlights:""
   },
   {
     name: 'Sea of Thieves',
@@ -39,12 +39,13 @@ const products = [
     category: 'Action',
     developer: 'Rare Ltd',
     publisher: 'Xbox Game Studios',
-    description: 'Sea of Thieves offers the essential pirate experience, from sailing and fighting to exploring and looting – everything you need to live the pirate life and become a legend in your own right. With no set roles, you have complete freedom to approach the world, and other players, however you choose.',
+    description: `Sea of Thieves offers the essential pirate experience, from sailing 
+    and fighting to exploring and looting – everything you need to live the pirate life
+     and become a legend in your own right. With no set roles, you have complete freedom to approach the world, and other players, however you choose.`,
     price: 129.99,
     countInStock: 99,
     rating: 4.7,
     numReviews: 328,
-    highlights:""
   },
   {
     name: 'Ori and the Will of the Wisps',
@@ -54,12 +55,12 @@ const products = [
     category: 'Action',
     developer: 'Moon Studios GmbH',
     publisher: ' Xbox Game Studios',
-    description: 'Play the critically acclaimed masterpiece. Embark on a new journey in a vast, exotic world where you’ll encounter towering enemies and challenging puzzles on your quest to unravel Ori’s destiny.',
+    description: `Play the critically acclaimed masterpiece. Embark on a new journey 
+    in a vast, exotic world where you’ll encounter towering enemies and challenging puzzles on your quest to unravel Ori’s destiny.`,
     price: 18.16,
     countInStock: 99,
     rating: 4.6,
     numReviews: 123,
-    highlights:""
   },
   {
     name: 'LEGO® Star Wars™: The Skywalker Saga',
@@ -69,12 +70,12 @@ const products = [
     category: 'Adventure',
     developer: 'TT Games',
     publisher: ' Warner Bros. Games, Warner Bros. Interactive Entertainment',
-    description: 'Play through all nine Star Wars saga films in a brand-new LEGO video game unlike any other. Experience fun-filled adventures, whimsical humor, and the freedom to fully immerse yourself in the LEGO Star Wars galaxy.',
+    description: `Play through all nine Star Wars saga films in a brand-new LEGO video game 
+    unlike any other. Experience fun-filled adventures, whimsical humor, and the freedom to fully immerse yourself in the LEGO Star Wars galaxy.`,
     price: 59.99,
     countInStock: 99,
     rating: 5,
     numReviews: 77,
-    highlights:""
   },
   {
     name: 'Halo Infinite',
@@ -84,12 +85,12 @@ const products = [
     category: 'FPS',
     developer: '343 Industries',
     publisher: 'Xbox Game Studios',
-    description: 'The legendary Halo series returns with the most expansive Master Chief campaign yet and a ground-breaking free to play multiplayer experience.',
+    description: `The legendary Halo series returns with the most expansive Master 
+    Chief campaign yet and a ground-breaking free to play multiplayer experience.`,
     price: 63.99,
     countInStock: 99,
     rating: 5,
     numReviews: 15077,
-    highlights:""
   },
   {
     name: 'Forza Horizon 5',
@@ -99,12 +100,12 @@ const products = [
     category: 'Racing',
     developer: 'Playground Games',
     publisher: 'Xbox Game Studios',
-    description: 'Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars. Begin Your Horizon Adventure today and add to your Wishlist!',
+    description: `Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open
+    world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars. Begin Your Horizon Adventure today and add to your Wishlist!`,
     price: 67.99,
     countInStock: 99,
     rating: 3,
     numReviews: 1692,
-    highlights:""
   },
   {
     name: 'Cyberpunk 2077',
@@ -114,12 +115,12 @@ const products = [
     category: 'RPG',
     developer: 'CD PROJEKT RED',
     publisher: 'CD PROJEKT RED',
-    description: '<b> Cyberpunk 2077 is an open-world, action-adventure RPG</b> set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.',
+    description: `Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night 
+    City — a dangerous megalopolis obsessed with power, glamor, and ceaseless body modification.`,
     price: 89.99,
     countInStock: 99,
     rating: 5,
     numReviews: 4325,
-    highlights:""
   },
   {
     name: 'Planet Zoo',
@@ -129,12 +130,12 @@ const products = [
     category: 'Strategy',
     developer: 'Frontier Developments',
     publisher: 'Frontier Developments',
-    description: 'Build a world for wildlife in Planet Zoo. From the developers of Planet Coaster and Zoo Tycoon comes the ultimate zoo sim. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.',
+    description: `Build a world for wildlife in Planet Zoo. From the developers of Planet Coaster and Zoo Tycoon comes the 
+    ultimate zoo sim. Construct detailed habitats, manage your zoo, and meet authentic living animals who think, feel and explore the world you create around them.`,
     price: 66.71,
     countInStock: 99,
     rating: 5,
     numReviews: 6091,
-    highlights:""
   },
   {
     name: 'Raft',
@@ -144,12 +145,12 @@ const products = [
     category: 'Indie',
     developer: 'Redbeet Interactive',
     publisher: 'Axolot Games',
-    description: 'Raft throws you and your friends into an epic oceanic adventure! Alone or together, players battle to survive a perilous voyage across a vast sea! Gather debris, scavenge reefs and build your own floating home, but be wary of the man-eating sharks!',
+    description: `Raft throws you and your friends into an epic oceanic adventure! Alone or together, players battle 
+    to survive a perilous voyage across a vast sea! Gather debris, scavenge reefs and build your own floating home, but be wary of the man-eating sharks!`,
     price: 19.99,
     countInStock: 99,
     rating: 5,
     numReviews: 819,
-    highlights:" "
   },
 ]
 
