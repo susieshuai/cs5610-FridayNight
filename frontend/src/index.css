@@ -4,17 +4,17 @@ main {
 
 h4 {
   padding: 0.5rem 0;
-  font-size:20px
-  
+  font-size: 20px
 }
 
 h3 {
   padding: 1rem 0;
   text-align: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
-.link{
+
+.link {
   color: aqua;
 }
 
@@ -46,24 +46,28 @@ p {
 .carousel-item.active {
   display: flex;
 }
+
 .carousel-caption {
   position: absolute;
   top: 10px;
-  left:700px
+  left: 700px;
+
 }
 
 .carousel-caption h2 {
   color: rgb(58, 205, 78);
-  font-size:20px;
+  font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
 
 }
-.carousel-caption{
-  color:rgb(255, 255, 255);
+
+.carousel-caption {
+  color: rgb(255, 255, 255);
   text-align: left;
   font-size: 14px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
 
 }
 
@@ -75,12 +79,13 @@ p {
   margin-left: auto;
   margin-right: 400px;
 }
+
 .carousel a {
   margin: 0 auto;
 }
-@media (max-width: 900px) {
+
+@media (max-width: 300px) {
   .carousel-caption h2 {
     font-size: 2.5vw;
   }
 }
-
