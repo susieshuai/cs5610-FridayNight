@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap'
 const CommentScreen = ({ description }) => {
     return (
         <>
-            <Row className="mt-5">
+            <Row className="mt-5" as='p'>
                 Comments
             </Row>
             <Row className="mt-5">

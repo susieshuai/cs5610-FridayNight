@@ -41,18 +41,13 @@ const ReviewScreen = ({ reviews }) => {
     return (
         <>
             {/* ROW 1 : title */}
-            <Row className="mt-5">
+            <Row className="mt-5" as='p'>
                 <Col>Guest Ratings &amp; Reviews</Col>
 
             </Row>
             {/* ROW 2 : review list */}
-            <Row className="mt-3">
-                {reviews ? (reviews.length === 0 ? 
-                (<Message variant='dark'>
-                    <h4 style={{color:'	#B0C4DE'}}>There are no reviews for this product</h4>
-                    <small style={{color:'	#C0C0C0'}}>You can write your own review for this product to share your
-                         experience with the community. Use the area above the purchase buttons on this page to write your review.
-                         </small></Message>) : (
+            <Row>
+                {reviews ? (reviews.length === 0 ? (<Message>No Reviews.</Message>) : (
                     <><ScrollTo>
                         {({ scroll }) => (
                             <Button

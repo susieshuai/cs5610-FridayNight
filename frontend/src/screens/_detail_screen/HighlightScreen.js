@@ -4,9 +4,9 @@ import { Row } from 'react-bootstrap'
 const HighlightScreen = ({ highlights }) => {
     return (
         <>
-            {/* <Row className="mt-5">
+            <Row className="mt-5" as='p'>
                 Highlights
-            </Row> */}
+            </Row>
             <Row className="mt-5">
                 <div dangerouslySetInnerHTML={{ __html: `${highlights}` }} ></div>
             </Row>
