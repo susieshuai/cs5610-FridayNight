@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button, Image } from 'react-bootstrap'
 
 import Product from '../components/Product'
 import Subtitle from '../components/Subtitle'
@@ -29,7 +29,32 @@ const SearchScreen = () => {
           <Loader /> : error ?
             <Message variant='danger'>{error}</Message> :
             searchCriteria ? (products.length === 0 ?
-              <h3>No result found.</h3> : (
+              (
+                <Message variant=''>
+                  <br className='mt-4' />
+                  <br className='mt-4' />
+                  <br className='mt-4' />
+                  <h2 >Sorry! There is no match for "{searchCriteria}".</h2>
+                  <small>Please try another search or ...</small><br /><br />
+                  <Link to='/'><Button
+                    style={{
+                      width: '350px',
+                      margin: 'auto',
+                    }}
+                    className='bg-success'
+                  >Go to Homepage</Button></Link><br />
+                  <br className='mt-4' />
+                  <Image
+                    src={'/images/errorIcon.png'}
+                    alt='cartIcon'
+                    style={{
+                      width: '250px',
+                      display: 'block',
+                      margin: 'auto',
+                    }}
+                    fluid rounded />
+                </Message>
+              ) : (
                 <>
                   <Row className='mt-4 '  >
                     <Col>
@@ -45,7 +70,32 @@ const SearchScreen = () => {
                   </Row>
                 </>
               )) :
-              <h3>Please enter search criteria.</h3>
+              (
+                <Message variant=''>
+                  <br className='mt-4' />
+                  <br className='mt-4' />
+                  <br className='mt-4' />
+                  <h2 >Sorry! The search criteria is empty.</h2>
+                  <small>Please try another search or ...</small><br /><br />
+                  <Link to='/'><Button
+                    style={{
+                      width: '350px',
+                      margin: 'auto',
+                    }}
+                    className='bg-success'
+                  >Go to Homepage</Button></Link><br />
+                  <br className='mt-4' />
+                  <Image
+                    src={'/images/errorIcon.png'}
+                    alt='cartIcon'
+                    style={{
+                      width: '250px',
+                      display: 'block',
+                      margin: 'auto',
+                    }}
+                    fluid rounded />
+                </Message>
+              )
       }
     </>
   )
