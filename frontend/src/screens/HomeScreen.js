@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, Card } from 'react-bootstrap'
+import { Row, Col} from 'react-bootstrap'
 
 import Product from '../components/Product'
 import Subtitle from '../components/Subtitle'

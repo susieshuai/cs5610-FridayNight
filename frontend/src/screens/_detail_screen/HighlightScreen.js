@@ -1,6 +1,5 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import Ad from '../../components/Ad'
 
 const HighlightScreen = ({ description }) => {
     return (

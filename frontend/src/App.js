@@ -15,6 +15,7 @@ import AllProductScreen from "./screens/AllProductScreen";
 import TopProductScreen from "./screens/TopProductScreen";
 import CheckoutScreen from './screens/CheckoutScreen'
 import PaymentScreen from "./screens/PaymentScreen";
+import AdScreen from "./screens/AdScreen";
 import Footer from "./components/Footer";
 
 
@@ -27,6 +28,7 @@ function App() {
         <Container>
           <Routes>
             <Route path='/' element={<HomeScreen />} exact />
+            <Route path='/ad' element={<AdScreen />} exact />
 
             <Route path='/search' element={<SearchScreen />} exact />
             <Route path='/search/:searchCriteria' element={<SearchScreen />} exact />

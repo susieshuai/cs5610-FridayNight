@@ -17,7 +17,7 @@ const TopProductScreen = () => {
 
   const productTopRated = useSelector((state) => state.productTopRated)
   const { loading, error, products } = productTopRated
-  console.log(products)
+  // console.log(products)
 
   useEffect(() => {
     dispatch(listTopProducts())
@@ -26,9 +26,13 @@ const TopProductScreen = () => {
 
   return (
     <>
+    <Link className='btn btn-secondary my-5' to='/'>
+        Back to Home
+      </Link>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
         <>
           {products.map((product) => (
+
             <Row className='mt-2'>
               <Col md={4}>
                 <Link to={`/details/${product._id}`}>

@@ -56,7 +56,11 @@ const Header = () => {
                 <Nav.Link>Top Sellers</Nav.Link>
               </LinkContainer>
 
-              <NavDropdown title="Categories" id="navbarDropdown">
+              <LinkContainer to='/ad'>
+                <Nav.Link>Weekly Ad</Nav.Link>
+              </LinkContainer>
+
+              {/* <NavDropdown title="Categories" id="navbarDropdown">
                 <NavDropdown.Item href="#action3">RPG</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action5">Strategy</NavDropdown.Item>
@@ -64,7 +68,7 @@ const Header = () => {
                 <NavDropdown.Item href="#action5">
                   All of the nav are Not Implemented
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
 
             {/* Search Begins! */}

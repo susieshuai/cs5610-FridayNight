@@ -17,7 +17,7 @@ import {
 } from 'react-bootstrap'
 
 import Message from '../components/Message'
-import cartIcon from '../cart.png'
+import cartIcon from '../icons/cart.png'
 
 
 const CartScreen = () => {
@@ -58,7 +58,7 @@ const CartScreen = () => {
   return (
     <Row>
       {cartItems.length === 0 ? (
-        <Message variant='light'>
+        <Message variant=''>
           <br className='mt-4' />
           <br className='mt-4' />
           <br className='mt-4' />
@@ -67,11 +67,12 @@ const CartScreen = () => {
           <Link to='/'><Button
             style={{
               width: '350px',
-              display: 'block',
+            
               margin: 'auto',
             }}
+            className='bg-success'
 
-          >Go to Homepage</Button></Link><br />
+          >Go to Homepage</Button></Link><br/>
           <Image src={cartIcon}
             alt='cartIcon'
             style={{
