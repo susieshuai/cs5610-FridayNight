@@ -27,7 +27,7 @@ const ReviewScreen = ({ reviews }) => {
         dispatch(
             listProductDetails(productId)
         )
-    }, [dispatch, success,productId])
+    }, [dispatch, success, productId])
 
     const submitReview = (e) => {
         e.preventDefault()
@@ -46,34 +46,41 @@ const ReviewScreen = ({ reviews }) => {
 
             </Row>
             {/* ROW 2 : review list */}
-            <Row>
+            <Row className="mt-3">
                 {error && <Message variant='danger'>{error}</Message>}
-                {reviews ? (reviews.length === 0 ? (<Message>No Reviews.</Message>) : (
-                    <><ScrollTo>
-                        {({ scroll }) => (
-                            <Button
-                                className='bg-info mb-4'
-                                style={{ width: '25em', fontSize: '8px' }}
+                {reviews ? (reviews.length === 0 ?
+                    (<Message variant='dark'>
+                        <h4 style={{color:'	#B0C4DE'}}>There are no reviews for this product</h4>
+                        <small style={{color:'	#C0C0C0'}}>
+                            You can write your own review for this product to share your
+                            experience with the community. Use the area above the purchase buttons on this page to write your review.
+                        </small>
+                    </Message>) : (
+                        <><ScrollTo>
+                            {({ scroll }) => (
+                                <Button
+                                    className='bg-info mb-4'
+                                    style={{ width: '25em', fontSize: '8px' }}
 
-                                onClick={() => scroll({ x: 20, y: 10000 })}
-                            >Write a Review</Button>)}
-                    </ScrollTo><ListGroup variant='flush'>
-                            {reviews.map((review) => (
-                                <ListGroup.Item key={review._id}>
-                                    <small>
-                                        <Row>
-                                            <Col style={{ color: '#B0C4DE', fontSize: '17px' }}><i className="fa-solid fa-user-astronaut" /> {review.username}</Col>
-                                            <Col md={{ offset: 10 }} style={{ color: 'grey' }}>POSTED: {review.createdAt.substring(0, 10)}</Col>
-                                        </Row>
-                                        <Rating value={review.rating} /></small>
+                                    onClick={() => scroll({ x: 20, y: 10000 })}
+                                >Write a Review</Button>)}
+                        </ScrollTo><ListGroup variant='flush'>
+                                {reviews.map((review) => (
+                                    <ListGroup.Item key={review._id}>
+                                        <small>
+                                            <Row>
+                                                <Col style={{ color: '#B0C4DE', fontSize: '17px' }}><i className="fa-solid fa-user-astronaut" /> {review.username}</Col>
+                                                <Col md={{ offset: 10 }} style={{ color: 'grey' }}>POSTED: {review.createdAt.substring(0, 10)}</Col>
+                                            </Row>
+                                            <Rating value={review.rating} /></small>
 
-                                    <p className='mt-4'>{review.review}</p>
+                                        <p className='mt-4'>{review.review}</p>
 
 
-                                </ListGroup.Item>
-                            ))}
-                        </ListGroup>
-                    </>)) : (<Message>No Reviews.</Message>)
+                                    </ListGroup.Item>
+                                ))}
+                            </ListGroup>
+                        </>)) : (<Message>No Reviews.</Message>)
                 }
             </Row>
 
