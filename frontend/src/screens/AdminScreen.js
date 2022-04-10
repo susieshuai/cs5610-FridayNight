@@ -7,29 +7,24 @@ import Loader from '../components/Loader'
 import {
   listProducts,
   // deleteProduct,
-  // createProduct,
 } from '../actions/productActions'
 
 
-const ProductListScreen = ({ history, match }) => {
+const ProductListScreen = () => {
 
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => state.productList)
   const { loading, error, products } = productList
 
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
-
-
   useEffect(() => {
     dispatch(listProducts())
   }, [dispatch])
 
-  //删除产品函数
+  
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure')) {
-      //删除产品
+    
       // dispatch(deleteProduct(id))
     }
   }
