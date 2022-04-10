@@ -26,20 +26,20 @@ const TopProductScreen = () => {
 
   return (
     <>
-    <Link className='btn btn-secondary my-5' to='/'>
+      <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
       </Link>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
         <>
           {products.map((product) => (
-            <Row className='mt-2'>
+            <Row key={product._id} className='mt-2'>
               <Col md={4}>
                 <Link to={`/details/${product._id}`}>
                   <Image src={product.cover} alt={product.name} fluid />
                 </Link>
               </Col>
               <Col md={4}>
-                <Link to={`/details/${product._id}`} style={{textDecoration:'none', color:'#FFEBCD'}}> 
+                <Link to={`/details/${product._id}`} style={{ textDecoration: 'none', color: '#FFEBCD' }}>
                   <Col as='h4'>{product.name}</Col>
                 </Link>
                 <Col>
@@ -55,8 +55,8 @@ const TopProductScreen = () => {
                     <Col>PUBLISHER：{product.publisher}</Col></small>
                 </small>
               </Col>
-              <Col style={{fontSize:'15px', color:'smokewhite'}}>
-              <div dangerouslySetInnerHTML = {{__html:`${product.description}`}} ></div>
+              <Col style={{ fontSize: '15px', color: 'smokewhite' }}>
+                <div dangerouslySetInnerHTML={{ __html: `${product.description}` }} ></div>
               </Col>
             </Row>
 
