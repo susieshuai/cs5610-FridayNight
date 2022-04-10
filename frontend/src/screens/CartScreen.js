@@ -17,7 +17,6 @@ import {
 } from 'react-bootstrap'
 
 import Message from '../components/Message'
-import cartIcon from '../icons/cart.png'
 
 
 const CartScreen = () => {
@@ -73,7 +72,7 @@ const CartScreen = () => {
             className='bg-success'
 
           >Go to Homepage</Button></Link><br/>
-          <Image src={cartIcon}
+          <Image src={'/images/cart.png'}
             alt='cartIcon'
             style={{
               width: '250px',
