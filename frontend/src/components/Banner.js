@@ -13,7 +13,7 @@ const Banner = () => {
 
   const productTopRated = useSelector((state) => state.productTopRated)
   const { loading, error, products } = productTopRated
-  console.log(products)
+  // console.log(products)
 
   useEffect(() => {
     dispatch(listTopProducts())

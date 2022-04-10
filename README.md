@@ -81,11 +81,11 @@ findAll
 2. populate database
 - populate database with sample products and users data
 ```
-npm backend/database/populate.js 
+node backend/database/populate.js 
 ```
 - clear database
 ```
-npm backend/database/clear.js 
+node backend/database/clear.js 
 ```
 3. create basic routes and controllers to realize CRUD operationss, use postman to test
 
