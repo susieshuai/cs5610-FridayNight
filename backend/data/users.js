@@ -1,17 +1,33 @@
+const bcrypt = require('bcrypt')
+
 const users = [
     {
         username: 'Admin',
         email: 'admin@test.com',
-        password: '123456',
+        password: bcrypt.hashSync('123456', 10),
         isAdmin: true,
     },
 
     {
-        username: 'Test',
-        email: 'test@test.com',
-        password: '123456',
+        username: 'Test1',
+        email: 'test1@test.com',
+        password: bcrypt.hashSync('123456', 10),
         isAdmin: false,
-    }
+    },
+
+    {
+        username: 'Test2',
+        email: 'test2@test.com',
+        password: bcrypt.hashSync('123456', 10),
+        isAdmin: false,
+    },
+
+    {
+        username: 'Test3',
+        email: 'test3@test.com',
+        password: bcrypt.hashSync('123456', 10),
+        isAdmin: false,
+    },
 ]
 
 

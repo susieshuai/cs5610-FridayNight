@@ -1,8 +1,7 @@
 const connectDB = require('./connect')
 const productModel = require('../models/productModel')
 const userModel = require('../models/userModel')
-const products = require('../data/products')
-const users = require('../data/users')
+const orderModel = require('../models/orderModel')
 
 require('dotenv').config()
 
@@ -12,6 +11,7 @@ const clearDB = async () => {
         // clear db
         await productModel.deleteMany()
         await userModel.deleteMany()
+        await orderModel.deleteMany()
 
         console.log('successfully delete sample data');
         process.exit()
