@@ -50,8 +50,8 @@ const ReviewScreen = ({ reviews }) => {
                 {error && <Message variant='danger'>{error}</Message>}
                 {reviews ? (reviews.length === 0 ?
                     (<Message variant='dark'>
-                        <h4 style={{color:'	#B0C4DE'}}>There are no reviews for this product</h4>
-                        <small style={{color:'	#C0C0C0'}}>
+                        <h4 style={{ color: '	#B0C4DE' }}>There are no reviews for this product</h4>
+                        <small style={{ color: '	#C0C0C0' }}>
                             You can write your own review for this product to share your
                             experience with the community. Use the area above the purchase buttons on this page to write your review.
                         </small>
@@ -100,6 +100,7 @@ const ReviewScreen = ({ reviews }) => {
                                 as='select'
                                 value={rating}
                                 onChange={(e) => setRating(e.target.value)}
+                                required
                             >
                                 <option value=''>Please Select</option>
                                 <option value='5'>5 - Very Satisfied</option>
@@ -117,6 +118,7 @@ const ReviewScreen = ({ reviews }) => {
                                 as='textarea'
                                 value={review}
                                 onChange={(e) => setReview(e.target.value)}
+                                required
                             >
                             </Form.Control>
                         </Form.Group>
