@@ -1,5 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
+import Ad from '../../components/Ad'
 
 const DescriptionScreen = ({ description }) => {
     return (
@@ -10,6 +11,8 @@ const DescriptionScreen = ({ description }) => {
             <Row className="mt-5">
                 <Col>{description}</Col>
             </Row>
+            <Ad/>
+            
         </>
     )
 }
