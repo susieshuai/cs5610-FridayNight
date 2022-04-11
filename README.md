@@ -56,9 +56,6 @@ saveItem
 findItem or deleteItem by id
 findAll
 ```
-- authURI for development
-"mongodb+srv://yellow:125512@cs5610.kgnh2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-
 #### 22/3/31
 1. update the data of eg. and put them in backend/data file
 2. implment view of details page , login and register page
