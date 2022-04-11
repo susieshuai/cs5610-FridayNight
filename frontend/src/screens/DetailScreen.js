@@ -14,7 +14,8 @@ import {
   Form,
   Badge,
   Tabs,
-  Tab
+  Tab,
+  ButtonGroup
 } from 'react-bootstrap'
 
 import Rating from '../components/Rating'
@@ -66,7 +67,7 @@ const DetailScreen = () => {
               </Col>
               <Col md={4}>
 
-                <Image src={product.cover} alt={product.name} fluid />
+                {/* <Image src={product.cover} alt={product.name} fluid /> */}
                 <Col as='h4'>{product.name}</Col>
                 <Col>
                   <Badge pill bg="success" as='title'>{product.tag}</Badge>
@@ -84,11 +85,28 @@ const DetailScreen = () => {
                       text={`${product.numReviews} reviews`}
                     />
                   </Col>
-
                   <Col style={{ color: 'lightblue' }}>{product.countInStock > 0 ? 'in stock' : 'out of stock'}</Col>
                   <br />
-                  <small>
-                    <Col>RELEASE DATE：{product.releasedate}</Col>
+                  <ButtonGroup className="justify-content-md-center">
+                    <Button className='btn-block bg-secondary'>
+                      <i class="fa-solid fa-store"></i>
+                      <p style={{ fontSize: '2px' }}>Pick up</p>
+                      <p style={{ fontSize: '2px' }}>Not avaliable</p>
+                    </Button>
+                    <Button className='btn-block bg-secondary'>
+                    <i class="fa-solid fa-truck-fast"></i>
+                      <p style={{ fontSize: '2px' }}>Shipping</p>
+                      <p style={{ fontSize: '2px' }}>Not avaliable</p>
+                    </Button>
+                    <Button className='btn-block bg-warning'>
+                    <i class="fa-solid fa-blog"></i>
+                      <p style={{ fontSize: '2px' }}>Virtual Delivery</p>
+                      <p style={{ fontSize: '2px' }}>Fet Redeem Code to Phone</p>
+                    </Button>
+                  </ButtonGroup>
+                
+                  <small >
+                    <Col className="mt-4">RELEASE DATE：{product.releasedate}</Col>
                     <Col>DEVELOPER:：{product.developer}</Col>
                     <Col>PUBLISHER：{product.publisher}</Col></small>
 
@@ -117,7 +135,6 @@ const DetailScreen = () => {
                         disabled={product.countInStock === 0}
                         size='sm'
                         style={{ width: '18em' }}
-
                       >
                         Add to Cart
                       </Button>

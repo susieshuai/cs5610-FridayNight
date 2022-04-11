@@ -128,7 +128,7 @@ const ReviewScreen = ({ reviews }) => {
                             Submit
                         </Button>
                     </Form>) : (
-                    <Message>Please <Link to='/login'>Login</Link> to add new review.</Message>
+                    <Link to='/login'><Message>Please Login to write new review.<Button></Button></Message></Link>
                 )}
             </Row>
         </>
