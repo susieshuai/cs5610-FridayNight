@@ -15,7 +15,7 @@ import {
   Badge,
   Tabs,
   Tab,
-  ButtonGroup
+  ListGroup
 } from 'react-bootstrap'
 
 import Rating from '../components/Rating'
@@ -87,26 +87,19 @@ const DetailScreen = () => {
                   </Col>
                   <Col style={{ color: 'lightblue' }}>{product.countInStock > 0 ? 'in stock' : 'out of stock'}</Col>
                   <br />
-                  <ButtonGroup className="justify-content-md-center">
-                    <Button className='btn-block bg-secondary'>
-                      <i class="fa-solid fa-store"></i>
-                      <p style={{ fontSize: '2px' }}>Pick up</p>
-                      <p style={{ fontSize: '2px' }}>Not avaliable</p>
-                    </Button>
-                    <Button className='btn-block bg-secondary'>
-                      <i class="fa-solid fa-truck-fast"></i>
-                      <p style={{ fontSize: '2px' }}>Shipping</p>
-                      <p style={{ fontSize: '2px' }}>Not avaliable</p>
-                    </Button>
-                    <Button className='btn-block bg-warning'>
-                      <i class="fa-solid fa-blog"></i>
-                      <p style={{ fontSize: '2px' }}>Virtual Delivery</p>
-                      <p style={{ fontSize: '2px' }}>Fet Redeem Code to Phone</p>
-                    </Button>
-                  </ButtonGroup>
-
+                  <ListGroup >
+                    <ListGroup.Item variant="warning">
+                    <i class="fa-solid fa-truck-fast">&nbsp;&nbsp;</i>
+                    Virtual Delivery: Free
+                    </ListGroup.Item>
+                    <ListGroup.Item variant="info">
+                    <i class="fa-solid fa-blog">&nbsp;&nbsp;</i>
+                    Fet Redeem Code to Phone
+                    </ListGroup.Item>
+                  </ListGroup>
+      
                   <small >
-                    <Col className="mt-4">RELEASE DATE：{product.releasedate}</Col>
+                    <Col className="mt-5">RELEASE DATE：{product.releasedate}</Col>
                     <Col>DEVELOPER:：{product.developer}</Col>
                     <Col>PUBLISHER：{product.publisher}</Col></small>
 
@@ -169,7 +162,7 @@ const DetailScreen = () => {
           </>
         )
       }
-    </div>
+    </div >
   )
 }
 
