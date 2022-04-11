@@ -70,6 +70,16 @@ findAll
 1. for each page import Custom title
 2. create banner on homepage
 
+#### 22/4/10 fix details
+1. react-router scroll to top on every transition
+2. React renders the < HTML > tag directly from the background
+3. fix all image style making them responsive for phone size
+4. fix details of detais screen, add delivery button group avoiding image repeat
+5. and cart screen making them looking better on phone
+6. fix banner for phone
+7. update dataset, add highlight subsection
+
+
 ### Shi Shuai
 #### 22/3/31
 1. set up server
@@ -118,6 +128,8 @@ node backend/database/clear.js
 #### 22/4/8
 1. complete checkout feature, only login users can place a new order
 2. complete review feature, only login users can add a new review
+
+
 
 ## Structure of website
 1. Homepage
