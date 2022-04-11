@@ -2,15 +2,32 @@
 The MERN Stack Project(MongoDB Express React Node)
 FridayNight is an online store specialized in selling computer game virtual items.
 
+This app is deployed on [Heroku](https://friday-night-test.herokuapp.com/)
 
 ### Iteration 1
 **Division of labor**
 In the first week, we will work on the initial setting up of our app.
+
 - Frontend %Cuiting Huang
-React components created to represent the functionality you will be building.
-The overall structure of your website should be in place.
+
+React components created to represent the functionality we will be building.
+The overall structure of our website should be in place.
+
 - Backend %Shi Shuai
+
 Routing, links, and the basis of CRUD operations should be established.
+
+### Iteration 2
+**Division of labor**
+In the second week, we start on developing whatever CRUD module that will contain the main functionality of our application. We will have an API capable of executing GET and POST methods are necessary for our app's core functionality and making whatever MongoDB queries that are necessary.
+
+- Features %Cuiting Huang
+
+cart, login, register, profile
+
+- Features %Shi Shuai
+
+search, review, checkout
 
 ## Update & Progress
 ### CuitingHuang
@@ -129,15 +146,57 @@ node backend/database/clear.js
 1. complete checkout feature, only login users can place a new order
 2. complete review feature, only login users can add a new review
 
+#### 22/4/10 fix details
+1. review content validation (handle the situation where rating or review input is empty)
+2. polish search result layout
+3. reset search box after each search
+4. reset database samples
+5. delete console.logs
+6. fix frontend warnings
 
+## Structure of website & current state of the application
+### 1. Homepage : Almost done. 
 
-## Structure of website
-1. Homepage
-2. Profile
-3. Search function
-4. Detailpage
-5. Orders and Comments
-6. Login and Register
+CURRENT : top sellers carousel, featured and recommended prodcuts list
+
+TODO : add conditional rendering for anonymous users and login users
+
+![homepage](/frontend/public/images/screenshot1.jpg)
+
+### 2. Log in/Register page : Done. 
+
+CURRENT : allow users to register and login, force login when adding new review or proceeding to checkout
+
+![loginpage](/frontend/public/images/screenshot2.jpg)
+
+### 3. Profile page : Almost done. 
+
+CURRENT : allow users to see and update personal information
+
+TODO : add sections to show user orders and reviews
+
+![profilepage](/frontend/public/images/screenshot3.jpg)
+
+### 4. Search/Search Results page : Done
+
+CURRENT : a summary of the search results and navigate to a detail page that shows a detailed view of the result
+
+![searchpage](/frontend/public/images/screenshot4.jpg)
+
+### 5. Details page: Done
+
+CURRENT : allows users to view a detailed information of
+each product, add to cart, add reviews
+
+![detailpage](/frontend/public/images/screenshot5.jpg)
+
+### 6. Orders : Almost Done
+
+CURRENT : allows users to place an order
+
+TODO : add PayPal API to implement payment feature
+
+![orderpage](/frontend/public/images/screenshot6.jpg)
 
 ## Environment Variable
 Create a file name .env then add:
@@ -145,6 +204,7 @@ Create a file name .env then add:
 2. MONGO_URI =
 3. PORT = 5000
 4. PAYPAL_CLIENT_ID =
+5. JWT_SECRET =
 
 ## Install dependencies
 1. npm install
