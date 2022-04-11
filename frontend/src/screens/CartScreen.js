@@ -66,7 +66,6 @@ const CartScreen = () => {
           <Link to='/'><Button
             style={{
               width: '350px',
-            
               margin: 'auto',
             }}
             className='bg-success'
@@ -103,20 +102,15 @@ const CartScreen = () => {
                     }}>
                     Each Price</Row>
                   <Row >
-                    <Col md={3}>
-                      <Image src={item.cover} alt={item.name} fluid rounded
-                        style={{
-                          width: '180px',
-
-                        }} />
+                    <Col md={3} xs={3}>
+                      <Image src={item.cover} alt={item.name} fluid rounded/>
                     </Col>
                     <Col xs={{ span: 4 }}>
                       <Row><small><Link to={`/details/${item.product}`}>{item.name}</Link></small></Row>
                     
                       <Row>
-                        
                         <Col xs={1} className='mt-2'><h6>Qty.</h6></Col>
-                        <Col xs={3}>
+                        <Col xs={5} md={5} lg={3} xl={3}>
                           <Form.Control
                             as='select'
                             value={item.qty}
@@ -137,7 +131,7 @@ const CartScreen = () => {
                         </Col>
                       </Row>
                     </Col>
-                    <Col md={{ span: 1, offset: 3 }}><small>
+                    <Col xs={2} md={{ span: 1, offset: 3 }}><small>
                       ${item.price}
                     </small></Col>
                     <Col>

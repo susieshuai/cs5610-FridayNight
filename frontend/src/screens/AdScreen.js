@@ -1,9 +1,11 @@
 import React from 'react'
 import Ad from '../components/Ad'
+import Subtitle from '../components/Subtitle'
 const AdScreen = () => {
   return (
     <>
-      <Ad />
+    <Subtitle text='Weekly Ads &amp; Catalogs'/>
+    <Ad/>
     </>
   )
 }
