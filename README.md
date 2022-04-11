@@ -4,6 +4,21 @@ FridayNight is an online store specialized in selling computer game virtual item
 
 This app is deployed on [Heroku](https://friday-night-test.herokuapp.com/)
 
+### Iteration 2
+**Division of labor**
+In the second week, we start on developing whatever CRUD module that will contain the main functionality of our application. We will have an API capable of executing GET and POST methods are necessary for our app's core functionality and making whatever MongoDB queries that are necessary.
+
+- Features %Cuiting Huang
+
+Cart, Login, Register, Profile
+
+- Features %Shi Shuai
+
+Search, Review, Checkout
+
+**test account** 
+test1@test.com 123456
+
 ### Iteration 1
 **Division of labor**
 In the first week, we will work on the initial setting up of our app.
@@ -16,18 +31,6 @@ The overall structure of our website should be in place.
 - Backend %Shi Shuai
 
 Routing, links, and the basis of CRUD operations should be established.
-
-### Iteration 2
-**Division of labor**
-In the second week, we start on developing whatever CRUD module that will contain the main functionality of our application. We will have an API capable of executing GET and POST methods are necessary for our app's core functionality and making whatever MongoDB queries that are necessary.
-
-- Features %Cuiting Huang
-
-cart, login, register, profile
-
-- Features %Shi Shuai
-
-search, review, checkout
 
 ## Update & Progress
 ### CuitingHuang
@@ -201,10 +204,10 @@ TODO : add PayPal API to implement payment feature
 ## Environment Variable
 Create a file name .env then add:
 1. NODE_ENV = development
-2. MONGO_URI =
+2. MONGO_URI = < use your own mongodb atlas database >
 3. PORT = 5000
 4. PAYPAL_CLIENT_ID =
-5. JWT_SECRET =
+5. JWT_SECRET = abc123
 
 ## Install dependencies
 1. npm install
@@ -217,3 +220,5 @@ frontend
 
 backend
 - npm run server
+
+
