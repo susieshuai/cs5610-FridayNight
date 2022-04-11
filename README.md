@@ -153,7 +153,7 @@ node backend/database/clear.js
 6. fix frontend warnings
 
 ## Structure of website & current state of the application
-1. Homepage : Almost done. 
+### 1. Homepage : Almost done. 
 
 CURRENT : top sellers carousel, featured and recommended prodcuts list
 
@@ -161,13 +161,13 @@ TODO : add conditional rendering for anonymous users and login users
 
 ![homepage](/frontend/public/images/screenshot1.jpg)
 
-2. Log in/Register page : Done. 
+### 2. Log in/Register page : Done. 
 
 CURRENT : allow users to register and login, force login when adding new review or proceeding to checkout
 
 ![loginpage](/frontend/public/images/screenshot2.jpg)
 
-3. Profile page : Almost done. 
+### 3. Profile page : Almost done. 
 
 CURRENT : allow users to see and update personal information
 
@@ -175,20 +175,20 @@ TODO : add sections to show user orders and reviews
 
 ![profilepage](/frontend/public/images/screenshot3.jpg)
 
-4. Search/Search Results page : Done
+### 4. Search/Search Results page : Done
 
 CURRENT : a summary of the search results and navigate to a detail page that shows a detailed view of the result
 
 ![searchpage](/frontend/public/images/screenshot4.jpg)
 
-5. Details page: Done
+### 5. Details page: Done
 
 CURRENT : allows users to view a detailed information of
 each product, add to cart, add reviews
 
 ![detailpage](/frontend/public/images/screenshot5.jpg)
 
-6. Orders : Almost Done
+### 6. Orders : Almost Done
 
 CURRENT : allows users to place an order
 
