@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col} from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
 import Product from '../components/Product'
 import Subtitle from '../components/Subtitle'
@@ -37,7 +37,7 @@ const HomeScreen = () => {
                 <Card>find the lastest reviews 4 or 5, replace it in each col</Card>
               </Col>
             </Row> */}
-            <Row className='mt-4 '  >
+            <Row>
               <Col>
                 <Subtitle text='Featured &amp; Recommended' />
               </Col>

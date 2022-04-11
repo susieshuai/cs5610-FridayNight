@@ -121,7 +121,8 @@ export const addReview = (productId, review) => async (dispatch, getState) => {
       review,
       config
     )
-    dispatch({ type: PRODUCT_ADD_REVIEW_SUCCESS })
+   
+    dispatch({ type: PRODUCT_ADD_REVIEW_SUCCESS,payload: data })
   } catch (error) {
     dispatch({
       type: PRODUCT_ADD_REVIEW_FAIL,

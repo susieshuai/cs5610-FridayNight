@@ -18,7 +18,7 @@ import {
 
 } from './reducers/userReducers'
 
-import { createOrderReducer, orderCreateReducer } from './reducers/orderReducers'
+import { orderCreateReducer } from './reducers/orderReducers'
 
 const reducer = combineReducers({
 

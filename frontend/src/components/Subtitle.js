@@ -10,7 +10,6 @@ const Subtitle = ({ text }) => {
       
         <Nav.Link>
           <i className="fa-brands fa-battle-net">&nbsp;</i>
-
          {text}
         </Nav.Link>
      
