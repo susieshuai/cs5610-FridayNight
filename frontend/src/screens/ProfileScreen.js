@@ -16,7 +16,7 @@ const ProfileScreen = () => {
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
-  const [message, setMessage] = useState(null)
+  const [message] = useState(null)
 
 
   const dispatch = useDispatch()

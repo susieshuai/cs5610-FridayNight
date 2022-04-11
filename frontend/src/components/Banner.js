@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Carousel, Image } from 'react-bootstrap'
+import { Carousel, Image, Col } from 'react-bootstrap'
 import Loader from './Loader'
 import Message from './Message'
 import { listTopProducts } from '../actions/productActions'
 
+
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Banner = () => {
 
 
@@ -21,23 +23,23 @@ const Banner = () => {
   return (
     <>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+        <Col sm={12} md={10} lg={8} xl={6}>
+          <Carousel pause='hover'>
+            {products.map((product) => (
+              <Carousel.Item key={product._id}>
+                <Link to={`/details/${product._id}`}>
+                  <Image src={product.cover} alt={product.name} />
+                </Link>
+                
+                  <Carousel.Caption className='carousel-caption'>
+                  <div dangerouslySetInnerHTML={{ __html: `${product.description.substring(0, 60)+'...'}` }} ></div>
+                    
+                  </Carousel.Caption>
+              </Carousel.Item>
+            ))}
 
-        <Carousel pause='hover' >
-
-          {products.map((product) => (
-            <Carousel.Item key={product._id}>
-              <Link to={`/details/${product._id}`}>
-                <Image src={product.cover} alt={product.name} />
-
-                <Carousel.Caption className='carousel-caption'>
-                  <h2>{product.name}</h2>
-                  <div dangerouslySetInnerHTML={{ __html: `${product.description}` }} ></div>
-                </Carousel.Caption>
-              </Link>
-            </Carousel.Item>
-          ))}
-
-        </Carousel>
+          </Carousel>
+        </Col>
       )
       }
     </>
