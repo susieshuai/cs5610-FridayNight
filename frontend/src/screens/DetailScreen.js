@@ -27,7 +27,6 @@ import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
 import Meta from "../components/Meta";
 import { PRODUCT_DETAILS_RESET } from "../constants/productConstants";
-
 // import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
@@ -51,8 +50,9 @@ const DetailScreen = () => {
   const addCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`)
   }
+
   return (
-    <>
+    <div>
 
       <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
@@ -94,17 +94,17 @@ const DetailScreen = () => {
                       <p style={{ fontSize: '2px' }}>Not avaliable</p>
                     </Button>
                     <Button className='btn-block bg-secondary'>
-                    <i class="fa-solid fa-truck-fast"></i>
+                      <i class="fa-solid fa-truck-fast"></i>
                       <p style={{ fontSize: '2px' }}>Shipping</p>
                       <p style={{ fontSize: '2px' }}>Not avaliable</p>
                     </Button>
                     <Button className='btn-block bg-warning'>
-                    <i class="fa-solid fa-blog"></i>
+                      <i class="fa-solid fa-blog"></i>
                       <p style={{ fontSize: '2px' }}>Virtual Delivery</p>
                       <p style={{ fontSize: '2px' }}>Fet Redeem Code to Phone</p>
                     </Button>
                   </ButtonGroup>
-                
+
                   <small >
                     <Col className="mt-4">RELEASE DATE：{product.releasedate}</Col>
                     <Col>DEVELOPER:：{product.developer}</Col>
@@ -169,7 +169,7 @@ const DetailScreen = () => {
           </>
         )
       }
-    </>
+    </div>
   )
 }
 
