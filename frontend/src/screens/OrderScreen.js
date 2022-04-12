@@ -2,20 +2,15 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import {
-  Breadcrumb,
-  Row,
-  Col,
-  Image,
-  Table
-} from 'react-bootstrap'
+import { Breadcrumb, Row, Col, Image, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
+import moment from 'moment'
+import axios from 'axios'
 
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getOrderDetails } from '../actions/orderAction';
-import moment from 'moment'
 
 const OrderScreen = () => {
 
@@ -38,6 +33,12 @@ const OrderScreen = () => {
   }
 
   useEffect(() => {
+    // dynamically create PayPal script
+    const addPayPalScript = async () => {
+      const { data: clientID } = await axios.get('/config/paypal')
+      console.log(clientID);
+    }
+    addPayPalScript()
 
     if (!userInfo) {
       navigate('/login')
@@ -59,93 +60,87 @@ const OrderScreen = () => {
         (
           <>
             <h2>Order Details </h2>
-            <small>
-              <div style={{ color: '	#B0C4DE' }}>
-                <Col>Ordered on {moment(`${order.createdAt}`).format('MMMM Do YYYY')}</Col>
-                <Col>Order#:{order._id}</Col>
-              </div>
-              <Row>
-                <Col md={8}>
-                  Redeem Code will be accepted by:
-                  <a href={`mailto:${order.user.email}`}>&nbsp;{order.user.email}</a>
-                </Col>
+            <Row>
+              <Col md={8}>
+                <div style={{ color: '	#B0C4DE' }}>
+                  <Col>Ordered on {moment(`${order.createdAt}`).format('MMMM Do YYYY')}</Col>
+                  <Col>Order#:{order._id}</Col>
+                </div>
+                Redeem Code will be accepted by:
+                <a href={`mailto:${order.user.email}`}>&nbsp;{order.user.email}</a>
+                {order.isPaid ? (
+                  <Message variant='success'>Payment Time：{order.paidAt}</Message>
+                ) : (
+                  <Message variant='danger'>Your order is unpaid. Pay now and get your Redeem Code!</Message>
+                )}
+              </Col>
+              <Col md={4}>
+                PayPal
+              </Col>
+            </Row>
+            <Row className='mt-3'>
+              <Table variant='flush' hover responsive >
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Title</th>
+                    <th>Qty.</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                {order.orderItems.map((item, index) => (
 
-                <Row className='mt-3' md={3}>
-                  {order.isPaid ? (
-                    <Message variant='success'>Payment Time：{order.paidAt}</Message>
-                  ) : (
-                    <Message variant='danger'>The order is unpaid</Message>
-                  )}
-                </Row>
-
-                <Table variant='flush' hover responsive >
-                  <thead>
+                  <tbody key={index}>
                     <tr>
-                      <th>Item</th>
-                      <th>Title</th>
-                      <th>Qty.</th>
-                      <th>Price</th>
-                      <th>Total</th>
+                      <td style={{ width: '200px' }}>
+                        <Image src={item.cover} alt={item.name} fluid rounded />
+                      </td>
+                      <td>
+                        <Link to={`/details/${item.product}`}>{item.name}</Link>
+                      </td>
+                      <td> {item.qty}</td>
+                      <td>{item.price}</td>
+                      <td>{item.qty * item.price}</td>
                     </tr>
-                  </thead>
-                  {order.orderItems.map((item, index) => (
-
-                    <tbody key={index}>
-                      <tr>
-                        <td style={{ width: '200px' }}>
-                          <Image src={item.cover} alt={item.name} fluid rounded />
-                        </td>
-                        <td>
-                          <Link to={`/details/${item.product}`}>{item.name}</Link>
-                        </td>
-                        <td> {item.qty}</td>
-                        <td>{item.price}</td>
-                        <td>{item.qty * item.price}</td>
-                      </tr>
-                    </tbody>
-                  ))}
-                  <tfoot>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>Items Price</td>
-                      <td>${order.itemsPrice}</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>Estimated tax rate</td>
-                      <td>12%</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>Virtual Delivery</td>
-                      <td> Free</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>Total Price</td>
-                      <td>${order.totalPrice}</td>
-                    </tr>
-
-                  </tfoot>
-                </Table>
-              </Row>
-            </small>
+                  </tbody>
+                ))}
+                <tfoot>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Items Price</td>
+                    <td>${order.itemsPrice}</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Estimated tax rate</td>
+                    <td>12%</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Virtual Delivery</td>
+                    <td> Free</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total Price</td>
+                    <td>${order.totalPrice}</td>
+                  </tr>
+                </tfoot>
+              </Table>
+            </Row>
           </>
         )
       }
     </>
-
   )
-
-
-
 }
 export default OrderScreen
