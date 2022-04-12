@@ -7,7 +7,7 @@ import { getUserDetails, updateUserDetails } from "../../actions/userActions";
 import { useNavigate } from 'react-router-dom';
 
 
-const MySettingScreen = ({ userInfo, user }) => {
+const MySettingScreen = () => {
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -17,6 +17,12 @@ const MySettingScreen = ({ userInfo, user }) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const userDetails = useSelector((state) => state.userDetails)
+  const { user } = userDetails
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
