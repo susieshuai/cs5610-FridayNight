@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import Message from '../../components/Message'
 import { getUserDetails, updateUserDetails } from "../../actions/userActions";
-
-import { useNavigate } from 'react-router-dom';
-
 
 const MySettingScreen = () => {
 

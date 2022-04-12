@@ -108,7 +108,6 @@ const Header = () => {
                     Sign in
                   </Nav.Link>
                 </LinkContainer>)}
-
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart fa-sm'></i>
@@ -119,7 +118,6 @@ const Header = () => {
         </Container>
       </Navbar>
     </header >
-
   )
 }
 

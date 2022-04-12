@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { Table, Button, Row, Col } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import {
   listProducts,
-  // deleteProduct,
 } from '../actions/productActions'
 
 
@@ -21,10 +20,8 @@ const ProductListScreen = () => {
     dispatch(listProducts())
   }, [dispatch])
 
-  
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure')) {
-    
       // dispatch(deleteProduct(id))
     }
   }
@@ -90,7 +87,6 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
-
         </>
       )}
     </>

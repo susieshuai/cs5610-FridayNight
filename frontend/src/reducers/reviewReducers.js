@@ -2,12 +2,11 @@ import {
   REVIEW_ALL_FAIL,
   REVIEW_ALL_REQUEST,
   REVIEW_ALL_SUCCESS,
+  
   REVIEW_MY_FAIL,
   REVIEW_MY_REQUEST,
   REVIEW_MY_SUCCESS
 } from "../constants/reviewConstants"
-
-
 
 export const reviewListReducer = (state = { reviews: [] }, action) => {
   switch (action.type) {

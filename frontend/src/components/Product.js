@@ -22,7 +22,6 @@ const Product = ({ product }) => {
         </Card.Body>
       </Card>
     </>
-
   )
 }
 

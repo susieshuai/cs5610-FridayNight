@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Button, Image } from 'react-bootstrap'
-
 import Product from '../components/Product'
 import Subtitle from '../components/Subtitle'
 import Loader from '../components/Loader'
@@ -11,13 +10,14 @@ import { listSearchProducts } from '../actions/productActions'
 
 const SearchScreen = () => {
 
+  const dispatch = useDispatch()
   const { searchCriteria } = useParams()
   // console.log('search for', searchCriteria);
 
-  const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList)
-  // console.log(productList)
   const { loading, error, products } = productList
+  // console.log(productList)
+
   useEffect(() => {
     dispatch(listSearchProducts(searchCriteria))
   }, [dispatch, searchCriteria])

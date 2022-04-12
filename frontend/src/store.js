@@ -33,23 +33,21 @@ import {
 
 
 const reducer = combineReducers({
-
   productList: productListReducer,
   productDetails: productDeatilsReducer,
   productAddReview: productAddReviewReducer,
-  cart: cartReducer,
+  productTopRated: productTopRatedReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
+  cart: cartReducer,
   orderCreate: orderCreateReducer,
-  productTopRated: productTopRatedReducer,
   orderDetails: orderDetailsReducer,
   orderListMy: orderListMyReducer,
-
+  orderPay: orderPayReducer,
   reviewList: reviewListReducer,
   myReviewList: myReviewListReducer,
-  orderPay: orderPayReducer,
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')

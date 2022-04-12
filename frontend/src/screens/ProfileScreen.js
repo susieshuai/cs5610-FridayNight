@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { Row, Col, ListGroup, ListGroupItem, Nav, Tab} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
+import { Row, Col, ListGroup, ListGroupItem, Nav, Tab} from 'react-bootstrap'
+import Meta from '../components/Meta'
+import Subtitle from '../components/Subtitle'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { getUserDetails } from "../actions/userActions";
-
-import { useNavigate } from 'react-router-dom';
-import Subtitle from '../components/Subtitle'
 import MyReviewScreen from './_profile_screen/MyReviewScreen'
 import MySettingScreen from './_profile_screen/MySettingScreen'
 import MyOrderScreen from './_profile_screen/MyOrderScreen'
-import Meta from '../components/Meta'
+import { getUserDetails } from "../actions/userActions";
 
 const ProfileScreen = () => {
 
@@ -18,15 +17,15 @@ const ProfileScreen = () => {
   const [email, setEmail] = useState('')
   const [message] = useState(null)
 
-
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const userDetails = useSelector((state) => state.userDetails)
   const { loading, error, user } = userDetails
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
-  const navigate = useNavigate()
   useEffect(() => {
     if (!userInfo) {
       navigate('/login')
@@ -58,7 +57,6 @@ const ProfileScreen = () => {
               <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;{email}
             </ListGroupItem>
           </ListGroup>
-
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
               <Nav.Link eventKey="orders"><i className="fa-solid fa-box-open">&nbsp;</i>Orders</Nav.Link>

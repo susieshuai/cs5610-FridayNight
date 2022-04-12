@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
-import { useParams } from 'react-router-dom'
+import { Link, useParams,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
-import { addToCart, removeFromCart } from "../actions/cartActions";
 import { createBrowserHistory } from "history";
 import {
   Row,
@@ -15,20 +12,19 @@ import {
   Card,
   Table
 } from 'react-bootstrap'
-
 import Message from '../components/Message'
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 
 const CartScreen = () => {
-  const history = createBrowserHistory();
 
   const { id } = useParams()
-  const qty = history.location.search ? Number(history.location.search.split('=')[1]) : 1
-  // console.log(history.location);
-  // console.log(qty);
+  const history = createBrowserHistory();
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const qty = history.location.search ? Number(history.location.search.split('=')[1]) : 1
   const cart = useSelector((state) => state.cart)
-  //  console.log(cart);
   const { cartItems } = cart
 
   const userLogin = useSelector((state) => state.userLogin)
@@ -44,7 +40,6 @@ const CartScreen = () => {
     dispatch(removeFromCart(id))
   }
 
-  const navigate = useNavigate()
   const checkoutHandler = () => {
     if (userInfo) {
       navigate('/checkout')
@@ -78,7 +73,6 @@ const CartScreen = () => {
               display: 'block',
               margin: 'auto',
             }}
-
             fluid rounded />
         </Message>
       ) : (
@@ -127,7 +121,6 @@ const CartScreen = () => {
                               </option>
                             ))}
                           </Form.Control>
-
                         </Col>
                       </Row>
                     </Col>
@@ -146,8 +139,6 @@ const CartScreen = () => {
                     </Col>
                   </Row>
                   <br/>
-
-
                 </ListGroup.Item>
               ))}
             </ListGroup>
@@ -159,8 +150,6 @@ const CartScreen = () => {
               <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <Table striped  hover>
-                   
-                    
                     <tbody>
                       <tr style={{ color: 'red', fontSize: '15px' }}>
                         <td>Subtotal

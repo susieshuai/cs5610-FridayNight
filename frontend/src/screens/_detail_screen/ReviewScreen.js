@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, ListGroup, Form, Button, Col } from 'react-bootstrap'
-import { listProductDetails, addReview } from '../../actions/productActions'
 import { ScrollTo } from "react-scroll-to";
+import { Row, ListGroup, Form, Button, Col } from 'react-bootstrap'
 import Rating from '../../components/Rating'
 import Message from '../../components/Message'
+import { listProductDetails, addReview } from '../../actions/productActions'
 
 const ReviewScreen = ({ reviews }) => {
     const { id: productId } = useParams()

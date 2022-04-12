@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'
-import { Breadcrumb, Row, Col, Image, Table } from 'react-bootstrap'
+import {Link, useParams,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { PayPalButton } from 'react-paypal-button-v2'
-
 import moment from 'moment'
 import axios from 'axios'
-
+import { Breadcrumb, Row, Col, Image, Table } from 'react-bootstrap'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getOrderDetails, payMyOrder } from '../actions/orderAction';
@@ -16,16 +12,14 @@ import { ORDER_PAY_RESET } from '../constants/orderConstants'
 
 const OrderScreen = () => {
 
-  const { id } = useParams()
-
   const [SDK, setSDK] = useState(false)
 
+  const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-  // console.log('userinfo:', userInfo);
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
@@ -57,7 +51,6 @@ const OrderScreen = () => {
       }
       document.body.appendChild(script)
     }
-
     if (!userInfo) {
       navigate('/login')
     }

@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom'
+import { Link,useParams,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { listProductDetails } from '../actions/productActions'
-
-import { useNavigate } from 'react-router-dom';
-
 import {
   Row,
   Col,
@@ -17,34 +12,31 @@ import {
   Tab,
   ListGroup
 } from 'react-bootstrap'
-
+import Meta from "../components/Meta";
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-
 import DescriptionScreen from "./_detail_screen/DescriptionScreen"
 import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
-import Meta from "../components/Meta";
+import { listProductDetails } from '../actions/productActions'
 import { PRODUCT_DETAILS_RESET } from "../constants/productConstants";
 
 const DetailScreen = () => {
-
-
+  
   const { id } = useParams()
   const dispatch = useDispatch()
-  const productDetails = useSelector((state) => state.productDetails)
-  const { loading, error, product } = productDetails
-
+  const navigate = useNavigate()
   const [qty, setQty] = useState(1)
 
+  const productDetails = useSelector((state) => state.productDetails)
+  const { loading, error, product } = productDetails
+  
   useEffect(() => {
     dispatch({ type: PRODUCT_DETAILS_RESET })
     dispatch(listProductDetails(id))
-
   }, [id, dispatch])
 
-  const navigate = useNavigate()
   const addCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`)
   }
@@ -96,7 +88,8 @@ const DetailScreen = () => {
                   <small >
                     <Col className="mt-5">RELEASE DATE：{product.releasedate}</Col>
                     <Col>DEVELOPER:：{product.developer}</Col>
-                    <Col>PUBLISHER：{product.publisher}</Col></small>
+                    <Col>PUBLISHER：{product.publisher}</Col>
+                  </small>
 
                   <Row className="mt-4">
                     <Col xs={1}>Qty.</Col>
@@ -115,7 +108,6 @@ const DetailScreen = () => {
                       </Form.Control>
                     </Col>
                     <Col xs={{ span: 6 }}>
-
                       <Button
                         onClick={addCartHandler}
                         className='btn-block bg-success'
@@ -126,9 +118,7 @@ const DetailScreen = () => {
                       >
                         Add to Cart
                       </Button>
-
                     </Col>
-
                   </Row>
                 </small>
               </Col>
@@ -149,8 +139,6 @@ const DetailScreen = () => {
                 <ReviewScreen reviews={product.reviews} />
               </Tab>
             </Tabs>
-
-
           </>
         )
       }

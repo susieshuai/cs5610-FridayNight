@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Link,useNavigate  } from 'react-router-dom'
+import { createBrowserHistory } from "history";
 import { useDispatch, useSelector } from 'react-redux'
-import FormContainer from '../components/FormContainer'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import FormContainer from '../components/FormContainer'
 import { register } from "../actions/userActions";
-
-import { useNavigate } from 'react-router-dom';
-import { createBrowserHistory } from "history";
 
 const RegisterScreen = () => {
 
@@ -18,20 +16,19 @@ const RegisterScreen = () => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState(null)
 
-
   const dispatch = useDispatch()
-  const userRegister = useSelector((state) => state.userRegister)
-  const { loading, error, userInfo } = userRegister
+  const navigate = useNavigate()
   const history = createBrowserHistory();
   const redirect = history.location.search ? history.location.search.split('=')[1] : '/'
 
-  const navigate = useNavigate()
+  const userRegister = useSelector((state) => state.userRegister)
+  const { loading, error, userInfo } = userRegister
+ 
   useEffect(() => {
     if (userInfo) {
       navigate(redirect)
     }
   }, [navigate, userInfo, redirect])
-
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -40,9 +37,7 @@ const RegisterScreen = () => {
     } else {
       dispatch(register(username, email, password))
     }
-
   }
-
 
   return (
     <FormContainer>
