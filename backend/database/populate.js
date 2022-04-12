@@ -4,6 +4,7 @@ const userModel = require('../models/userModel')
 const orderModel = require('../models/orderModel')
 const products = require('../data/products')
 const users = require('../data/users')
+const reviewModel = require('../models/reviewModel')
 
 require('dotenv').config()
 
@@ -14,6 +15,7 @@ const populateDB = async () => {
         await productModel.deleteMany()
         await userModel.deleteMany()
         await orderModel.deleteMany()
+        await reviewModel.deleteMany()
 
         // insert sample data
         // insert sample users

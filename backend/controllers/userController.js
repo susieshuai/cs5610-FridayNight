@@ -1,6 +1,7 @@
 const userModel = require('../models/userModel')
 const generateToken = require('../utils/generateToken')
 const asyncHandler = require('express-async-handler')
+const reviewModel = require('../models/reviewModel')
 
 // const { check, validationResult } = require('express-validator');
 //@desc User Register
@@ -84,27 +85,44 @@ exports.getUserProfile = asyncHandler(async (req, res) => {
 //@router PUT/users/profile
 //@access private
 exports.updateUserProfile = asyncHandler(async (req, res) => {
-    const user = await userModel.findById(req.user._id)
+  const user = await userModel.findById(req.user._id)
 
-    if (user) {
-      user.username = req.body.username || user.username
-      user.email = req.body.email || user.email
-      if (req.body.password) {
-        user.password = req.body.password
-      }
-      const updateUser = await user.save()
-      res.json({
-        _id: updateUser._id,
-        name: updateUser.username,
-        email: updateUser.email,
-        isAdmin: updateUser.isAdmin,
-        token: generateToken(updateUser._id),
-      })
-    } else {
-      // console.log('User does not exist');
-      res.status(404)
-      throw new Error('User does not Exist')
+  if (user) {
+    user.username = req.body.username || user.username
+    user.email = req.body.email || user.email
+    if (req.body.password) {
+      user.password = req.body.password
     }
-  
+    const updateUser = await user.save()
+    res.json({
+      _id: updateUser._id,
+      name: updateUser.username,
+      email: updateUser.email,
+      isAdmin: updateUser.isAdmin,
+      token: generateToken(updateUser._id),
+    })
+  } else {
+    // console.log('User does not exist');
+    res.status(404)
+    throw new Error('User does not Exist')
+  }
+
+})
+
+//get the lastest reviews.
+exports.getAllReviews = asyncHandler(async (req, res) => {
+  const reviews = await reviewModel.find().sort({ createdAt: -1 }).limit(3).populate(
+    'user',
+    'username email'
+  ).populate(
+    'product',
+    'name'
+  )
+  res.json(reviews)
+})
+
+exports.getUserReviews = asyncHandler(async (req, res) => {
+  const reviews = await reviewModel.find({user: req.user._id})
+  res.json(reviews)
 })
 
