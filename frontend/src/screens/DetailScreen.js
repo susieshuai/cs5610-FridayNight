@@ -52,7 +52,7 @@ const DetailScreen = () => {
   }
 
   return (
-    <div>
+    <>
 
       <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
@@ -94,7 +94,7 @@ const DetailScreen = () => {
                     </ListGroup.Item>
                     <ListGroup.Item variant="info">
                     <i class="fa-solid fa-blog">&nbsp;&nbsp;</i>
-                    Fet Redeem Code to Phone
+                    Get Redeem Code to Email
                     </ListGroup.Item>
                   </ListGroup>
       
@@ -162,7 +162,7 @@ const DetailScreen = () => {
           </>
         )
       }
-    </div >
+    </ >
   )
 }
 

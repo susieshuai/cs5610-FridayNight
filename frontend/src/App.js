@@ -19,6 +19,7 @@ import AdScreen from "./screens/AdScreen";
 import Footer from "./components/Footer";
 import AdminScreen from "./screens/AdminScreen";
 import ScrollToTop from "./components/ScrollToTop";
+import OrderScreen from "./screens/OrderScreen";
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
               <Route path='/login' element={<LoginScreen />} exact />
               <Route path='/register' element={<RegisterScreen />} exact />
               <Route path='/profile' element={<ProfileScreen />} exact />
+              <Route path='/order/:id' element={<OrderScreen />} exact />
             </Routes>
           </Container>
         </main>
