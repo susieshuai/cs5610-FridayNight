@@ -32,3 +32,8 @@ exports.getOrderById = asyncHandler(async (req, res) => {
       throw new Error('Can not find the order')
     }
   })
+
+  const getMyOrders = asyncHandler(async (req, res) => {
+    const orders = await orderModel.find({ user: req.user._id })
+    res.json(orders)
+  })

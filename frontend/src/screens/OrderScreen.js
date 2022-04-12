@@ -27,7 +27,7 @@ const OrderScreen = () => {
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
-  
+
   if (!loading) {
     const addDecimals = (num) => {
       return (Math.round(num * 100) / 100).toFixed(2)
@@ -74,7 +74,7 @@ const OrderScreen = () => {
                   {order.isPaid ? (
                     <Message variant='success'>Payment Time：{order.paidAt}</Message>
                   ) : (
-                    <Message variant='warning'>To be paid</Message>
+                    <Message variant='danger'>The order is unpaid</Message>
                   )}
                 </Row>
 
