@@ -7,16 +7,10 @@ import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { getUserDetails } from '../../actions/userActions';
 import { Link } from 'react-router-dom'
-const MyorderScreen = () => {
+const MyorderScreen = ({userInfo,user}) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-  const userDetails = useSelector((state) => state.userDetails)
-  const { user } = userDetails
-
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
 
   const orderListMy = useSelector((state) => state.orderListMy)
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
