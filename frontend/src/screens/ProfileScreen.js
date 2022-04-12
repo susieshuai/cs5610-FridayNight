@@ -57,9 +57,6 @@ const ProfileScreen = () => {
             <ListGroupItem>
               <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;{email}
             </ListGroupItem>
-            {/* <ListGroupItem>
-              <i className="fa-solid fa-envelope">&nbsp;</i>Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Van
-            </ListGroupItem> */}
           </ListGroup>
 
           <Nav variant="pills" className="flex-column">
@@ -78,7 +75,7 @@ const ProfileScreen = () => {
           <Tab.Content>
             <Tab.Pane eventKey="orders">
               <h3><Subtitle text='Orders History ' /></h3>
-              <MyOrderScreen userInfo ={userInfo } user={user}/>
+              <MyOrderScreen/>
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
               <h3><Subtitle text='My Reviews ' /></h3>

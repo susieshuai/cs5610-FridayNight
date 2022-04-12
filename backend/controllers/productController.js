@@ -1,4 +1,5 @@
-const productModel = require('../models/productModel')
+const productModel = require('../models/productModel');
+const reviewModel = require('../models/reviewModel');
 // const asyncHandler = require('express-async-handler')
 // READ all products
 exports.getAllProducts = async (req, res) => {
@@ -152,6 +153,17 @@ exports.createReview = async (req, res) => {
             console.log('no item found with this id');
         } else {
             // create review
+            const data = new reviewModel(
+                {
+                    user: req.user._id,
+                    product:id,
+                    rating: parseInt(rating),
+                    review,
+                    
+                }
+            )
+            const newData= await data.save()
+         
             const newReview = {
                 user: req.user._id,
                 username: req.user.username,
@@ -167,12 +179,11 @@ exports.createReview = async (req, res) => {
             product.rating = totalRating / product.reviews.length
             const updatedProduct = await product.save()
             res.json(updatedProduct)
+
+
         }
 
     } catch (error) {
         console.log(error);
     }
 }
-
-
-
