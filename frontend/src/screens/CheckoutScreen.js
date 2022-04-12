@@ -103,7 +103,7 @@ const CheckoutScreen = () => {
                         <ListGroup.Item>
                             <Button
                                 type='button'
-                                className='btn-block'
+                                className='btn-block bg-success'
                                 disabled={cart.cartItems.length === 0}
                                 style={{
                                     width: '350px',
