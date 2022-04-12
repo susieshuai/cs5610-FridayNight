@@ -168,16 +168,11 @@ exports.createReview = async (req, res) => {
             const updatedProduct = await product.save()
             res.json(updatedProduct)
         }
+
     } catch (error) {
         console.log(error);
     }
 }
 
-exports.getUserReviews = async (req, res) => {
-    try {
-        const reviews = await productModel.find({ user: req.user._id })
-        res.json(reviews)
-    } catch (error) {
-    console.log(error);
-}
-}
+
+
