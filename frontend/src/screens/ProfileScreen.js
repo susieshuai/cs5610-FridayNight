@@ -32,7 +32,9 @@ const ProfileScreen = () => {
       navigate('/login')
     } else {
       if (!user.name) {
+
         dispatch(getUserDetails('profile'))
+
       } else {
         setUsername(user.name)
         setEmail(user.email)
@@ -55,9 +57,10 @@ const ProfileScreen = () => {
           {loading && <Loader />}
           <ListGroup>
             <ListGroupItem>
-              <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;{email}
+              <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}
             </ListGroupItem>
           </ListGroup>
+
           <Nav variant="pills" className="flex-column">
             <Nav.Item>
               <Nav.Link eventKey="orders"><i className="fa-solid fa-box-open">&nbsp;</i>Orders</Nav.Link>
@@ -74,15 +77,15 @@ const ProfileScreen = () => {
           <Tab.Content>
             <Tab.Pane eventKey="orders">
               <h3><Subtitle text='Orders History ' /></h3>
-              <MyOrderScreen userInfo ={userInfo } user={user}/>
+              <MyOrderScreen user={user} userInfo={userInfo}/>
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
               <h3><Subtitle text='My Reviews ' /></h3>
-              <MyReviewScreen userInfo ={userInfo }/>
+              <MyReviewScreen user={user} userInfo={userInfo}/>
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
               <h3> <Subtitle text='My Settings ' /></h3>
-              <MySettingScreen userInfo ={userInfo } user={user}/>
+              <MySettingScreen user={user} userInfo={userInfo}/>
             </Tab.Pane>
           </Tab.Content>
         </Col>

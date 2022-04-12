@@ -27,7 +27,7 @@ export const listReviews = () => async (
   }
 }
 
-export const myReviews = () => async (
+export const myReviewsList = () => async (
   dispatch
 ) => {
   try {

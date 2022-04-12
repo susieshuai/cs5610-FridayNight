@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { getUserDetails, updateUserDetails } from "../../actions/userActions";
 
 import { useNavigate } from 'react-router-dom';
 
 
-const MySettingScreen = ({ userInfo, user }) => {
+const MySettingScreen = ({user, userInfo}) => {
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -17,20 +18,17 @@ const MySettingScreen = ({ userInfo, user }) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-
+  
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
 
-
+  
   useEffect(() => {
     if (!userInfo) {
       navigate('/login')
     } else {
       if (!user.name) {
-        // dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
-
       } else {
         setUsername(user.name)
         setEmail(user.email)
@@ -40,7 +38,7 @@ const MySettingScreen = ({ userInfo, user }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    if (password && password !== confirmPassword) {
+    if (password &&password !== confirmPassword) {
       setMessage('The passwords entered twice are Inconsistent')
     } else {
       dispatch(updateUserDetails({ id: user._id, username, email, password }))
@@ -48,7 +46,7 @@ const MySettingScreen = ({ userInfo, user }) => {
 
     window.setTimeout(function () {
       window.location.reload(false);
-    }, 3000)
+    }, 2000)
   }
 
   const refreshPage = () => {
