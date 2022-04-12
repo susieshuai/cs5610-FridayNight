@@ -25,7 +25,7 @@ const OrderScreen = () => {
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-  console.log('userinfo:', userInfo);
+  // console.log('userinfo:', userInfo);
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
@@ -61,7 +61,7 @@ const OrderScreen = () => {
     if (!userInfo) {
       navigate('/login')
     }
-    if (!order || order._id !== id) {
+    if (!order || order._id !== id || successPay) {
       dispatch({ type: ORDER_PAY_RESET })
       dispatch(getOrderDetails(id))
     } else if (!order.isPaid) {
@@ -73,12 +73,12 @@ const OrderScreen = () => {
       }
     }
 
-  }, [dispatch, navigate, userInfo, order, id])
+  }, [dispatch, navigate, userInfo, order, id, successPay])
 
   const successPayHandler = () => {
     // console.log(paymentInfo);
     dispatch(payMyOrder(id))
-    console.log('order after dispatch', order);
+    // console.log('order after dispatch', order);
   }
 
   return (
@@ -110,6 +110,7 @@ const OrderScreen = () => {
               <Col md={4}>
                 {order.isPaid ? (<></>) : (
                   <>
+                    {loadingPay && <Loader />}
                     {SDK ? (
                       <PayPalButton
                         amount={order.totalPrice}

@@ -121,7 +121,7 @@ export const payMyOrder = (orderId) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`/orders/${orderId}/pay`, config)
+    const { data } = await axios.put(`/orders/${orderId}/pay`, {}, config)
     dispatch({ type: ORDER_PAY_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
