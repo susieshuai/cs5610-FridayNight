@@ -84,15 +84,15 @@ const DetailScreen = () => {
                   <br />
                   <ListGroup >
                     <ListGroup.Item variant="warning">
-                    <i class="fa-solid fa-truck-fast">&nbsp;&nbsp;</i>
-                    Virtual Delivery: Free
+                      <i className="fa-solid fa-truck-fast">&nbsp;&nbsp;</i>
+                      Virtual Delivery: Free
                     </ListGroup.Item>
                     <ListGroup.Item variant="info">
-                    <i class="fa-solid fa-blog">&nbsp;&nbsp;</i>
-                    Get Redeem Code to Email
+                      <i className="fa-solid fa-blog">&nbsp;&nbsp;</i>
+                      Get Redeem Code to Email
                     </ListGroup.Item>
                   </ListGroup>
-      
+
                   <small >
                     <Col className="mt-5">RELEASE DATE：{product.releasedate}</Col>
                     <Col>DEVELOPER:：{product.developer}</Col>
