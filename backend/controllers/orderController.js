@@ -34,6 +34,22 @@ exports.getOrderById = asyncHandler(async (req, res) => {
 })
 
 exports.getMyOrders = asyncHandler(async (req, res) => {
-  const orders = await orderModel.find({user: req.user._id})
+  const orders = await orderModel.find({ user: req.user._id })
   res.json(orders)
+})
+
+// UPDATE order
+// update isPaid and paidAt when successfully paid
+exports.updatePaymentResult = asyncHandler(async (req, res) => {
+  const order = await orderModel.findById(req.params.id)
+  if (order) {
+    order.isPaid = true
+    order.paidAt = Date.now()
+    const paidOrder = await order.save()
+    res.json(paidOrder)
+  }
+  else {
+    res.status(404)
+    throw new Error('cannot find the order')
+  }
 })
