@@ -14,7 +14,6 @@ const MyorderScreen = ({userInfo,user}) => {
 
   const orderListMy = useSelector((state) => state.orderListMy)
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
-  console.log(orders)
 
   useEffect(() => {
     if (!userInfo) {
@@ -37,8 +36,8 @@ const MyorderScreen = ({userInfo,user}) => {
         <>
 
           {orders.map((order) => (
-            <div className='ms-1' fluid>
-              <Row key={order._id} style={{ color: 'grey', fontSize: '14px' }}>
+            <div className='ms-1' key={order._id} >
+              <Row style={{ color: 'grey', fontSize: '14px' }}>
                 <Col>
                   <Row>Order Placed {order.createdAt.substring(5, 10)}</Row>  
                 </Col>

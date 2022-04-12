@@ -57,9 +57,6 @@ const ProfileScreen = () => {
             <ListGroupItem>
               <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;{email}
             </ListGroupItem>
-            {/* <ListGroupItem>
-              <i className="fa-solid fa-envelope">&nbsp;</i>Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Van
-            </ListGroupItem> */}
           </ListGroup>
 
           <Nav variant="pills" className="flex-column">

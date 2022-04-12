@@ -18,10 +18,8 @@ const MySettingScreen = ({ userInfo, user }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
-
 
   useEffect(() => {
     if (!userInfo) {
