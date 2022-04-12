@@ -179,5 +179,7 @@ exports.getUserReviews = async (req, res) => {
         res.json(reviews)
     } catch (error) {
     console.log(error);
+ }
 }
-}
+
+
