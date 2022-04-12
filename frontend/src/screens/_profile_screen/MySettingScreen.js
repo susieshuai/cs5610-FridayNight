@@ -8,7 +8,7 @@ import { getUserDetails, updateUserDetails } from "../../actions/userActions";
 import { useNavigate } from 'react-router-dom';
 
 
-const MySettingScreen = ({user, userInfo}) => {
+const MySettingScreen = () => {
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
@@ -17,18 +17,22 @@ const MySettingScreen = ({user, userInfo}) => {
   const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  
+  const userDetails = useSelector((state) => state.userDetails)
+  const { loading, error, user } = userDetails
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
-
-  
+  const navigate = useNavigate()
   useEffect(() => {
     if (!userInfo) {
       navigate('/login')
     } else {
       if (!user.name) {
         dispatch(getUserDetails('profile'))
+
       } else {
         setUsername(user.name)
         setEmail(user.email)
@@ -56,7 +60,9 @@ const MySettingScreen = ({user, userInfo}) => {
   return (
     <>
       {success && <Message variant='success' >Update Success！</Message>}
+      {error && <Message variant='danger'>{error}</Message>}
       {message && <Message variant='danger'>{message}</Message>}
+      {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Row>
           <Col md={{ span: 5 }}>

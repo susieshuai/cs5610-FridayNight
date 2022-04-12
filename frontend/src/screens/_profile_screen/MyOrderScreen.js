@@ -7,19 +7,26 @@ import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { getUserDetails } from '../../actions/userActions';
 import { Link } from 'react-router-dom'
-const MyorderScreen = ({user, userInfo}) => {
+const MyorderScreen = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const userDetails = useSelector((state) => state.userDetails)
+  const { user } = userDetails
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
   const orderListMy = useSelector((state) => state.orderListMy)
   const { loading: loadingOrders, error: errorOrders, orders } = orderListMy
- 
+
   useEffect(() => {
     if (!userInfo) {
       navigate('/login')
     } else {
       if (!user.name) {
+        dispatch(getUserDetails('profile'))
         dispatch(listMyOrder())
       }
     }
@@ -39,15 +46,15 @@ const MyorderScreen = ({user, userInfo}) => {
               width: '350px',
               margin: 'auto',
             }}
-            className='bg-success mt-4'
+            className='bg-success mt-2'
 
           >Go to Homepage</Button></Link></div>
         </Message>
       ) : (
         <>
         {orders.map((order) => (
-          <div className='ms-1' fluid>
-            <Row key={order._id} style={{ color: 'grey', fontSize: '14px' }}>
+          <div className='ms-1' key={order._id}>
+            <Row  style={{ color: 'grey', fontSize: '14px' }}>
               <Col>
                 <Row>Order Placed {order.createdAt.substring(5, 10)}</Row>
               </Col>

@@ -59,6 +59,7 @@ const ProfileScreen = () => {
             <ListGroupItem>
               <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}
             </ListGroupItem>
+
           </ListGroup>
 
           <Nav variant="pills" className="flex-column">
@@ -77,15 +78,15 @@ const ProfileScreen = () => {
           <Tab.Content>
             <Tab.Pane eventKey="orders">
               <h3><Subtitle text='Orders History ' /></h3>
-              <MyOrderScreen user={user} userInfo={userInfo}/>
+              <MyOrderScreen/>
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
               <h3><Subtitle text='My Reviews ' /></h3>
-              <MyReviewScreen user={user} userInfo={userInfo}/>
+              <MyReviewScreen />
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
               <h3> <Subtitle text='My Settings ' /></h3>
-              <MySettingScreen user={user} userInfo={userInfo}/>
+              <MySettingScreen></MySettingScreen>
             </Tab.Pane>
           </Tab.Content>
         </Col>

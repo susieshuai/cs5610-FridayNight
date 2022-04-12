@@ -12,5 +12,5 @@ router
   .put(protect, userController.updateUserProfile)
 
 router.get('/reviews', userController.getAllReviews)
-router.get('/myreviews', userController.getUserReviews)
+// router.get('/myreviews', protect, userController.getUserReviews)
 module.exports = router
