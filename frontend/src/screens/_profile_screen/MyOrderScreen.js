@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Row, Col, Image, Table } from 'react-bootstrap'
+import { Row, Col, Image, Table,Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { listMyOrder } from '../../actions/orderAction'
@@ -28,45 +28,55 @@ const MyorderScreen = ({userInfo,user}) => {
 
   return (
     <Col md={9}>
-      {loadingOrders ? (
-        <Loader />
-      ) : errorOrders ? (
-        <Message variant='danger'>{errorOrders}</Message>
+      {errorOrders && <Message variant='danger'>{errorOrders}</Message>}
+      {loadingOrders && <Loader />}
+      {orders ? (orders.length === 0 ? (
+        <Message variant='dark'>
+          <h4 style={{ color: '	#B0C4DE' }}>You have never placed an order</h4>
+          <small style={{ color: '	#C0C0C0' }}>Check out what we're featuring now!</small>
+          <div>
+          <Link to='/'><Button
+            style={{
+              width: '350px',
+              margin: 'auto',
+            }}
+            className='bg-success mt-2'
+
+          >Go to Homepage</Button></Link></div>
+        </Message>
       ) : (
         <>
-
-          {orders.map((order) => (
-            <div className='ms-1' key={order._id} >
-              <Row style={{ color: 'grey', fontSize: '14px' }}>
-                <Col>
-                  <Row>Order Placed {order.createdAt.substring(5, 10)}</Row>  
-                </Col>
-                <Col>
-                  <Row>Total {order.totalPrice}</Row>
-                </Col>
-                <Col md={{offset:1}}>#{order._id}</Col>
-                <Col><Link to={`/order/${order._id}`}>View order details</Link></Col>
-              </Row>
-              {order.orderItems.map((item, index) => (
-                <Table key={index}>
+        {orders.map((order) => (
+          <div className='ms-1' key={order._id}>
+            <Row  style={{ color: 'grey', fontSize: '14px' }}>
+              <Col>
+                <Row>Order Placed {order.createdAt.substring(5, 10)}</Row>
+              </Col>
+              <Col>
+                <Row>Total {order.totalPrice}</Row>
+              </Col>
+              <Col md={{ offset: 1 }}>#{order._id}</Col>
+              <Col><Link to={`/order/${order._id}`}>View order details</Link></Col>
+            </Row>
+            {order.orderItems.map((item, index) => (
+              <Table key={index}>
                 <tbody >
-                <tr>
-                  <td style={{ width: '150px' }}>
-                    <Image src={item.cover} alt={item.name} fluid rounded />
-                  </td>
-                  <td>{item.name}</td>
-                </tr>
-              </tbody>
+                  <tr>
+                    <td style={{ width: '150px' }}>
+                      <Image src={item.cover} alt={item.name} fluid rounded />
+                    </td>
+                    <td>{item.name}</td>
+                  </tr>
+                </tbody>
               </Table>
-              ))}
-            </div>
-
-          ))
-          }
-
-        </>
-      )
+            ))}
+          </div>
+        ))
+        }
+      </>
+      )) : (<Message>No Orders.</Message>)
       }
+
     </Col >
 
   )

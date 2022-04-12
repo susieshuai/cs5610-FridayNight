@@ -26,7 +26,6 @@ const MySettingScreen = ({ userInfo, user }) => {
       navigate('/login')
     } else {
       if (!user.name) {
-        // dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
 
       } else {
