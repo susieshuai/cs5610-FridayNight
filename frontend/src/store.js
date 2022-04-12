@@ -18,13 +18,14 @@ import {
 
 } from './reducers/userReducers'
 
-import { 
-  orderCreateReducer, 
-  orderDetailsReducer, 
-  orderListMyReducer
+import {
+  orderCreateReducer,
+  orderDetailsReducer,
+  orderListMyReducer,
+  orderPayReducer
 } from './reducers/orderReducers'
 
-import {  myReviewsReducer, reviewListReducer } from './reducers/reviewReducers'
+import { myReviewsReducer, reviewListReducer } from './reducers/reviewReducers'
 
 const reducer = combineReducers({
 
@@ -37,11 +38,12 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
   orderCreate: orderCreateReducer,
-  productTopRated:productTopRatedReducer,
+  productTopRated: productTopRatedReducer,
   orderDetails: orderDetailsReducer,
   orderListMy: orderListMyReducer,
-  reviewList:reviewListReducer,
-  myReviews:myReviewsReducer,
+  orderPay: orderPayReducer,
+  reviewList: reviewListReducer,
+  myReviews: myReviewsReducer,
 })
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')
