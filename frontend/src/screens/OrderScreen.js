@@ -11,7 +11,8 @@ import axios from 'axios'
 
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { getOrderDetails } from '../actions/orderAction';
+import { getOrderDetails, payMyOrder } from '../actions/orderAction';
+import { ORDER_PAY_RESET } from '../constants/orderConstants'
 
 const OrderScreen = () => {
 
@@ -21,11 +22,16 @@ const OrderScreen = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
+  console.log('userinfo:', userInfo);
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
+
+  const orderPay = useSelector((state) => state.orderPay)
+  const { success: successPay, loading: loadingPay, error: errorPay } = orderPay
 
   if (!loading) {
     const addDecimals = (num) => {
@@ -56,6 +62,7 @@ const OrderScreen = () => {
       navigate('/login')
     }
     if (!order || order._id !== id) {
+      dispatch({ type: ORDER_PAY_RESET })
       dispatch(getOrderDetails(id))
     } else if (!order.isPaid) {
       // create paypal script only once
@@ -68,8 +75,10 @@ const OrderScreen = () => {
 
   }, [dispatch, navigate, userInfo, order, id])
 
-  const successPayHandler = (paymentInfo) => {
-    console.log(paymentInfo);
+  const successPayHandler = () => {
+    // console.log(paymentInfo);
+    dispatch(payMyOrder(id))
+    console.log('order after dispatch', order);
   }
 
   return (
