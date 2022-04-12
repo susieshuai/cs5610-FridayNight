@@ -32,9 +32,7 @@ const ProfileScreen = () => {
       navigate('/login')
     } else {
       if (!user.name) {
-
         dispatch(getUserDetails('profile'))
-
       } else {
         setUsername(user.name)
         setEmail(user.email)
@@ -57,10 +55,7 @@ const ProfileScreen = () => {
           {loading && <Loader />}
           <ListGroup>
             <ListGroupItem>
-              <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{email}
-            </ListGroupItem>
-            <ListGroupItem>
-              <i className="fa-solid fa-envelope">&nbsp;</i>Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Van
+              <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;{email}
             </ListGroupItem>
           </ListGroup>
 
@@ -80,15 +75,15 @@ const ProfileScreen = () => {
           <Tab.Content>
             <Tab.Pane eventKey="orders">
               <h3><Subtitle text='Orders History ' /></h3>
-              <MyOrderScreen />
+              <MyOrderScreen/>
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
               <h3><Subtitle text='My Reviews ' /></h3>
-              <MyReviewScreen />
+              <MyReviewScreen/>
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
               <h3> <Subtitle text='My Settings ' /></h3>
-              <MySettingScreen></MySettingScreen>
+              <MySettingScreen/>
             </Tab.Pane>
           </Tab.Content>
         </Col>

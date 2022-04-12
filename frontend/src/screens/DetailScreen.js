@@ -27,7 +27,6 @@ import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
 import Meta from "../components/Meta";
 import { PRODUCT_DETAILS_RESET } from "../constants/productConstants";
-// import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
 
@@ -38,7 +37,6 @@ const DetailScreen = () => {
   const { loading, error, product } = productDetails
 
   const [qty, setQty] = useState(1)
-  // const [rating, setRating] = useState(0)
 
   useEffect(() => {
     dispatch({ type: PRODUCT_DETAILS_RESET })
@@ -53,7 +51,6 @@ const DetailScreen = () => {
 
   return (
     <>
-
       <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
       </Link>
@@ -66,8 +63,6 @@ const DetailScreen = () => {
                 <Image src={product.cover} alt={product.name} fluid />
               </Col>
               <Col md={4}>
-
-                {/* <Image src={product.cover} alt={product.name} fluid /> */}
                 <Col as='h4'>{product.name}</Col>
                 <Col>
                   <Badge pill bg="success" as='title'>{product.tag}</Badge>
@@ -153,9 +148,6 @@ const DetailScreen = () => {
               <Tab eventKey="reviews" title="Reviews">
                 <ReviewScreen reviews={product.reviews} />
               </Tab>
-              {/* <Tab eventKey="comments" title="Comments">
-                <CommentScreen description={product.description} />
-              </Tab> */}
             </Tabs>
 
 

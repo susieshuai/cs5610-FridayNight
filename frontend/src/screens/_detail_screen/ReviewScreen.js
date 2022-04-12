@@ -50,10 +50,10 @@ const ReviewScreen = ({ reviews }) => {
                 {error && <Message variant='danger'>{error}</Message>}
                 {reviews ? (reviews.length === 0 ?
                     (<Message variant='dark'>
-                        <h4 style={{ color: '	#B0C4DE' }}>There are no reviews for this product</h4>
+                        <h4 style={{ color: '	#B0C4DE' }}>There is no review for this product</h4>
                         <small style={{ color: '	#C0C0C0' }}>
                             You can write your own review for this product to share your
-                            experience with the community. Use the area above the purchase buttons on this page to write your review.
+                            experience with the community.
                         </small>
                     </Message>) : (
                         <><ScrollTo>

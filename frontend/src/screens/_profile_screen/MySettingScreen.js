@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { getUserDetails, updateUserDetails } from "../../actions/userActions";
 
@@ -17,21 +16,22 @@ const MySettingScreen = () => {
   const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const userDetails = useSelector((state) => state.userDetails)
-  const { loading, error, user } = userDetails
+  const { user } = userDetails
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
-  const navigate = useNavigate()
+
   useEffect(() => {
     if (!userInfo) {
       navigate('/login')
     } else {
       if (!user.name) {
-        // dispatch({ type: USER_UPDATE_PROFILE_RESET })
         dispatch(getUserDetails('profile'))
 
       } else {
@@ -43,7 +43,7 @@ const MySettingScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    if (password &&password !== confirmPassword) {
+    if (password && password !== confirmPassword) {
       setMessage('The passwords entered twice are Inconsistent')
     } else {
       dispatch(updateUserDetails({ id: user._id, username, email, password }))
@@ -51,7 +51,7 @@ const MySettingScreen = () => {
 
     window.setTimeout(function () {
       window.location.reload(false);
-    }, 2000)
+    }, 3000)
   }
 
   const refreshPage = () => {
@@ -61,9 +61,7 @@ const MySettingScreen = () => {
   return (
     <>
       {success && <Message variant='success' >Update Success！</Message>}
-      {error && <Message variant='danger'>{error}</Message>}
       {message && <Message variant='danger'>{message}</Message>}
-      {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Row>
           <Col md={{ span: 5 }}>
