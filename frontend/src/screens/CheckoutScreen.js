@@ -19,7 +19,7 @@ const CheckoutScreen = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (success) {
-            navigate(`/checkout/${order._id}`)
+            navigate(`/order/${order._id}`)
         }
         // eslint-disable-next-line
     }, [success])
