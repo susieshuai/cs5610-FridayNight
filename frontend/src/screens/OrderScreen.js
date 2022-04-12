@@ -31,7 +31,7 @@ const OrderScreen = () => {
   const { order, loading, error } = orderDetails
 
   const orderPay = useSelector((state) => state.orderPay)
-  const { success: successPay, loading: loadingPay, error: errorPay } = orderPay
+  const { success: successPay, loading: loadingPay } = orderPay
 
   if (!loading) {
     const addDecimals = (num) => {
