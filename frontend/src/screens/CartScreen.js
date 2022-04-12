@@ -100,7 +100,7 @@ const CartScreen = () => {
                       color: 'grey',
                       marginLeft: '700px'
                     }}>
-                    Each Price</Row>
+                     Each Price</Row>
                   <Row >
                     <Col md={3} xs={3}>
                       <Image src={item.cover} alt={item.name} fluid rounded/>

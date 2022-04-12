@@ -55,7 +55,6 @@ const MySettingScreen = () => {
   }
 
   const refreshPage = () => {
-
     window.location.reload(false);
   }
 
