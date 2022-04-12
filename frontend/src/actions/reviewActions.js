@@ -27,13 +27,21 @@ export const listReviews = () => async (
   }
 }
 
-export const myReviewsList = () => async (
-  dispatch
-) => {
+export const listMyReview  = () => async (dispatch, getState) => {
   try {
     dispatch({ type: REVIEW_MY_REQUEST })
-    const { data } = await axios.get('/users/myreviews')
-    // console.log(data)
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+
+    const { data } = await axios.get(`/users/myreviews`, config)
     dispatch({ type: REVIEW_MY_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
