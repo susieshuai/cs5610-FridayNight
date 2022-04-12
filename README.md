@@ -37,6 +37,8 @@ Routing, links, and the basis of CRUD operations should be established.
 #### 22/4/11 profile page, tabs of order and my review
 1. orderdetails : reducer action route screen.
 2. myorderlist: reducer action route screen.
+3. reviewslist on homepage
+4. my reviews
 
 #### 22/4/10 fix details
 1. react-router scroll to top on every transition
