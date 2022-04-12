@@ -11,7 +11,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-
+  // console.log(userInfo)
   const logoutHandler = () => {
     dispatch(logout())
   }
@@ -19,7 +19,6 @@ const Header = () => {
   let navigate = useNavigate()
 
   const handleSearch = (e) => {
-    // console.log(searchCriteria);
     e.preventDefault()
     if (searchCriteria.trim()) {
       navigate(`/search/${searchCriteria}`)
@@ -94,7 +93,7 @@ const Header = () => {
                   </LinkContainer>
                   <NavDropdown title={userInfo.name} id="username" style={{ marginLeft: '-10px' }}>
                     <small><NavDropdown.Item href="/profile">My profile</NavDropdown.Item></small>
-                    {/* <NavDropdown.Item href="/profile/order">My orders</NavDropdown.Item> */}
+                    {userInfo.isAdmin && <NavDropdown.Item href="/admin/product">Product List</NavDropdown.Item>}
                     <NavDropdown.Divider />
                     <small><NavDropdown.Item onClick={logoutHandler}>
                       Sign out
