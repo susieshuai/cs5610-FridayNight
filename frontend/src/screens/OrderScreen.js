@@ -92,7 +92,7 @@ const OrderScreen = () => {
                 Redeem Code will be accepted by:
                 <a href={`mailto:${order.user.email}`}>&nbsp;{order.user.email}</a>
                 {order.isPaid ? (
-                  <Message variant='success'>Payment Time：{order.paidAt}</Message>
+                  <Message variant='success'>Your order is paid on {moment(`${order.paidAt}`).format('MMMM Do YYYY')}. Redeem Code has been sent!</Message>
                 ) : (
                   <Message variant='danger'>Your order is unpaid. Pay now and get your Redeem Code!</Message>
                 )}
