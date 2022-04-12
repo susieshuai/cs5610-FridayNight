@@ -12,6 +12,11 @@ const app = express()
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
+// get PayPal client ID
+app.get('/config/paypal', (req, res) => {
+    res.send(process.env.PAYPAL_CLIENT_ID)
+})
+
 app.use('/products', productRoute)
 app.use('/users', userRoute)
 app.use('/orders', orderRoute)
