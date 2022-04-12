@@ -1,7 +1,10 @@
 import {
   REVIEW_ALL_FAIL,
   REVIEW_ALL_REQUEST,
-  REVIEW_ALL_SUCCESS
+  REVIEW_ALL_SUCCESS,
+  REVIEW_MY_FAIL,
+  REVIEW_MY_REQUEST,
+  REVIEW_MY_SUCCESS
 } from "../constants/reviewConstants"
 import axios from 'axios'
 
@@ -16,6 +19,25 @@ export const listReviews = () => async (
   } catch (error) {
     dispatch({
       type: REVIEW_ALL_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+export const myReviews = () => async (
+  dispatch
+) => {
+  try {
+    dispatch({ type: REVIEW_MY_REQUEST })
+    const { data } = await axios.get('/users/myreviews')
+    // console.log(data)
+    dispatch({ type: REVIEW_MY_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: REVIEW_MY_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
