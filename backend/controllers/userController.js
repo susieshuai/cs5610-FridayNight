@@ -122,6 +122,9 @@ exports.getAllReviews = asyncHandler(async (req, res) => {
 })
 
 exports.getMyReviews = asyncHandler(async (req, res) => {
-  const reviews = await reviewModel.find({user: req.user._id})
+  const reviews = await reviewModel.find({user: req.user._id}).populate(
+    'product',
+    'name cover'
+  )
   res.json(reviews)
 })

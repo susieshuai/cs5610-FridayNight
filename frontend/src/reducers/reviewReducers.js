@@ -28,7 +28,7 @@ export const reviewListReducer = (state = { reviews: [] }, action) => {
   }
 }
 
-export const myReviewsReducer = (state = { reviews: [] }, action) => {
+export const myReviewListReducer = (state = { reviews: [] }, action) => {
   switch (action.type) {
     case REVIEW_MY_REQUEST:
       return { loading: true, reviews: [] }

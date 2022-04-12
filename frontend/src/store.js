@@ -25,7 +25,12 @@ import {
   orderPayReducer
 } from './reducers/orderReducers'
 
-import { myReviewsReducer, reviewListReducer } from './reducers/reviewReducers'
+
+import {  
+  myReviewListReducer,
+  reviewListReducer 
+} from './reducers/reviewReducers'
+
 
 const reducer = combineReducers({
 
@@ -41,10 +46,10 @@ const reducer = combineReducers({
   productTopRated: productTopRatedReducer,
   orderDetails: orderDetailsReducer,
   orderListMy: orderListMyReducer,
+
+  reviewList:reviewListReducer,
+  myReviewList:myReviewListReducer,
   orderPay: orderPayReducer,
-  reviewList: reviewListReducer,
-  myReviews: myReviewsReducer,
-})
 
 const cartItemsFromStorage = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))
