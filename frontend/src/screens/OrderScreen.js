@@ -51,18 +51,24 @@ const OrderScreen = () => {
       }
       document.body.appendChild(script)
     }
-    addPayPalScript()
 
     if (!userInfo) {
       navigate('/login')
     }
     if (!order || order._id !== id) {
       dispatch(getOrderDetails(id))
+    } else if (!order.isPaid) {
+      // create paypal script only once
+      if (!window.paypal) {
+        addPayPalScript()
+      } else {
+        setSDK(true)
+      }
     }
 
   }, [dispatch, navigate, userInfo, order, id])
 
-  const successPay = (paymentInfo) => {
+  const successPayHandler = (paymentInfo) => {
     console.log(paymentInfo);
   }
 
@@ -98,7 +104,7 @@ const OrderScreen = () => {
                     {SDK ? (
                       <PayPalButton
                         amount={order.totalPrice}
-                        onSuccess={successPay}>
+                        onSuccess={successPayHandler}>
                       </PayPalButton>
                     ) : (<Loader />)}
                   </>
