@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { Breadcrumb, Row, Col, Image, Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
+import { PayPalButton } from 'react-paypal-button-v2'
 
 import moment from 'moment'
 import axios from 'axios'
@@ -15,6 +16,9 @@ import { getOrderDetails } from '../actions/orderAction';
 const OrderScreen = () => {
 
   const { id } = useParams()
+
+  const [SDK, setSDK] = useState(false)
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const userLogin = useSelector((state) => state.userLogin)
@@ -36,7 +40,16 @@ const OrderScreen = () => {
     // dynamically create PayPal script
     const addPayPalScript = async () => {
       const { data: clientID } = await axios.get('/config/paypal')
-      console.log(clientID);
+      // console.log(clientID);
+      const script = document.createElement('script')
+      script.type = 'text/javascript'
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientID}`
+      script.async = true
+
+      script.onload = () => {
+        setSDK(true)
+      }
+      document.body.appendChild(script)
     }
     addPayPalScript()
 
@@ -48,6 +61,10 @@ const OrderScreen = () => {
     }
 
   }, [dispatch, navigate, userInfo, order, id])
+
+  const successPay = (paymentInfo) => {
+    console.log(paymentInfo);
+  }
 
   return (
     <>
@@ -74,8 +91,18 @@ const OrderScreen = () => {
                   <Message variant='danger'>Your order is unpaid. Pay now and get your Redeem Code!</Message>
                 )}
               </Col>
+              {/* if order is unpaid, show paypal button */}
               <Col md={4}>
-                PayPal
+                {order.isPaid ? (<></>) : (
+                  <>
+                    {SDK ? (
+                      <PayPalButton
+                        amount={order.totalPrice}
+                        onSuccess={successPay}>
+                      </PayPalButton>
+                    ) : (<Loader />)}
+                  </>
+                )}
               </Col>
             </Row>
             <Row className='mt-3'>
@@ -90,7 +117,6 @@ const OrderScreen = () => {
                   </tr>
                 </thead>
                 {order.orderItems.map((item, index) => (
-
                   <tbody key={index}>
                     <tr>
                       <td style={{ width: '200px' }}>
