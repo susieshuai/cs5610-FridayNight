@@ -79,11 +79,11 @@ const ProfileScreen = () => {
             </Tab.Pane>
             <Tab.Pane eventKey="reviews">
               <h3><Subtitle text='My Reviews ' /></h3>
-              <MyReviewScreen userInfo ={userInfo }/>
+              <MyReviewScreen/>
             </Tab.Pane>
             <Tab.Pane eventKey="settings">
               <h3> <Subtitle text='My Settings ' /></h3>
-              <MySettingScreen userInfo ={userInfo } user={user}/>
+              <MySettingScreen/>
             </Tab.Pane>
           </Tab.Content>
         </Col>

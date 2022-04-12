@@ -10,7 +10,7 @@ router
   .route('/profile')
   .get(protect, userController.getUserProfile)
   .put(protect, userController.updateUserProfile)
-
 router.get('/reviews', userController.getAllReviews)
-// router.get('/myreviews', protect, userController.getUserReviews)
+router.get('/myreviews', protect,userController.getMyReviews)
+
 module.exports = router
