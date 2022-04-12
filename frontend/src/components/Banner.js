@@ -1,44 +1,48 @@
-import React from 'react'
-import { Carousel, Container } from 'react-bootstrap'
-const Banner = ({ top1, top2, top3 }) => {
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Carousel, Image, Col } from 'react-bootstrap'
+import Loader from './Loader'
+import Message from './Message'
+import { listTopProducts } from '../actions/productActions'
+
+
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+const Banner = () => {
+
+
+  const dispatch = useDispatch()
+
+  const productTopRated = useSelector((state) => state.productTopRated)
+  const { loading, error, products } = productTopRated
+  // console.log(products)
+  useEffect(() => {
+    dispatch(listTopProducts())
+  }, [dispatch])
+
   return (
-    <Carousel>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src={top1.cover}
-        alt="First slide"
-      />
-      <Carousel.Caption>
-        <h3></h3>
-        <p>{top1.name}</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src={top2.cover}
-        alt="Second slide"
-      />
+    <>
+      {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+        <Col sm={12} md={10} lg={8} xl={6}>
+          <Carousel pause='hover'>
+            {products.map((product) => (
+              <Carousel.Item key={product._id}>
+                <Link to={`/details/${product._id}`}>
+                  <Image src={product.cover} alt={product.name} />
+                </Link>
+                
+                  <Carousel.Caption className='carousel-caption'>
+                  <div dangerouslySetInnerHTML={{ __html: `${product.description.substring(0, 60)+'...'}` }} ></div>
+                    
+                  </Carousel.Caption>
+              </Carousel.Item>
+            ))}
 
-      <Carousel.Caption>
-        <h3></h3>
-        <p>{top2.name}</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-    <Carousel.Item>
-      <img
-        className="d-block w-100"
-        src={top3.cover}
-        alt="Third slide"
-      />
-
-      <Carousel.Caption>
-        <h3></h3>
-        <p>{top3.name}</p>
-      </Carousel.Caption>
-    </Carousel.Item>
-  </Carousel>
+          </Carousel>
+        </Col>
+      )
+      }
+    </>
   )
 }
 

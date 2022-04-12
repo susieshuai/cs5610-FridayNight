@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { listProductDetails } from '../actions/productActions'
@@ -14,7 +14,8 @@ import {
   Form,
   Badge,
   Tabs,
-  Tab
+  Tab,
+  ListGroup
 } from 'react-bootstrap'
 
 import Rating from '../components/Rating'
@@ -24,6 +25,8 @@ import Message from '../components/Message'
 import DescriptionScreen from "./_detail_screen/DescriptionScreen"
 import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
+import Meta from "../components/Meta";
+import { PRODUCT_DETAILS_RESET } from "../constants/productConstants";
 // import CommentScreen from './_detail_screen/CommentScreen'
 
 const DetailScreen = () => {
@@ -38,28 +41,33 @@ const DetailScreen = () => {
   // const [rating, setRating] = useState(0)
 
   useEffect(() => {
+    dispatch({ type: PRODUCT_DETAILS_RESET })
     dispatch(listProductDetails(id))
+
   }, [id, dispatch])
 
   const navigate = useNavigate()
   const addCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`)
   }
+
   return (
-    <>
-      <Link className='btn btn-primary my-5' to='/'>
+    <div>
+
+      <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
       </Link>
       {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
         (
           <>
+            <Meta title={product.name} />
             <Row>
               <Col md={7}>
                 <Image src={product.cover} alt={product.name} fluid />
               </Col>
               <Col md={4}>
 
-                <Image src={product.cover} alt={product.name} fluid />
+                {/* <Image src={product.cover} alt={product.name} fluid /> */}
                 <Col as='h4'>{product.name}</Col>
                 <Col>
                   <Badge pill bg="success" as='title'>{product.tag}</Badge>
@@ -67,7 +75,7 @@ const DetailScreen = () => {
                   <Badge pill bg="success" as='title'>{product.category}</Badge>
                 </Col>
                 <big>
-                  <Col style={{ color: '#FF0000' }}>${product.price} sale</Col>
+                  <Col style={{ color: '#FF6666' }}>${product.price} sale</Col>
                 </big>
 
                 <small>
@@ -77,12 +85,23 @@ const DetailScreen = () => {
                       text={`${product.numReviews} reviews`}
                     />
                   </Col>
-
-                  <Col style={{ color: '#A9A9A9' }}>{product.countInStock > 0 ? 'in stock' : 'out of stock'}</Col>
-                  <p></p>
-                  <Col>RELEASE DATE：{product.releasedate}</Col>
-                  <Col>DEVELOPER:：{product.developer}</Col>
-                  <Col>PUBLISHER：{product.publisher}</Col>
+                  <Col style={{ color: 'lightblue' }}>{product.countInStock > 0 ? 'in stock' : 'out of stock'}</Col>
+                  <br />
+                  <ListGroup >
+                    <ListGroup.Item variant="warning">
+                    <i class="fa-solid fa-truck-fast">&nbsp;&nbsp;</i>
+                    Virtual Delivery: Free
+                    </ListGroup.Item>
+                    <ListGroup.Item variant="info">
+                    <i class="fa-solid fa-blog">&nbsp;&nbsp;</i>
+                    Fet Redeem Code to Phone
+                    </ListGroup.Item>
+                  </ListGroup>
+      
+                  <small >
+                    <Col className="mt-5">RELEASE DATE：{product.releasedate}</Col>
+                    <Col>DEVELOPER:：{product.developer}</Col>
+                    <Col>PUBLISHER：{product.publisher}</Col></small>
 
                   <Row className="mt-4">
                     <Col xs={1}>Qty.</Col>
@@ -104,12 +123,11 @@ const DetailScreen = () => {
 
                       <Button
                         onClick={addCartHandler}
-                        className='btn-block'
+                        className='btn-block bg-success'
                         type='button'
                         disabled={product.countInStock === 0}
                         size='sm'
                         style={{ width: '18em' }}
-
                       >
                         Add to Cart
                       </Button>
@@ -130,7 +148,7 @@ const DetailScreen = () => {
                 <DescriptionScreen description={product.description} />
               </Tab>
               <Tab eventKey="hightlights" title="Hightlights">
-                <HighlightScreen description={product.description} />
+                <HighlightScreen highlights={product.highlight} />
               </Tab>
               <Tab eventKey="reviews" title="Reviews">
                 <ReviewScreen reviews={product.reviews} />
@@ -139,10 +157,12 @@ const DetailScreen = () => {
                 <CommentScreen description={product.description} />
               </Tab> */}
             </Tabs>
+
+
           </>
         )
       }
-    </>
+    </div >
   )
 }
 

@@ -45,6 +45,19 @@ exports.getOneProduct = async (req, res) => {
     }
 }
 
+// get top3 products
+// GET/products/top
+exports.getTopProducts = async (req, res) => {
+    try {
+        const id = req.params.id
+        const products = await productModel.find().sort({ price: -1 }).limit(3)
+        res.json(products)
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // CREATE one product
 exports.createOneProduct = async (req, res) => {
     try {
@@ -132,7 +145,7 @@ exports.updateOneProductconst = async (req, res) => {
 // CREATE product review
 exports.createReview = async (req, res) => {
     try {
-        const { user, username, rating, review } = req.body
+        const { rating, review } = req.body
         const id = req.params.id
         const product = await productModel.findById(id)
         if (!product) {
@@ -140,8 +153,8 @@ exports.createReview = async (req, res) => {
         } else {
             // create review
             const newReview = {
-                user,
-                username,
+                user: req.user._id,
+                username: req.user.username,
                 rating: parseInt(rating),
                 review,
             }
@@ -159,4 +172,3 @@ exports.createReview = async (req, res) => {
         console.log(error);
     }
 }
-

@@ -1,15 +1,12 @@
-
-
-import { useDispatch, useSelector } from 'react-redux'
-
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import { Navbar, Nav, Container, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { logout } from "../actions/userActions";
-const Header = () => {
 
+const Header = () => {
 
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
@@ -26,6 +23,7 @@ const Header = () => {
     e.preventDefault()
     if (searchCriteria.trim()) {
       navigate(`/search/${searchCriteria}`)
+      setSearchCriteria('')
     }
     else {
       navigate('/search')
@@ -35,7 +33,7 @@ const Header = () => {
   return (
 
     <header>
-      <Navbar bg="primary" variant='dark' expand="lg" collapseOnSelect>
+      <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container >
           <LinkContainer to='/'>
             <Navbar.Brand>
@@ -56,7 +54,11 @@ const Header = () => {
                 <Nav.Link>Top Sellers</Nav.Link>
               </LinkContainer>
 
-              <NavDropdown title="Categories" id="navbarDropdown">
+              <LinkContainer to='/ad'>
+                <Nav.Link>Weekly Ad</Nav.Link>
+              </LinkContainer>
+
+              {/* <NavDropdown title="Categories" id="navbarDropdown">
                 <NavDropdown.Item href="#action3">RPG</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action5">Strategy</NavDropdown.Item>
@@ -64,20 +66,19 @@ const Header = () => {
                 <NavDropdown.Item href="#action5">
                   All of the nav are Not Implemented
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
 
             {/* Search Begins! */}
             <Form className="d-flex mx-auto" onSubmit={handleSearch} style={{ position: 'blocked' }}>
               <FormControl
-                className='input'
-                type="search"
+                as='input'
                 placeholder="search"
                 size='sm'
-                aria-label="Search"
+                value={searchCriteria}
                 onChange={e => setSearchCriteria(e.target.value)}
               />
-              <Button type='submit' variant="primary" size='sm' >
+              <Button type='submit' variant="dark" size='sm' >
                 <i className='fa fa-magnifying-glass'></i>
               </Button>
             </Form>

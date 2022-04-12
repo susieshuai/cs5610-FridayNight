@@ -9,7 +9,13 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
 
-
+  PRODUCT_ADD_REVIEW_REQUEST,
+  PRODUCT_ADD_REVIEW_SUCCESS,
+  PRODUCT_ADD_REVIEW_FAIL,
+  
+  PRODUCT_TOP_REQUEST,
+  PRODUCT_TOP_SUCCESS,
+  PRODUCT_TOP_FAIL,
 
 } from '../constants/productConstants'
 
@@ -32,6 +38,26 @@ export const listProducts = () => async (
     })
   }
 }
+
+export const listTopProducts = () => async (
+  dispatch
+) => {
+  try {
+    dispatch({ type: PRODUCT_TOP_REQUEST })
+    const { data } = await axios.get(`/products/top`)
+    // console.log(data)
+    dispatch({ type: PRODUCT_TOP_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_TOP_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
 //the action of get one item
 export const listProductDetails = (id) => async (dispatch) => {
   try {
@@ -62,6 +88,44 @@ export const listSearchProducts = (searchCriteria) => async (
   } catch (error) {
     dispatch({
       type: PRODUCT_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    })
+  }
+}
+
+// the action of add new review
+export const addReview = (productId, review) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: PRODUCT_ADD_REVIEW_REQUEST,
+    })
+
+    // get login user info
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+
+    // call API to create new review
+    const { data } = await axios.post(
+      `/products/${productId}/reviews`,
+      review,
+      config
+    )
+   
+    dispatch({ type: PRODUCT_ADD_REVIEW_SUCCESS,payload: data })
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_ADD_REVIEW_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
