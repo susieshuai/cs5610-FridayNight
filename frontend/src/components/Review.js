@@ -28,7 +28,7 @@ const Review = () => {
                   {review.createdAt.substring(0, 10)}
                   <Rating value={review.rating} />
                 </Col>
-                <Col md={{offset:4}} xs={{offset:4}}><Link to={`/details/${review.product}`}>{review.user.email}</Link></Col>
+                <Col md={{offset:4}} xs={{offset:4}}><Link to={`/`}>{review.user.email}</Link></Col>
                 {/* line 33 is the correct 
                 <Col md={{offset:5}} xs={{offset:5}}><Link to={`/details/${review.product._id}`}>{review.product.name}</Link></Col> */}
               </Row>
