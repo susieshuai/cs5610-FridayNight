@@ -46,7 +46,7 @@ const SearchScreen = () => {
                   <br className='mt-4' />
                   <Image
                     src={'/images/errorIcon.png'}
-                    alt='cartIcon'
+                    alt='errorIcon'
                     style={{
                       width: '250px',
                       display: 'block',
@@ -87,7 +87,7 @@ const SearchScreen = () => {
                   <br className='mt-4' />
                   <Image
                     src={'/images/errorIcon.png'}
-                    alt='cartIcon'
+                    alt='errorIcon'
                     style={{
                       width: '250px',
                       display: 'block',

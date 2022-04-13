@@ -1,7 +1,7 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 // import {Link, useParams,useNavigate } from 'react-router-dom'
 // import { useDispatch, useSelector } from 'react-redux'
-import { Breadcrumb,Form } from 'react-bootstrap'
+import { Breadcrumb, Form } from 'react-bootstrap'
 const ItemEditScreen = () => {
 
   const [name, setName] = useState('')
@@ -15,16 +15,17 @@ const ItemEditScreen = () => {
         <Breadcrumb.Item active>Product Edit</Breadcrumb.Item>
       </Breadcrumb>
       <Form>
-          <Form.Group controlId='name'>
-            <Form.Label>name：</Form.Label>
-            <Form.Control
-              type='name'
-              placeholder='Enter product name'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            ></Form.Control>
-          </Form.Group>
-        </Form>
+        <Form.Group controlId='name'>
+          <Form.Label htmlFor='nameInput'>name：</Form.Label>
+          <Form.Control
+            id='name'
+            type='name'
+            placeholder='Enter product name'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+      </Form>
 
 
 
