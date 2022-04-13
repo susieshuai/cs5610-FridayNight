@@ -41,7 +41,7 @@ const SearchScreen = () => {
                       width: '350px',
                       margin: 'auto',
                     }}
-                    className='bg-success'
+                    className='bg-dark'
                   >Go to Homepage</Button></Link><br />
                   <br className='mt-4' />
                   <Image
@@ -82,7 +82,7 @@ const SearchScreen = () => {
                       width: '350px',
                       margin: 'auto',
                     }}
-                    className='bg-success'
+                    className='bg-dark'
                   >Go to Homepage</Button></Link><br />
                   <br className='mt-4' />
                   <Image
