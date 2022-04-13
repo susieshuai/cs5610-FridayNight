@@ -43,11 +43,12 @@ const MyReviewScreen = () => {
           <small style={{ color: '	#C0C0C0' }}>Check out what we're featuring now!</small>
           <div>
             <Link to='/'><Button
+              variant='primary'
               style={{
                 width: '350px',
                 margin: 'auto',
               }}
-              className='bg-success mt-2'
+              className='mt-2'
 
             >Go to Homepage</Button></Link></div>
         </Message>
