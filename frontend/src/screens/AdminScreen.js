@@ -43,18 +43,15 @@ const ProductListScreen = () => {
     dispatch({ type: PRODUCT_CREATE_RESET })
     if (!userInfo.isAdmin) {
       navigate('/login')
-    }
-    if (successCreate) {
-      navigate(`/admin/product/${createdProduct._id}/edit`)
     } else {
       dispatch(listProducts())
     }
   }, [
     dispatch,
     navigate,
-    successDelete, 
-    successCreate, 
-    createdProduct, 
+    successDelete,
+    successCreate,
+    createdProduct,
     userInfo])
 
   const deleteHandler = (id) => {

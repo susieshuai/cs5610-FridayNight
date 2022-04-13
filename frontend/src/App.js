@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import AdminScreen from "./screens/AdminScreen";
 import ScrollToTop from "./components/ScrollToTop";
 import OrderScreen from "./screens/OrderScreen";
+import ItemEditScreen from "./screens/ItemEditScreen";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='/' element={<HomeScreen />} exact />
             <Route path='/ad' element={<AdScreen />} exact />
             <Route path='/admin/product' element={<AdminScreen />} exact />
+            <Route path='/admin/product/:id/edit' element={<ItemEditScreen/>} exact />
 
             <Route path='/search' element={<SearchScreen />} exact />
             <Route path='/search/:searchCriteria' element={<SearchScreen />} exact />
