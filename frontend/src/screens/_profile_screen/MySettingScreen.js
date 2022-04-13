@@ -66,6 +66,7 @@ const MySettingScreen = () => {
             <Form.Group controlId='username'>
               <small> <Form.Label as='b' htmlFor='setNewUsername'>About me</Form.Label></small>
               <Form.Control
+                id='setNewUsername'
                 className='mt-2 mb-4'
                 type='username'
                 placeholder='the number of characters is 2 to 12'
@@ -79,6 +80,7 @@ const MySettingScreen = () => {
             <Form.Group controlId='email'>
               <small> <Form.Label as='b' htmlFor='setNewUseremail'>Email Address</Form.Label></small>
               <Form.Control
+                id='setNewUseremail'
                 className='mt-2 mb-5'
                 type='email'
                 placeholder='please enter your email'
@@ -94,6 +96,7 @@ const MySettingScreen = () => {
             <Form.Group controlId='password'>
               <small><Form.Label as='b' htmlFor='setNewPassword'>Password</Form.Label></small>
               <Form.Control
+                id='setNewPassword'
                 className='mt-2 mb-4'
                 type='password'
                 placeholder='please enter your password'
@@ -105,6 +108,7 @@ const MySettingScreen = () => {
             <Form.Group controlId='confirmPassword'>
               <small> <Form.Label as='b' htmlFor='confirmPassword'>Confirm Password:</Form.Label></small>
               <Form.Control
+                id='confirmPassword'
                 className='mt-2 mb-4'
                 type='password'
                 placeholder='please confirm your password'

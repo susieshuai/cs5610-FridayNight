@@ -41,7 +41,7 @@ const MyReviewScreen = () => {
         <Message variant='dark'>
           <h4 style={{ color: '	#B0C4DE' }}>You have never written a review.</h4>
           <small style={{ color: '	#C0C0C0' }}>Check out what we're featuring now!</small>
-          <div>
+          <Fragment>
             <Link to='/'><Button
               style={{
                 width: '350px',
@@ -49,7 +49,7 @@ const MyReviewScreen = () => {
               }}
               className='bg-success mt-2'
 
-            >Go to Homepage</Button></Link></div>
+            >Go to Homepage</Button></Link></Fragment>
         </Message>
       ) : (
         <>
@@ -73,6 +73,7 @@ const MyReviewScreen = () => {
                       min={100}
                       ideal={200}
                       max={2000}
+                      aria='readMoreButton'
                       readMoreText='CLICK HERE TO READ MORE' />
                   </Col>
                 </Row>
