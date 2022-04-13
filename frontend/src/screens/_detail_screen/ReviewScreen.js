@@ -97,7 +97,7 @@ const ReviewScreen = ({ reviews }) => {
                     <Form onSubmit={submitReview} >
                         {/* rating */}
                         <Form.Group>
-                            <Form.Label>Rating:</Form.Label>
+                            <Form.Label htmlFor='selectRating'>Rating:</Form.Label>
                             <Form.Control
                                 as='select'
                                 value={rating}
@@ -115,7 +115,7 @@ const ReviewScreen = ({ reviews }) => {
 
                         {/* review */}
                         <Form.Group className='mt-5'>
-                            <Form.Label>Review:</Form.Label>
+                            <Form.Label htmlFor='reviewInput'>Review:</Form.Label>
                             <Form.Control
                                 as='textarea'
                                 value={review}
