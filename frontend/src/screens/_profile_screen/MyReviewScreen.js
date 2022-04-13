@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Row, Col, Image, Button, ListGroup } from 'react-bootstrap'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import Rating from '../../components/Rating';
 import { getUserDetails } from '../../actions/userActions';
 import { listMyReview } from '../../actions/reviewActions';
-
+import ReadMoreReact from 'read-more-react';
 
 const MyReviewScreen = () => {
 
@@ -68,11 +68,20 @@ const MyReviewScreen = () => {
                     <div>POSTED: {review.createdAt.substring(0, 10)}</div>
                     <Rating value={review.rating} />
                   </Col>
-                  <Col style={{ color:'lightgrey', fontSize: '14px' }}>{review.review}</Col>
+                  {/* <Col style={{ color:'lightgrey', fontSize: '14px' }}>{review.review}</Col> */}
+                  <Col style={{ color: 'lightgrey', fontSize: '13px' }}>
+                    <ReadMoreReact text={review.review}
+                      min={100}
+                      ideal={200}
+                      max={2000}
+                      readMoreText='CLICK HERE TO READ MORE' />
+                  </Col>
                 </Row>
               </ListGroup.Item>
             ))}
           </ListGroup>
+
+
         </>
       )) : (<Message>No Review in db.</Message>)
       }
