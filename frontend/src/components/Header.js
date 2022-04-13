@@ -34,7 +34,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container >
-          <LinkContainer to='/'>
+          <LinkContainer to='/' id='linkToHomePage'>
             <Navbar.Brand>
               <i className='fas fa-gamepad fa-lg'>&nbsp;</i>
             </Navbar.Brand>
@@ -43,17 +43,17 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <LinkContainer to='/'>
+              <LinkContainer to='/' id='linkToHome'>
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/products'>
+              <LinkContainer to='/products' id='linkToNewProduct'>
                 <Nav.Link>What's new</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/products/top'>
+              <LinkContainer to='/products/top' id='linkToTopProduct'>
                 <Nav.Link>Top Sellers</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to='/ad'>
+              <LinkContainer to='/ad' id='linkToAds'>
                 <Nav.Link>Weekly Ad</Nav.Link>
               </LinkContainer>
 
@@ -77,7 +77,7 @@ const Header = () => {
                 value={searchCriteria}
                 onChange={e => setSearchCriteria(e.target.value)}
               />
-              <Button type='submit' variant="dark" size='sm' >
+              <Button id='searchButton' type='submit' variant="dark" size='sm' >
                 <i className='fa fa-magnifying-glass'></i>
               </Button>
             </Form>
@@ -86,7 +86,7 @@ const Header = () => {
             <Nav className='ms-auto'>
               {userInfo ? (
                 <>
-                  <LinkContainer to='/profile'>
+                  <LinkContainer to='/profile' id='linkToProfile'>
                     <Nav.Link>
                       <i className="fa-solid fa-user-astronaut" />
                     </Nav.Link>
@@ -101,13 +101,13 @@ const Header = () => {
                   </NavDropdown>
                 </>
               ) : (
-                <LinkContainer to='/login'>
+                <LinkContainer to='/login' id='linkToLogin'>
                   <Nav.Link>
                     <i className="fa-solid fa-user-astronaut">&nbsp;</i>
                     Sign in
                   </Nav.Link>
                 </LinkContainer>)}
-              <LinkContainer to='/cart'>
+              <LinkContainer to='/cart' id='linkToCart'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart fa-sm'></i>
                 </Nav.Link>
