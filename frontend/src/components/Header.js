@@ -34,7 +34,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container >
-          <LinkContainer to='/' id='linkToHomePage'>
+          <LinkContainer to='/' aria-label='webIcon'> 
             <Navbar.Brand>
               <i className='fas fa-gamepad fa-lg'>&nbsp;</i>
             </Navbar.Brand>
@@ -77,7 +77,7 @@ const Header = () => {
                 value={searchCriteria}
                 onChange={e => setSearchCriteria(e.target.value)}
               />
-              <Button id='searchButton' type='submit' variant="dark" size='sm' >
+              <Button aria-label='searchButton' type='submit' variant="dark" size='sm' >
                 <i className='fa fa-magnifying-glass'></i>
               </Button>
             </Form>
@@ -86,7 +86,7 @@ const Header = () => {
             <Nav className='ms-auto'>
               {userInfo ? (
                 <>
-                  <LinkContainer to='/profile' id='linkToProfile'>
+                  <LinkContainer to='/profile' aria-label='userIcon'>
                     <Nav.Link>
                       <i className="fa-solid fa-user-astronaut" />
                     </Nav.Link>
@@ -101,13 +101,13 @@ const Header = () => {
                   </NavDropdown>
                 </>
               ) : (
-                <LinkContainer to='/login' id='linkToLogin'>
+                <LinkContainer to='/login' aria-label='loginIcon'>
                   <Nav.Link>
                     <i className="fa-solid fa-user-astronaut">&nbsp;</i>
                     Sign in
                   </Nav.Link>
                 </LinkContainer>)}
-              <LinkContainer to='/cart' id='linkToCart'>
+              <LinkContainer to='/cart' aria-label='cartIcon'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart fa-sm'></i>
                 </Nav.Link>
