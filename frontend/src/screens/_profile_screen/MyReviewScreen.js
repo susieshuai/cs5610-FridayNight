@@ -68,7 +68,6 @@ const MyReviewScreen = () => {
                     <div>POSTED: {review.createdAt.substring(0, 10)}</div>
                     <Rating value={review.rating} />
                   </Col>
-                  {/* <Col style={{ color:'lightgrey', fontSize: '14px' }}>{review.review}</Col> */}
                   <Col style={{ color: 'lightgrey', fontSize: '13px' }}>
                     <ReadMoreReact text={review.review}
                       min={100}

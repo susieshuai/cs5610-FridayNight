@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ScrollTo } from "react-scroll-to";
+import ReadMoreReact from 'read-more-react';
 import { Row, ListGroup, Form, Button, Col } from 'react-bootstrap'
 import Rating from '../../components/Rating'
 import Message from '../../components/Message'
@@ -73,10 +74,13 @@ const ReviewScreen = ({ reviews }) => {
                                                 <Col md={{ offset: 10 }} style={{ color: 'grey' }}>POSTED: {review.createdAt.substring(0, 10)}</Col>
                                             </Row>
                                             <Rating value={review.rating} /></small>
-
-                                        <p className='mt-4'>{review.review}</p>
-
-
+                                        <ReadMoreReact
+                                            className='mt-4'
+                                            text={review.review}
+                                            min={500}
+                                            ideal={600}
+                                            max={2000}
+                                            readMoreText='CLICK HERE TO READ MORE' />
                                     </ListGroup.Item>
                                 ))}
                             </ListGroup>
