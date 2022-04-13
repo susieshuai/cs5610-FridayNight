@@ -23,14 +23,14 @@ const Review = () => {
           <Card bg="dark" key={review._id}>
             <Card.Body>
               <Row >
-                <Col style={{ color: '#B0C4DE', fontSize: '10px' }}>
+                <Col style={{ color: '#B0C4DE', fontSize: '12px' }}>
                   <div><i className="fa-solid fa-user-astronaut" /> {review.user.username}</div>
                   {review.createdAt.substring(0, 10)}
                   <Rating value={review.rating} />
                 </Col>
                 <Col md={{offset:4}} xs={{offset:4}}><Link to={`/details/${review.product._id}`}>{review.product.name}</Link></Col>
               </Row>
-              <p style={{ color: 'silver', fontSize: '10px' }}>{review.review.substring(0, 200) + '...'}</p>
+              <p style={{ color: 'silver', fontSize: '14px' }}>{review.review.substring(0, 200) + '...'}</p>
             </Card.Body>
           </Card>
         ))}

@@ -39,7 +39,7 @@ const MyorderScreen = () => {
         <Message variant='dark'>
           <h4 style={{ color: '	#B0C4DE' }}>You have never placed an order</h4>
           <small style={{ color: '	#C0C0C0' }}>Check out what we're featuring now!</small>
-          <Fragment>
+          <div>
             <Link to='/'><Button
               style={{
                 width: '350px',
@@ -47,7 +47,7 @@ const MyorderScreen = () => {
               }}
               className='bg-success mt-2'
 
-            >Go to Homepage</Button></Link></Fragment>
+            >Go to Homepage</Button></Link></div>
         </Message>
       ) : (
         <>

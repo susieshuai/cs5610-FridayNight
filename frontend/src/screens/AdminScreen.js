@@ -85,7 +85,7 @@ const ProductListScreen = () => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
-          <Table hover responsive className='table-sm'>
+          <Table hover responsive className='table-sm bg-dark' >
             <thead>
               <tr>
                 <th>ID</th>
@@ -95,7 +95,7 @@ const ProductListScreen = () => {
                 <th>operation</th>
               </tr>
             </thead>
-            <tbody style={{ fontSize: '13px', color: 'silver' }}>
+            <tbody style={{ fontSize: '16px', color: 'silver' }}>
               {products.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>

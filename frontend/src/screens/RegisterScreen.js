@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link,useNavigate  } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { createBrowserHistory } from "history";
 import { useDispatch, useSelector } from 'react-redux'
 import { Form, Button, Row, Col } from 'react-bootstrap'
@@ -23,7 +23,7 @@ const RegisterScreen = () => {
 
   const userRegister = useSelector((state) => state.userRegister)
   const { loading, error, userInfo } = userRegister
- 
+
   useEffect(() => {
     if (userInfo) {
       navigate(redirect)
@@ -49,6 +49,7 @@ const RegisterScreen = () => {
         <Form.Group controlId='username'>
           <Form.Label htmlFor='usernameInput'>Username</Form.Label>
           <Form.Control
+            id='usernameInput'
             type='username'
             placeholder='the number of characters is 2 to 12'
             value={username}
@@ -58,6 +59,7 @@ const RegisterScreen = () => {
         <Form.Group controlId='email'>
           <Form.Label htmlFor='emailInput'>Email Address</Form.Label>
           <Form.Control
+            id='emailInput'
             type='email'
             placeholder='please enter your email'
             value={email}
@@ -67,6 +69,7 @@ const RegisterScreen = () => {
         <Form.Group controlId='password'>
           <Form.Label htmlFor='passwordInput'>Password</Form.Label>
           <Form.Control
+            id='passwordInput'
             type='password'
             placeholder='please enter your password'
             value={password}
@@ -76,6 +79,7 @@ const RegisterScreen = () => {
         <Form.Group controlId='confirmPassword'>
           <Form.Label htmlFor='confirmPasswordInput'>Confirm Password:</Form.Label>
           <Form.Control
+            id='confirmPasswordInput'
             type='password'
             placeholder='please confirm your password'
             value={confirmPassword}

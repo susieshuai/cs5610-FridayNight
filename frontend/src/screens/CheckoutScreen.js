@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Button, Table, } from 'react-bootstrap'
 import Message from '../components/Message'
 import { createOrder } from '../actions/orderAction'
+import { ORDER_CREATE_RESET } from "../constants/orderConstants"
 
 const CheckoutScreen = () => {
     const dispatch = useDispatch()
@@ -20,6 +21,8 @@ const CheckoutScreen = () => {
     useEffect(() => {
         if (success) {
             navigate(`/order/${order._id}`)
+            // reset order
+            dispatch({ type: ORDER_CREATE_RESET })
         }
         // eslint-disable-next-line
     }, [success])
