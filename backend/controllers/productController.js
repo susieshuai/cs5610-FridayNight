@@ -194,6 +194,7 @@ exports.createProduct = async (req, res) => {
     try {
         const product = new productModel(
             {
+                user: req.user._id,
                 name: 'sample name',
                 cover: '/images/sample.jpg',
                 tag: 'Action sample',
