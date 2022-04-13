@@ -36,7 +36,8 @@ Routing, links, and the basis of CRUD operations should be established.
 ### CuitingHuang
 #### 22/4/12 admin
 1. when user is admin, will view product list page
-2. add sample product, delete product and update.
+2. add sample product, delete product.
+3. import readmore to my reviews page. incase it's too long
 
 #### 22/4/11 profile page, tabs of order and my review
 1. orderdetails : reducer action route screen.
