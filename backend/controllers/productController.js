@@ -89,12 +89,13 @@ exports.createOneProduct = async (req, res) => {
 exports.deleteOneProduct = async (req, res) => {
     try {
         const id = req.params.id
-        const product = await productModel.findByIdAndDelete(id)
+        const product = await productModel.findById(id)
         if (!product) {
             console.log('no item found with this id');
         }
         else {
-            res.json(product)
+            await product.remove()
+            res.json({message:'delete success'})
         }
     } catch (error) {
         console.log(error);
