@@ -37,8 +37,6 @@ const ReviewScreen = ({ reviews }) => {
         )
     }
 
-
-
     return (
         <>
             {/* ROW 1 : title */}

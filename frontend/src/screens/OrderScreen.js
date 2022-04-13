@@ -87,7 +87,7 @@ const OrderScreen = () => {
             <h2>Order Details </h2>
             <Row>
               <Col md={8}>
-                <div style={{ color: '	#B0C4DE' }}>
+                <div  style={{ color: '	#B0C4DE' }}>
                   <Col>Ordered on {moment(`${order.createdAt}`).format('MMMM Do YYYY')}</Col>
                   <Col>Order#:{order._id}</Col>
                 </div>
