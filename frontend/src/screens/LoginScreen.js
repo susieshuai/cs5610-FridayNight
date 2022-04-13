@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { createBrowserHistory } from "history";
 import { Form, Button, Row, Col } from 'react-bootstrap'
@@ -41,6 +41,7 @@ const LoginScreen = () => {
           <Form.Group controlId='email' >
             <Form.Label className='mt-2' htmlFor='emailInput'>Email Address</Form.Label>
             <Form.Control
+              id='emailInput'
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -49,6 +50,7 @@ const LoginScreen = () => {
           <Form.Group controlId='password'>
             <Form.Label className='mt-2' htmlFor='passwordInput'>Password</Form.Label>
             <Form.Control
+              id='passwordInput'
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -56,7 +58,7 @@ const LoginScreen = () => {
           </Form.Group>
           <Form.Group>
             <br />
-            <Button type='submit' variant='success' style={{ width: '10rem' }} className='mt-3'>
+            <Button type='submit' variant='dark' style={{ color:'yellow', width: '10rem' }} className='mt-3'>
               Go Ahead
             </Button>
           </Form.Group>
