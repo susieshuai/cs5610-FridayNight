@@ -12,6 +12,7 @@ import {
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS
 } from "../constants/orderConstants"
+import { CART_CLEAR_ITEM } from '../constants/cartConstants'
 import axios from 'axios'
 
 // create new order
@@ -40,7 +41,8 @@ export const createOrder = (order) => async (
     )
 
     dispatch({ type: ORDER_CREATE_SUCCESS, payload: data })
-
+    // when successfully created an order, clear cart items
+    dispatch({ type: CART_CLEAR_ITEM })
   } catch (error) {
     dispatch({
       type: ORDER_CREATE_FAIL,
