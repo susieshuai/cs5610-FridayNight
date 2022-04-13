@@ -39,7 +39,7 @@ const LoginScreen = () => {
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='email' >
-            <Form.Label className='mt-2'>Email Address</Form.Label>
+            <Form.Label className='mt-2' htmlFor='emailInput'>Email Address</Form.Label>
             <Form.Control
               type='email'
               value={email}
@@ -47,7 +47,7 @@ const LoginScreen = () => {
             ></Form.Control>
           </Form.Group>
           <Form.Group controlId='password'>
-            <Form.Label className='mt-2'>Password</Form.Label>
+            <Form.Label className='mt-2' htmlFor='passwordInput'>Password</Form.Label>
             <Form.Control
               type='password'
               value={password}

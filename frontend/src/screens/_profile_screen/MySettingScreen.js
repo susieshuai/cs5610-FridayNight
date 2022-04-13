@@ -64,7 +64,7 @@ const MySettingScreen = () => {
         <Row>
           <Col md={{ span: 5 }}>
             <Form.Group controlId='username'>
-              <small> <Form.Label as='b'>About me</Form.Label></small>
+              <small> <Form.Label as='b' htmlFor='setNewUsername'>About me</Form.Label></small>
               <Form.Control
                 className='mt-2 mb-4'
                 type='username'
@@ -77,7 +77,7 @@ const MySettingScreen = () => {
           </Col>
           <Col md={{ span: 5, offset: 2 }}>
             <Form.Group controlId='email'>
-              <small> <Form.Label as='b'>Email Address</Form.Label></small>
+              <small> <Form.Label as='b' htmlFor='setNewUseremail'>Email Address</Form.Label></small>
               <Form.Control
                 className='mt-2 mb-5'
                 type='email'
@@ -92,7 +92,7 @@ const MySettingScreen = () => {
         <Row >
           <Col md={12}>
             <Form.Group controlId='password'>
-              <small><Form.Label as='b'>Password</Form.Label></small>
+              <small><Form.Label as='b' htmlFor='setNewPassword'>Password</Form.Label></small>
               <Form.Control
                 className='mt-2 mb-4'
                 type='password'
@@ -103,7 +103,7 @@ const MySettingScreen = () => {
               ></Form.Control>
             </Form.Group>
             <Form.Group controlId='confirmPassword'>
-              <small> <Form.Label as='b'>Confirm Password:</Form.Label></small>
+              <small> <Form.Label as='b' htmlFor='confirmPassword'>Confirm Password:</Form.Label></small>
               <Form.Control
                 className='mt-2 mb-4'
                 type='password'

@@ -47,7 +47,7 @@ const RegisterScreen = () => {
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='username'>
-          <Form.Label>Username</Form.Label>
+          <Form.Label htmlFor='usernameInput'>Username</Form.Label>
           <Form.Control
             type='username'
             placeholder='the number of characters is 2 to 12'
@@ -56,7 +56,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label htmlFor='emailInput'>Email Address</Form.Label>
           <Form.Control
             type='email'
             placeholder='please enter your email'
@@ -65,7 +65,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label htmlFor='passwordInput'>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='please enter your password'
@@ -74,7 +74,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='confirmPassword'>
-          <Form.Label>Confirm Password:</Form.Label>
+          <Form.Label htmlFor='confirmPasswordInput'>Confirm Password:</Form.Label>
           <Form.Control
             type='password'
             placeholder='please confirm your password'
