@@ -74,7 +74,6 @@ const MyReviewScreen = () => {
                       min={100}
                       ideal={200}
                       max={2000}
-                      aria='readMoreButton'
                       readMoreText='CLICK HERE TO READ MORE' />
                   </Col>
                 </Row>

@@ -16,9 +16,8 @@ const ItemEditScreen = () => {
       </Breadcrumb>
       <Form>
         <Form.Group controlId='name'>
-          <Form.Label htmlFor='nameInput'>name：</Form.Label>
+          <Form.Label>name：</Form.Label>
           <Form.Control
-            id='name'
             type='name'
             placeholder='Enter product name'
             value={name}

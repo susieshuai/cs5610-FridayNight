@@ -78,7 +78,6 @@ const ReviewScreen = ({ reviews }) => {
                                             min={500}
                                             ideal={600}
                                             max={2000}
-                                            aria='readMoreButton'
                                             readMoreText='CLICK HERE TO READ MORE' />
                                     </ListGroup.Item>
                                 ))}
