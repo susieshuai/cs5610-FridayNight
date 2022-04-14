@@ -47,9 +47,8 @@ const RegisterScreen = () => {
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='username'>
-          <Form.Label htmlFor='usernameInput'>Username</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
-            id='usernameInput'
             type='username'
             placeholder='the number of characters is 2 to 12'
             value={username}
@@ -57,9 +56,8 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='email'>
-          <Form.Label htmlFor='emailInput'>Email Address</Form.Label>
+          <Form.Label>Email Address</Form.Label>
           <Form.Control
-            id='emailInput'
             type='email'
             placeholder='please enter your email'
             value={email}
@@ -67,9 +65,8 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='password'>
-          <Form.Label htmlFor='passwordInput'>Password</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
-            id='passwordInput'
             type='password'
             placeholder='please enter your password'
             value={password}
@@ -77,9 +74,8 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId='confirmPassword'>
-          <Form.Label htmlFor='confirmPasswordInput'>Confirm Password:</Form.Label>
+          <Form.Label>Confirm Password:</Form.Label>
           <Form.Control
-            id='confirmPasswordInput'
             type='password'
             placeholder='please confirm your password'
             value={confirmPassword}
@@ -88,7 +84,7 @@ const RegisterScreen = () => {
         </Form.Group>
         <Form.Group>
           <br />
-          <Button type='submit' variant='dark' style={{ width: '10rem' }}>
+          <Button type='submit' variant='success' style={{ color:'black' , width: '10rem' }}>
             Get Started
           </Button>
         </Form.Group>

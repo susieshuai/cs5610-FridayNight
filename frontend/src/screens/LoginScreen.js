@@ -39,18 +39,18 @@ const LoginScreen = () => {
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId='email' >
-            <Form.Label className='mt-2' htmlFor='emailInput'>Email Address</Form.Label>
+            <Form.Label className='mt-2'>Email Address</Form.Label>
             <Form.Control
-              id='emailInput'
+           
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             ></Form.Control>
           </Form.Group>
           <Form.Group controlId='password'>
-            <Form.Label className='mt-2' htmlFor='passwordInput'>Password</Form.Label>
+            <Form.Label className='mt-2'>Password</Form.Label>
             <Form.Control
-              id='passwordInput'
+             
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -58,7 +58,7 @@ const LoginScreen = () => {
           </Form.Group>
           <Form.Group>
             <br />
-            <Button type='submit' variant='dark' style={{ color:'yellow', width: '10rem' }} className='mt-3'>
+            <Button type='submit' variant='success' style={{ color:'black' , width: '10rem' }} className='mt-3'>
               Go Ahead
             </Button>
           </Form.Group>

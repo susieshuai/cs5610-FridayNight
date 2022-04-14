@@ -106,12 +106,13 @@ const CheckoutScreen = () => {
                         <ListGroup.Item>
                             <Button
                                 type='button'
-                                className='btn-block bg-primary'
+                                className='btn-block bg-success'
                                 disabled={cart.cartItems.length === 0}
                                 style={{
                                     width: '350px',
                                     display: 'block',
                                     margin: 'auto',
+                                    color:'black' 
                                 }}
                                 onClick={confirmOrder}
                             >

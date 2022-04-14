@@ -53,7 +53,7 @@ const MyorderScreen = () => {
       ) : (
         <>
           {orders.map((order) => (
-            <Fragment className='ms-1' key={order._id}>
+            <Fragment key={order._id}>
               <Row style={{ color: 'white', fontSize: '14px' }}>
                 <Col>
                   <Row>Order Placed {order.createdAt.substring(5, 10)}</Row>

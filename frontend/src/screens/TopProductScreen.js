@@ -35,9 +35,9 @@ const TopProductScreen = () => {
                   <Col as='h4'>{product.name}</Col>
                 </Link>
                 <Col>
-                  <Badge pill bg="success" as='title'>{product.tag}</Badge>
+                  <Badge pill bg="success" text='dark' as='title'>{product.tag}</Badge>
                   &nbsp;
-                  <Badge pill bg="success" as='title'>{product.category}</Badge>
+                  <Badge pill bg="success" text='dark' as='title'>{product.category}</Badge>
                 </Col>
                 <small>
                   <br />
