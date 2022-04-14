@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, ListGroup, ListGroupItem, Nav, Tab } from 'react-bootstrap'
+import { Row, Col,ListGroupItem, Nav, Tab } from 'react-bootstrap'
 import Meta from '../components/Meta'
 import Subtitle from '../components/Subtitle'
 import Loader from '../components/Loader'
@@ -43,20 +43,18 @@ const ProfileScreen = () => {
   return (
     <>
       <Meta title={`Hello, ${user.name}`} />
-      <Tab.Container id="left profile" defaultActiveKey="orders">
+      {message && <Message variant='danger'>{message}</Message>}
+      {error && <Message variant='danger'>{error}</Message>}
+      {loading && <Loader />}
+      <Tab.Container id="leftnav" defaultActiveKey="orders">
         <Row>
           <Col md={3}>
             <Row className='mt-5 mb-5'>
               <h3>Hello, {username}</h3>
             </Row>
-            {message && <Message variant='danger'>{message}</Message>}
-            {error && <Message variant='danger'>{error}</Message>}
-            {loading && <Loader />}
-            <ListGroup>
-              <ListGroupItem>
-                <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;{email}
-              </ListGroupItem>
-            </ListGroup>
+            <ListGroupItem>
+              <i className="fa-solid fa-envelope">&nbsp;</i>Email:&nbsp;{email}
+            </ListGroupItem>
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="orders"><i className="fa-solid fa-box-open">&nbsp;</i>Orders</Nav.Link>
@@ -70,16 +68,16 @@ const ProfileScreen = () => {
             </Nav>
           </Col>
           <Col md={9}>
-            <Tab.Content>
-              <Tab.Pane eventKey="orders">
+            <Tab.Content as='div'>
+              <Tab.Pane eventKey="orders" aria-labelledby='order'>
                 <h3><Subtitle text='Orders History ' /></h3>
                 <MyOrderScreen />
               </Tab.Pane>
-              <Tab.Pane eventKey="reviews">
+              <Tab.Pane eventKey="reviews" aria-labelledby='review'>
                 <h3><Subtitle text='My Reviews ' /></h3>
                 <MyReviewScreen />
               </Tab.Pane>
-              <Tab.Pane eventKey="settings">
+              <Tab.Pane eventKey="settings" aria-labelledby='set'>
                 <h3> <Subtitle text='My Settings ' /></h3>
                 <MySettingScreen />
               </Tab.Pane>
