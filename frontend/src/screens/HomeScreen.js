@@ -29,11 +29,6 @@ const HomeScreen = () => {
               <Banner />
             </Row>
             <Row className='mt-1' >
-              <Col md={{ span: 5 }}>
-                <Subtitle text=' Customer Reviews' />
-              </Col>
-            </Row>
-            <Row className='mt-1' >
                 <Col>
                   <Review/>
                 </Col>
