@@ -69,7 +69,8 @@ const ProductListScreen = () => {
         <Col>
           <h1 className='mt-4'>Product list</h1>
           <Button
-            variant='primary'
+            style={{ color: 'black' }}
+            variant='success'
             className='my-2'
             onClick={createProductHandler}>
             Create a Product
@@ -111,9 +112,10 @@ const ProductListScreen = () => {
                     </LinkContainer>
                     <span>&nbsp;&nbsp;&nbsp;</span>
                     <Button
-                      variant='primary'
+                      variant='danger'
                       className='btn-sm'
                       onClick={() => deleteHandler(product._id)}
+                      style={{ color: 'black' }}
                     >
                       delete
                     </Button>
