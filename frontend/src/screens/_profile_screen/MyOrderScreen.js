@@ -1,4 +1,4 @@
-import React, { useEffect,Fragment } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import { Row, Col, Image, Table, Button } from 'react-bootstrap'
@@ -41,11 +41,12 @@ const MyorderScreen = () => {
           <small style={{ color: '	#C0C0C0' }}>Check out what we're featuring now!</small>
           <div>
             <Link to='/'><Button
+              variant='primary'
               style={{
                 width: '350px',
                 margin: 'auto',
               }}
-              className='bg-success mt-2'
+              className='mt-2'
 
             >Go to Homepage</Button></Link></div>
         </Message>
@@ -53,7 +54,7 @@ const MyorderScreen = () => {
         <>
           {orders.map((order) => (
             <Fragment className='ms-1' key={order._id}>
-              <Row style={{ color: 'grey', fontSize: '14px' }}>
+              <Row style={{ color: 'white', fontSize: '14px' }}>
                 <Col>
                   <Row>Order Placed {order.createdAt.substring(5, 10)}</Row>
                 </Col>
