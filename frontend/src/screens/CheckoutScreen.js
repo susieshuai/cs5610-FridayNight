@@ -90,7 +90,7 @@ const CheckoutScreen = () => {
                                     </tr>
                                     <tr style={{ fontSize: '15px' }}>
                                         <td >Delivery</td>
-                                        <td style={{ color: 'red' }}> Free</td>
+                                        <td style={{ color: 'white' }}> Free</td>
                                     </tr>
                                     <tr style={{ fontSize: '15px' }}>
                                         <td>Estimated tax rate</td>
@@ -106,7 +106,7 @@ const CheckoutScreen = () => {
                         <ListGroup.Item>
                             <Button
                                 type='button'
-                                className='btn-block bg-success'
+                                className='btn-block bg-primary'
                                 disabled={cart.cartItems.length === 0}
                                 style={{
                                     width: '350px',
