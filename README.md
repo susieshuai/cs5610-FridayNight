@@ -2,7 +2,7 @@
 The MERN Stack Project(MongoDB Express React Node)
 FridayNight is an online store specialized in selling computer game virtual items.
 
-This app is deployed on [Heroku](https://friday-night-test.herokuapp.com/)
+🎮 This app is deployed on [Heroku](https://friday-night-test.herokuapp.com/)
 
 ### Iteration 2
 **Division of labor**
@@ -34,9 +34,16 @@ Routing, links, and the basis of CRUD operations should be established.
 
 ## Update & Progress
 ### CuitingHuang
+#### 22/4/12 admin
+1. when user is admin, will view product list page
+2. add sample product, delete product.
+3. import readmore to my reviews page. incase it's too long
+
 #### 22/4/11 profile page, tabs of order and my review
 1. orderdetails : reducer action route screen.
 2. myorderlist: reducer action route screen.
+3. reviewslist on homepage
+4. my reviews
 
 #### 22/4/10 fix details
 1. react-router scroll to top on every transition
@@ -102,7 +109,21 @@ findItem or deleteItem by id
 findAll
 ```
 ### Shi Shuai
-#### 22/4/10 fix details
+#### 22/4/12
+**PayPal Feature**
+1. prep
+- create paypal account
+- create paypal sandbox app and test accounts
+2. frontend
+- order pay redux : add order pay constants, order pay reducers, order pay actions, add to store
+- add paypal script
+- add paypal button, implement payment feature, refresh order page after successful payment
+- polish order page layout
+3. backend
+- add private order pay route to update an order to paid
+
+#### 22/4/10
+**Fix Details**
 1. review content validation (handle the situation where rating or review input is empty)
 2. polish search result layout
 3. reset search box after each search

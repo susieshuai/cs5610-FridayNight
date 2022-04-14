@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
-
 import Product from '../components/Product'
 import Subtitle from '../components/Subtitle'
 import Loader from '../components/Loader'
@@ -14,12 +13,10 @@ const AllProductScreen = () => {
   const productList = useSelector((state) => state.productList)
   const { loading, error, products } = productList
 
-  
   useEffect(() => {
-
     dispatch(listProducts())
-
   }, [dispatch])
+
   return (
     <>
     {loading ? <Loader/> : error ? <Message variant='danger'>{error}</Message> : 
@@ -39,7 +36,6 @@ const AllProductScreen = () => {
         </Row>
       </>
     )}
-
   </>
   )
 }

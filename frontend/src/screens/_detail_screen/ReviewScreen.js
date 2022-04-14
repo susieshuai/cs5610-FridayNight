@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, ListGroup, Form, Button, Col } from 'react-bootstrap'
-import { listProductDetails, addReview } from '../../actions/productActions'
 import { ScrollTo } from "react-scroll-to";
+import ReadMoreReact from 'read-more-react';
+import { Row, ListGroup, Form, Button, Col } from 'react-bootstrap'
 import Rating from '../../components/Rating'
 import Message from '../../components/Message'
+import { listProductDetails, addReview } from '../../actions/productActions'
 
 const ReviewScreen = ({ reviews }) => {
     const { id: productId } = useParams()
@@ -35,8 +36,6 @@ const ReviewScreen = ({ reviews }) => {
             addReview(productId, { rating, review })
         )
     }
-
-
 
     return (
         <>
@@ -73,10 +72,13 @@ const ReviewScreen = ({ reviews }) => {
                                                 <Col md={{ offset: 10 }} style={{ color: 'grey' }}>POSTED: {review.createdAt.substring(0, 10)}</Col>
                                             </Row>
                                             <Rating value={review.rating} /></small>
-
-                                        <p className='mt-4'>{review.review}</p>
-
-
+                                        <ReadMoreReact
+                                            className='mt-4'
+                                            text={review.review}
+                                            min={500}
+                                            ideal={600}
+                                            max={2000}
+                                            readMoreText='CLICK HERE TO READ MORE' />
                                     </ListGroup.Item>
                                 ))}
                             </ListGroup>
@@ -95,9 +97,10 @@ const ReviewScreen = ({ reviews }) => {
                     <Form onSubmit={submitReview} >
                         {/* rating */}
                         <Form.Group>
-                            <Form.Label>Rating:</Form.Label>
+                            <Form.Label htmlFor='selectRating'>Rating:</Form.Label>
                             <Form.Control
                                 as='select'
+                                id='selectRating'
                                 value={rating}
                                 onChange={(e) => setRating(e.target.value)}
                                 required
@@ -113,8 +116,9 @@ const ReviewScreen = ({ reviews }) => {
 
                         {/* review */}
                         <Form.Group className='mt-5'>
-                            <Form.Label>Review:</Form.Label>
+                            <Form.Label htmlFor='reviewInput'>Review:</Form.Label>
                             <Form.Control
+                                id='reviewInput'
                                 as='textarea'
                                 value={review}
                                 onChange={(e) => setReview(e.target.value)}
@@ -128,7 +132,7 @@ const ReviewScreen = ({ reviews }) => {
                             Submit
                         </Button>
                     </Form>) : (
-                    <Link to='/login'><Message>Please Login to write new review.</Message></Link>
+                    <Link to='/login' aria-label='button'><Message>Please Login to write new review.</Message></Link>
                 )}
             </Row>
         </>

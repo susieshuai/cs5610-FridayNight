@@ -11,7 +11,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-
+  // console.log(userInfo)
   const logoutHandler = () => {
     dispatch(logout())
   }
@@ -19,7 +19,6 @@ const Header = () => {
   let navigate = useNavigate()
 
   const handleSearch = (e) => {
-    // console.log(searchCriteria);
     e.preventDefault()
     if (searchCriteria.trim()) {
       navigate(`/search/${searchCriteria}`)
@@ -35,7 +34,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container >
-          <LinkContainer to='/'>
+          <LinkContainer to='/' aria-label='webIcon'>
             <Navbar.Brand>
               <i className='fas fa-gamepad fa-lg'>&nbsp;</i>
             </Navbar.Brand>
@@ -44,17 +43,17 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
-              <LinkContainer to='/'>
+              <LinkContainer to='/' id='linkToHome'>
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/products'>
+              <LinkContainer to='/products' id='linkToNewProduct'>
                 <Nav.Link>What's new</Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/products/top'>
+              <LinkContainer to='/products/top' id='linkToTopProduct'>
                 <Nav.Link>Top Sellers</Nav.Link>
               </LinkContainer>
 
-              <LinkContainer to='/ad'>
+              <LinkContainer to='/ad' id='linkToAds'>
                 <Nav.Link>Weekly Ad</Nav.Link>
               </LinkContainer>
 
@@ -78,7 +77,7 @@ const Header = () => {
                 value={searchCriteria}
                 onChange={e => setSearchCriteria(e.target.value)}
               />
-              <Button type='submit' variant="dark" size='sm' >
+              <Button aria-label='searchButton' type='submit' variant="dark" size='sm' >
                 <i className='fa fa-magnifying-glass'></i>
               </Button>
             </Form>
@@ -87,14 +86,14 @@ const Header = () => {
             <Nav className='ms-auto'>
               {userInfo ? (
                 <>
-                  <LinkContainer to='/profile'>
+                  <LinkContainer to='/profile' aria-label='userIcon'>
                     <Nav.Link>
                       <i className="fa-solid fa-user-astronaut" />
                     </Nav.Link>
                   </LinkContainer>
                   <NavDropdown title={userInfo.name} id="username" style={{ marginLeft: '-10px' }}>
-                    <small><NavDropdown.Item href="/profile">My profile</NavDropdown.Item></small>
-                    {/* <NavDropdown.Item href="/profile/order">My orders</NavDropdown.Item> */}
+                    <small><NavDropdown.Item href="/profile">My Profile</NavDropdown.Item></small>
+                    {userInfo.isAdmin && <small><NavDropdown.Item href="/admin/product">Product List</NavDropdown.Item></small>}
                     <NavDropdown.Divider />
                     <small><NavDropdown.Item onClick={logoutHandler}>
                       Sign out
@@ -102,14 +101,13 @@ const Header = () => {
                   </NavDropdown>
                 </>
               ) : (
-                <LinkContainer to='/login'>
+                <LinkContainer to='/login' aria-label='loginIcon'>
                   <Nav.Link>
                     <i className="fa-solid fa-user-astronaut">&nbsp;</i>
                     Sign in
                   </Nav.Link>
                 </LinkContainer>)}
-
-              <LinkContainer to='/cart'>
+              <LinkContainer to='/cart' aria-label='cartIcon'>
                 <Nav.Link>
                   <i className='fas fa-shopping-cart fa-sm'></i>
                 </Nav.Link>
@@ -119,7 +117,6 @@ const Header = () => {
         </Container>
       </Navbar>
     </header >
-
   )
 }
 

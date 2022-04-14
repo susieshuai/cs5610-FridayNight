@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'
-import { Breadcrumb, Row, Col, Image, Table } from 'react-bootstrap'
+import {Link, useParams,useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { PayPalButton } from 'react-paypal-button-v2'
-
 import moment from 'moment'
 import axios from 'axios'
-
+import { Breadcrumb, Row, Col, Image, Table } from 'react-bootstrap'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getOrderDetails, payMyOrder } from '../actions/orderAction';
@@ -16,22 +12,20 @@ import { ORDER_PAY_RESET } from '../constants/orderConstants'
 
 const OrderScreen = () => {
 
-  const { id } = useParams()
-
   const [SDK, setSDK] = useState(false)
 
+  const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-  // console.log('userinfo:', userInfo);
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
 
   const orderPay = useSelector((state) => state.orderPay)
-  const { success: successPay, loading: loadingPay, error: errorPay } = orderPay
+  const { success: successPay, loading: loadingPay } = orderPay
 
   if (!loading) {
     const addDecimals = (num) => {
@@ -57,7 +51,6 @@ const OrderScreen = () => {
       }
       document.body.appendChild(script)
     }
-
     if (!userInfo) {
       navigate('/login')
     }
@@ -94,7 +87,7 @@ const OrderScreen = () => {
             <h2>Order Details </h2>
             <Row>
               <Col md={8}>
-                <div style={{ color: '	#B0C4DE' }}>
+                <div  style={{ color: '	#B0C4DE' }}>
                   <Col>Ordered on {moment(`${order.createdAt}`).format('MMMM Do YYYY')}</Col>
                   <Col>Order#:{order._id}</Col>
                 </div>

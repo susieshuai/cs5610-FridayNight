@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
-import { useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
-import { addToCart, removeFromCart } from "../actions/cartActions";
 import { createBrowserHistory } from "history";
 import {
   Row,
@@ -15,20 +12,19 @@ import {
   Card,
   Table
 } from 'react-bootstrap'
-
 import Message from '../components/Message'
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 
 const CartScreen = () => {
-  const history = createBrowserHistory();
 
   const { id } = useParams()
-  const qty = history.location.search ? Number(history.location.search.split('=')[1]) : 1
-  // console.log(history.location);
-  // console.log(qty);
+  const history = createBrowserHistory();
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const qty = history.location.search ? Number(history.location.search.split('=')[1]) : 1
   const cart = useSelector((state) => state.cart)
-  //  console.log(cart);
   const { cartItems } = cart
 
   const userLogin = useSelector((state) => state.userLogin)
@@ -44,7 +40,6 @@ const CartScreen = () => {
     dispatch(removeFromCart(id))
   }
 
-  const navigate = useNavigate()
   const checkoutHandler = () => {
     if (userInfo) {
       navigate('/checkout')
@@ -68,9 +63,9 @@ const CartScreen = () => {
               width: '350px',
               margin: 'auto',
             }}
-            className='bg-success'
+            className='bg-dark'
 
-          >Go to Homepage</Button></Link><br/>
+          >Go to Homepage</Button></Link><br />
           <Image src={'/images/cart.png'}
             alt='cartIcon'
             style={{
@@ -78,7 +73,6 @@ const CartScreen = () => {
               display: 'block',
               margin: 'auto',
             }}
-
             fluid rounded />
         </Message>
       ) : (
@@ -87,7 +81,7 @@ const CartScreen = () => {
             <h5>Shopping Cart</h5>
             <b style={{
               fontSize: '15px',
-              color: 'grey',
+              color: 'white',
             }}
             >${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)} subtotal
               · {cartItems.reduce((acc, item) => acc + item.qty, 0)} items</b>
@@ -100,14 +94,14 @@ const CartScreen = () => {
                       color: 'grey',
                       marginLeft: '700px'
                     }}>
-                     Each Price</Row>
+                    Each Price</Row>
                   <Row >
                     <Col md={3} xs={3}>
-                      <Image src={item.cover} alt={item.name} fluid rounded/>
+                      <Image src={item.cover} alt={item.name} fluid rounded />
                     </Col>
                     <Col xs={{ span: 4 }}>
                       <Row><small><Link to={`/details/${item.product}`}>{item.name}</Link></small></Row>
-                    
+
                       <Row>
                         <Col xs={1} className='mt-2'><h6>Qty.</h6></Col>
                         <Col xs={5} md={5} lg={3} xl={3}>
@@ -127,7 +121,6 @@ const CartScreen = () => {
                               </option>
                             ))}
                           </Form.Control>
-
                         </Col>
                       </Row>
                     </Col>
@@ -137,6 +130,7 @@ const CartScreen = () => {
                     <Col>
                       <Button
                         type='button'
+                        aria-label='delete'
                         onClick={() => removerFromCartHandler(item.product)}
                         variant="dark"
                         size='sm'
@@ -145,9 +139,7 @@ const CartScreen = () => {
                       </Button>
                     </Col>
                   </Row>
-                  <br/>
-
-
+                  <br />
                 </ListGroup.Item>
               ))}
             </ListGroup>
@@ -158,9 +150,7 @@ const CartScreen = () => {
             <Card>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
-                  <Table striped  hover>
-                   
-                    
+                  <Table striped hover>
                     <tbody>
                       <tr style={{ color: 'red', fontSize: '15px' }}>
                         <td>Subtotal
@@ -188,9 +178,10 @@ const CartScreen = () => {
                     className='btn-block bg-success'
                     disabled={cartItems.length === 0}
                     style={{
-                      width: '350px',
+                      color:'black' ,
                       display: 'block',
                       margin: 'auto',
+                      width:'15rem'
                     }}
                     onClick={checkoutHandler}
                   >

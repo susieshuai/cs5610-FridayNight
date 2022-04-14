@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 
 const Rating = ({ value, text, color }) => {
   return (
-    <div className='rating text-muted' style={{fontSize:'10px'}}>
+    <div className='rating text-muted' style={{fontSize:'16px'}}>
       <span>
         <i
           style={{ color }}
@@ -65,7 +65,7 @@ const Rating = ({ value, text, color }) => {
 
         ></i>
       </span>
-      <span>{text && text}</span>
+      <span style={{color:'#FFCC33'}}>{text && text}</span>
     </div>
   )
 }

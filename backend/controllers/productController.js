@@ -89,12 +89,13 @@ exports.createOneProduct = async (req, res) => {
 exports.deleteOneProduct = async (req, res) => {
     try {
         const id = req.params.id
-        const product = await productModel.findByIdAndDelete(id)
+        const product = await productModel.findById(id)
         if (!product) {
             console.log('no item found with this id');
         }
         else {
-            res.json(product)
+            await product.remove()
+            res.json({ message: 'delete success' })
         }
     } catch (error) {
         console.log(error);
@@ -156,14 +157,14 @@ exports.createReview = async (req, res) => {
             const data = new reviewModel(
                 {
                     user: req.user._id,
-                    product:id,
+                    product: id,
                     rating: parseInt(rating),
                     review,
-                    
+
                 }
             )
-            const newData= await data.save()
-         
+            const newData = await data.save()
+
             const newReview = {
                 user: req.user._id,
                 username: req.user.username,
@@ -183,6 +184,79 @@ exports.createReview = async (req, res) => {
 
         }
 
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//create product sample on productlist page
+exports.createProduct = async (req, res) => {
+    try {
+        const product = new productModel(
+            {
+                user: req.user._id,
+                name: 'sample name',
+                cover: '/images/sample.jpg',
+                tag: 'Action sample',
+                releasedate: '21 Apr, 2022',
+                category: 'Action sample',
+                developer: 'X-box sample',
+                publisher: 'X-box sample',
+                description: 'sample description',
+                price: 0,
+                countInStock: 99,
+                rating: 0,
+                numReviews: 0,
+                highlight: 'sample highlight'
+            }
+        )
+        const newProduct = await product.save()
+        res.json(newProduct)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+exports.updateProduct = async (req, res) => {
+    try {
+        const {
+            name,
+            cover,
+            tag,
+            releasedate,
+            category,
+            developer,
+            publisher,
+            description,
+            price,
+            countInStock,
+            rating,
+            numReviews,
+            highlight
+        } = req.body
+
+        const product = await productModel.findById(req.params.id)
+        res.json(newProduct)
+        if (!product) {
+            console.log('no item found with this id');
+        } else {
+            product.name = name
+            product.cover = cover
+            product.tag = tag
+            product.releasedate = releasedate
+            product.category = category
+            product.developer = developer
+            product.publisher = publisher
+            product.description = description
+            product.price = price
+            product.countInStock = countInStock
+            product.rating = rating
+            product.numReviews = numReviews
+            product.highlight = highlight
+
+            const updatedProduct = await product.save()
+            res.json(updatedProduct)
+        }
     } catch (error) {
         console.log(error);
     }

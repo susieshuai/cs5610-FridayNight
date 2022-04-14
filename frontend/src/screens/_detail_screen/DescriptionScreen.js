@@ -9,7 +9,7 @@ const DescriptionScreen = ({ description }) => {
                 Description
             </Row>
             <Row className="mt-3">
-            <div dangerouslySetInnerHTML={{ __html: `${description}` }} ></div>
+            <div dangerouslySetInnerHTML={{ __html: `${description}` }} />
             </Row>  
             <Ad/>
         </>

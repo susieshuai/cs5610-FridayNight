@@ -8,9 +8,8 @@ const HighlightScreen = ({ highlights }) => {
                 Highlights
             </Row> */}
             <Row className="mt-5">
-                <div dangerouslySetInnerHTML={{ __html: `${highlights}` }} ></div>
+                <div dangerouslySetInnerHTML={{ __html: `${highlights}` }} />
             </Row>
-
         </>
     )
 }

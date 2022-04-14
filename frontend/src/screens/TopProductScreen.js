@@ -1,12 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  Row,
-  Col,
-  Image,
-  Badge,
-} from 'react-bootstrap'
+import { Row, Col, Image, Badge } from 'react-bootstrap'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { listTopProducts } from '../actions/productActions'
@@ -14,15 +9,12 @@ import { listTopProducts } from '../actions/productActions'
 const TopProductScreen = () => {
 
   const dispatch = useDispatch()
-
   const productTopRated = useSelector((state) => state.productTopRated)
   const { loading, error, products } = productTopRated
-  // console.log(products)
 
   useEffect(() => {
     dispatch(listTopProducts())
   }, [dispatch])
-
 
   return (
     <>
@@ -43,9 +35,9 @@ const TopProductScreen = () => {
                   <Col as='h4'>{product.name}</Col>
                 </Link>
                 <Col>
-                  <Badge pill bg="success" as='title'>{product.tag}</Badge>
+                  <Badge pill bg="success" text='dark' as='title'>{product.tag}</Badge>
                   &nbsp;
-                  <Badge pill bg="success" as='title'>{product.category}</Badge>
+                  <Badge pill bg="success" text='dark' as='title'>{product.category}</Badge>
                 </Col>
                 <small>
                   <br />
@@ -67,5 +59,4 @@ const TopProductScreen = () => {
     </>
   )
 }
-
 export default TopProductScreen

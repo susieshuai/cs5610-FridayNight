@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { createOrder } from '../actions/orderAction'
 import { Link, useNavigate } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Button, Table, } from 'react-bootstrap'
 import Message from '../components/Message'
+import { createOrder } from '../actions/orderAction'
+import { ORDER_CREATE_RESET } from "../constants/orderConstants"
 
 const CheckoutScreen = () => {
     const dispatch = useDispatch()
@@ -20,6 +21,8 @@ const CheckoutScreen = () => {
     useEffect(() => {
         if (success) {
             navigate(`/order/${order._id}`)
+            // reset order
+            dispatch({ type: ORDER_CREATE_RESET })
         }
         // eslint-disable-next-line
     }, [success])
@@ -87,7 +90,7 @@ const CheckoutScreen = () => {
                                     </tr>
                                     <tr style={{ fontSize: '15px' }}>
                                         <td >Delivery</td>
-                                        <td style={{ color: 'red' }}> Free</td>
+                                        <td style={{ color: 'white' }}> Free</td>
                                     </tr>
                                     <tr style={{ fontSize: '15px' }}>
                                         <td>Estimated tax rate</td>
@@ -109,6 +112,7 @@ const CheckoutScreen = () => {
                                     width: '350px',
                                     display: 'block',
                                     margin: 'auto',
+                                    color:'black' 
                                 }}
                                 onClick={confirmOrder}
                             >

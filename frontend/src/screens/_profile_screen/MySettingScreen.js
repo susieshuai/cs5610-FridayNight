@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
+import { Form, Button, Row, Col } from 'react-bootstrap'
 import Message from '../../components/Message'
 import { getUserDetails, updateUserDetails } from "../../actions/userActions";
-
-import { useNavigate } from 'react-router-dom';
-
 
 const MySettingScreen = () => {
 
@@ -65,9 +63,10 @@ const MySettingScreen = () => {
       <Form onSubmit={submitHandler}>
         <Row>
           <Col md={{ span: 5 }}>
-            <Form.Group controlId='username'>
-              <small> <Form.Label as='b'>About me</Form.Label></small>
+            <Form.Group>
+              <small> <Form.Label as='b' htmlFor='setNewUsername'>About me</Form.Label></small>
               <Form.Control
+                id='setNewUsername'
                 className='mt-2 mb-4'
                 type='username'
                 placeholder='the number of characters is 2 to 12'
@@ -78,9 +77,10 @@ const MySettingScreen = () => {
             </Form.Group>
           </Col>
           <Col md={{ span: 5, offset: 2 }}>
-            <Form.Group controlId='email'>
-              <small> <Form.Label as='b'>Email Address</Form.Label></small>
+            <Form.Group>
+              <small> <Form.Label as='b' htmlFor='setNewUseremail'>Email Address</Form.Label></small>
               <Form.Control
+                id='setNewUseremail'
                 className='mt-2 mb-5'
                 type='email'
                 placeholder='please enter your email'
@@ -93,9 +93,10 @@ const MySettingScreen = () => {
         </Row>
         <Row >
           <Col md={12}>
-            <Form.Group controlId='password'>
-              <small><Form.Label as='b'>Password</Form.Label></small>
+            <Form.Group>
+              <small><Form.Label as='b' htmlFor='setNewPassword'>Password</Form.Label></small>
               <Form.Control
+                id='setNewPassword'
                 className='mt-2 mb-4'
                 type='password'
                 placeholder='please enter your password'
@@ -104,9 +105,10 @@ const MySettingScreen = () => {
 
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId='confirmPassword'>
-              <small> <Form.Label as='b'>Confirm Password:</Form.Label></small>
+            <Form.Group>
+              <small> <Form.Label as='b' htmlFor='confirmPassword'>Confirm Password:</Form.Label></small>
               <Form.Control
+                id='confirmPassword'
                 className='mt-2 mb-4'
                 type='password'
                 placeholder='please confirm your password'
