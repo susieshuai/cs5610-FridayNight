@@ -34,7 +34,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container >
-          <LinkContainer to='/' aria-label='webIcon'> 
+          <LinkContainer to='/' aria-label='webIcon'>
             <Navbar.Brand>
               <i className='fas fa-gamepad fa-lg'>&nbsp;</i>
             </Navbar.Brand>
@@ -92,8 +92,8 @@ const Header = () => {
                     </Nav.Link>
                   </LinkContainer>
                   <NavDropdown title={userInfo.name} id="username" style={{ marginLeft: '-10px' }}>
-                    <small><NavDropdown.Item href="/profile">My profile</NavDropdown.Item></small>
-                    {userInfo.isAdmin && <NavDropdown.Item href="/admin/product">Product List</NavDropdown.Item>}
+                    <small><NavDropdown.Item href="/profile">My Profile</NavDropdown.Item></small>
+                    {userInfo.isAdmin && <small><NavDropdown.Item href="/admin/product">Product List</NavDropdown.Item></small>}
                     <NavDropdown.Divider />
                     <small><NavDropdown.Item onClick={logoutHandler}>
                       Sign out

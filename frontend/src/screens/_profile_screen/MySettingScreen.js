@@ -63,7 +63,7 @@ const MySettingScreen = () => {
       <Form onSubmit={submitHandler}>
         <Row>
           <Col md={{ span: 5 }}>
-            <Form.Group controlId='username'>
+            <Form.Group>
               <small> <Form.Label as='b' htmlFor='setNewUsername'>About me</Form.Label></small>
               <Form.Control
                 id='setNewUsername'
@@ -77,7 +77,7 @@ const MySettingScreen = () => {
             </Form.Group>
           </Col>
           <Col md={{ span: 5, offset: 2 }}>
-            <Form.Group controlId='email'>
+            <Form.Group>
               <small> <Form.Label as='b' htmlFor='setNewUseremail'>Email Address</Form.Label></small>
               <Form.Control
                 id='setNewUseremail'
@@ -93,7 +93,7 @@ const MySettingScreen = () => {
         </Row>
         <Row >
           <Col md={12}>
-            <Form.Group controlId='password'>
+            <Form.Group>
               <small><Form.Label as='b' htmlFor='setNewPassword'>Password</Form.Label></small>
               <Form.Control
                 id='setNewPassword'
@@ -105,7 +105,7 @@ const MySettingScreen = () => {
 
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId='confirmPassword'>
+            <Form.Group>
               <small> <Form.Label as='b' htmlFor='confirmPassword'>Confirm Password:</Form.Label></small>
               <Form.Control
                 id='confirmPassword'

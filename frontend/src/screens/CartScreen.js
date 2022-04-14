@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useParams,useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { createBrowserHistory } from "history";
 import {
@@ -63,9 +63,9 @@ const CartScreen = () => {
               width: '350px',
               margin: 'auto',
             }}
-            className='bg-success'
+            className='bg-dark'
 
-          >Go to Homepage</Button></Link><br/>
+          >Go to Homepage</Button></Link><br />
           <Image src={'/images/cart.png'}
             alt='cartIcon'
             style={{
@@ -81,7 +81,7 @@ const CartScreen = () => {
             <h5>Shopping Cart</h5>
             <b style={{
               fontSize: '15px',
-              color: 'grey',
+              color: 'white',
             }}
             >${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)} subtotal
               · {cartItems.reduce((acc, item) => acc + item.qty, 0)} items</b>
@@ -94,14 +94,14 @@ const CartScreen = () => {
                       color: 'grey',
                       marginLeft: '700px'
                     }}>
-                     Each Price</Row>
+                    Each Price</Row>
                   <Row >
                     <Col md={3} xs={3}>
-                      <Image src={item.cover} alt={item.name} fluid rounded/>
+                      <Image src={item.cover} alt={item.name} fluid rounded />
                     </Col>
                     <Col xs={{ span: 4 }}>
                       <Row><small><Link to={`/details/${item.product}`}>{item.name}</Link></small></Row>
-                    
+
                       <Row>
                         <Col xs={1} className='mt-2'><h6>Qty.</h6></Col>
                         <Col xs={5} md={5} lg={3} xl={3}>
@@ -130,6 +130,7 @@ const CartScreen = () => {
                     <Col>
                       <Button
                         type='button'
+                        aria-label='delete'
                         onClick={() => removerFromCartHandler(item.product)}
                         variant="dark"
                         size='sm'
@@ -138,7 +139,7 @@ const CartScreen = () => {
                       </Button>
                     </Col>
                   </Row>
-                  <br/>
+                  <br />
                 </ListGroup.Item>
               ))}
             </ListGroup>
@@ -149,7 +150,7 @@ const CartScreen = () => {
             <Card>
               <ListGroup variant='flush'>
                 <ListGroup.Item>
-                  <Table striped  hover>
+                  <Table striped hover>
                     <tbody>
                       <tr style={{ color: 'red', fontSize: '15px' }}>
                         <td>Subtotal
@@ -174,10 +175,9 @@ const CartScreen = () => {
                 <ListGroup.Item>
                   <Button
                     type='button'
-                    className='btn-block bg-success'
+                    className='btn-block bg-primary'
                     disabled={cartItems.length === 0}
                     style={{
-                      width: '350px',
                       display: 'block',
                       margin: 'auto',
                     }}
