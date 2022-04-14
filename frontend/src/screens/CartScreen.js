@@ -175,11 +175,13 @@ const CartScreen = () => {
                 <ListGroup.Item>
                   <Button
                     type='button'
-                    className='btn-block bg-primary'
+                    className='btn-block bg-success'
                     disabled={cartItems.length === 0}
                     style={{
+                      color:'black' ,
                       display: 'block',
                       margin: 'auto',
+                      width:'15rem'
                     }}
                     onClick={checkoutHandler}
                   >

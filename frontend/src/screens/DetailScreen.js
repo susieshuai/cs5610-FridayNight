@@ -57,9 +57,9 @@ const DetailScreen = () => {
               <Col md={4}>
                 <Col as='h4'>{product.name}</Col>
                 <Col>
-                  <Badge pill bg="success" as='title'>{product.tag}</Badge>
+                  <Badge pill bg="success" text='dark' as='title'>{product.tag}</Badge>
                   &nbsp;
-                  <Badge pill bg="success" as='title'>{product.category}</Badge>
+                  <Badge pill bg="success" text='dark' as='title'>{product.category}</Badge>
                 </Col>
                 <big>
                   <Col style={{ color: '#FF6666' }}>${product.price} sale</Col>
@@ -110,11 +110,12 @@ const DetailScreen = () => {
                     <Col xs={{ span: 6 }}>
                       <Button
                         onClick={addCartHandler}
-                        className='btn-block bg-success'
+                        className='btn-block'
                         type='button'
                         disabled={product.countInStock === 0}
                         size='sm'
-                        style={{ width: '18em' }}
+                        style={{ width: '18em', color:'black' }}
+                        variant='success'
                       >
                         Add to Cart
                       </Button>
