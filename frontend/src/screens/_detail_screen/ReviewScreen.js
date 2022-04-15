@@ -30,7 +30,7 @@ const ReviewScreen = ({ reviews }) => {
         dispatch(
             listProductDetails(productId)
         )
-        console.log(noReviewRef.current);
+        // console.log(noReviewRef.current);
         // reviewRef.current.focus()
         // noReviewRef.current.focus()
     }, [dispatch, success, productId])
