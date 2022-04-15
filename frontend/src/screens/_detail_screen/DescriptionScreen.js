@@ -5,7 +5,7 @@ import Ad from '../../components/Ad'
 const DescriptionScreen = ({ description }) => {
     const descriptionRef = useRef(null)
     useEffect(() => {
-        descriptionRef.current.focus()
+        // descriptionRef.current.focus()
     })
     return (
         <>
