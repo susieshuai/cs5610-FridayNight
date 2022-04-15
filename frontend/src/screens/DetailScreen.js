@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link,useParams,useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   Row,
@@ -16,6 +16,7 @@ import Meta from "../components/Meta";
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import ScrollToTop from "../components/ScrollToTop";
 import DescriptionScreen from "./_detail_screen/DescriptionScreen"
 import HighlightScreen from './_detail_screen/HighlightScreen'
 import ReviewScreen from './_detail_screen/ReviewScreen'
@@ -23,7 +24,7 @@ import { listProductDetails } from '../actions/productActions'
 import { PRODUCT_DETAILS_RESET } from "../constants/productConstants";
 
 const DetailScreen = () => {
-  
+
   const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -31,7 +32,7 @@ const DetailScreen = () => {
 
   const productDetails = useSelector((state) => state.productDetails)
   const { loading, error, product } = productDetails
-  
+
   useEffect(() => {
     dispatch({ type: PRODUCT_DETAILS_RESET })
     dispatch(listProductDetails(id))
@@ -43,6 +44,7 @@ const DetailScreen = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Link className='btn btn-secondary my-5' to='/'>
         Back to Home
       </Link>
@@ -114,7 +116,7 @@ const DetailScreen = () => {
                         type='button'
                         disabled={product.countInStock === 0}
                         size='sm'
-                        style={{ width: '18em', color:'black' }}
+                        style={{ width: '18em', color: 'black' }}
                         variant='success'
                       >
                         Add to Cart
