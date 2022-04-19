@@ -2,7 +2,7 @@
 The MERN Stack Project(MongoDB Express React Node)
 FridayNight is an online store specialized in selling computer game virtual items.
 
-🎮 This app is deployed on [Heroku](https://friday-night-test.herokuapp.com/)
+🎮 This app is deployed on [Heroku](https://friday-night-886.herokuapp.com/)
 
 👉 Test Accounts
 1. Admin Account
