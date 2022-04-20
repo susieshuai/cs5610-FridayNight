@@ -2,7 +2,33 @@
 The MERN Stack Project(MongoDB Express React Node)
 FridayNight is an online store specialized in selling computer game virtual items.
 
-🎮 This app is deployed on [Heroku](https://friday-night-test.herokuapp.com/)
+🎮 This app is deployed on [Heroku](https://friday-night-886.herokuapp.com/)
+
+👉 Test Accounts
+1. Admin Account
+    - admin@test.com 123456
+2. User Accounts
+    - test1@test.com 123456
+    - test2@test.com 123456
+    - test3@test.com 123456
+    
+    ... Or create your own user account!
+3. PayPal Account
+    - sb-2wk8f15691593@personal.example.com .w<{yA2F
+
+## Iterations
+### Iteration 3
+**Division of labor**
+
+In the third week, the project is completed. Our application is done! The main functionality is working.
+
+- Features %Cuiting Huang
+
+Profile, Admin(TBD)
+
+- Features %Shi Shuai
+
+PayPal
 
 ### Iteration 2
 **Division of labor**
@@ -15,9 +41,6 @@ Cart, Login, Register, Profile
 - Features %Shi Shuai
 
 Search, Review, Checkout
-
-**test account** 
-test1@test.com 123456
 
 ### Iteration 1
 **Division of labor**
@@ -179,56 +202,61 @@ node backend/database/clear.js
 1. set up server
 2. connect frontend and backend to enable frontend to fetch hard coded products data from backend
 
-## Structure of website & current state of the application
-### 1. Homepage : Almost done. 
+## Structure of website
+### 1. Homepage 
 
-CURRENT : top sellers carousel, featured and recommended prodcuts list
-
-TODO : add conditional rendering for anonymous users and login users
+- top sellers carousel
+- conditional rendering : if the user is login, show the user's own reviews, otherwise, show the latest reviews
+- featured and recommended prodcuts list
 
 ![homepage](/frontend/public/images/screenshot1.jpg)
 
-### 2. Log in/Register page : Done. 
+### 2. Log in/Register page 
 
-CURRENT : allow users to register and login, force login when adding new review or proceeding to checkout
+- allow users to register and login
+- force login when adding new review or proceeding to checkout
 
 ![loginpage](/frontend/public/images/screenshot2.jpg)
 
-### 3. Profile page : Almost done. 
+### 3. Profile page
 
-CURRENT : allow users to see and update personal information
-
-TODO : add sections to show user orders and reviews
+- allow users to see and update personal information
+- allow users to see their orders
+- allow users to see their reviews
 
 ![profilepage](/frontend/public/images/screenshot3.jpg)
 
-### 4. Search/Search Results page : Done
+### 4. Search/Search Results page
 
-CURRENT : a summary of the search results and navigate to a detail page that shows a detailed view of the result
+- a summary of the search results and navigate to a detail page that shows a detailed view of the result
+- show alert message when no search has been executed and no results exist
 
 ![searchpage](/frontend/public/images/screenshot4.jpg)
 
-### 5. Details page: Done
+### 5. Details page
 
-CURRENT : allows users to view a detailed information of
-each product, add to cart, add reviews
+- detailed information of each product
+- add to cart
+- add reviews
 
 ![detailpage](/frontend/public/images/screenshot5.jpg)
 
-### 6. Orders : Almost Done
+### 6. Cart/Checkout/Order page
 
-CURRENT : allows users to place an order
-
-TODO : add PayPal API to implement payment feature
+- cart page : add items to cart, change qty of items, delete items
+- checkout page : place an order
+- order page : PayPal API to pay an order
 
 ![orderpage](/frontend/public/images/screenshot6.jpg)
+![orderpage](/frontend/public/images/screenshot7.jpg)
+![orderpage](/frontend/public/images/screenshot8.jpg)
 
 ## Environment Variable
 Create a file name .env then add:
 1. NODE_ENV = development
 2. MONGO_URI = < use your own mongodb atlas database >
 3. PORT = 5000
-4. PAYPAL_CLIENT_ID =
+4. PAYPAL_CLIENT_ID = < use your own paypal client id >
 5. JWT_SECRET = abc123
 
 ## Install dependencies
