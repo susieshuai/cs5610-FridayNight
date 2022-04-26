@@ -11,7 +11,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-  // console.log(userInfo)
+
   const logoutHandler = () => {
     dispatch(logout())
   }
@@ -30,7 +30,6 @@ const Header = () => {
   }
 
   return (
-
     <header>
       <Navbar bg="dark" variant='dark' expand="lg" collapseOnSelect>
         <Container >

@@ -3,7 +3,6 @@ import { Navbar, Container, Nav} from 'react-bootstrap'
 
 const Subtitle = ({ text }) => {
   return (
-
     <Navbar bg="" variant=''>
       <Container fluid>
         <Nav.Link>
