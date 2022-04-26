@@ -26,9 +26,6 @@ const Banner = () => {
                 <Link to={`/details/${product._id}`}>
                   <Image src={product.cover} alt={product.name} />
                 </Link>
-                  {/* <Carousel.Caption className='carousel-caption'>
-                  <div dangerouslySetInnerHTML={{ __html: `${product.description.substring(0, 60)+'...'}` }} ></div> 
-                  </Carousel.Caption> */}
               </Carousel.Item>
             ))}
           </Carousel>
