@@ -55,7 +55,6 @@ const Header = () => {
               <LinkContainer to='/ad' id='linkToAds'>
                 <Nav.Link>Weekly Ad</Nav.Link>
               </LinkContainer>
-
               {/* <NavDropdown title="Categories" id="navbarDropdown">
                 <NavDropdown.Item href="#action3">RPG</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">Action</NavDropdown.Item>
@@ -66,7 +65,6 @@ const Header = () => {
                 </NavDropdown.Item>
               </NavDropdown> */}
             </Nav>
-
             {/* Search Begins! */}
             <Form className="d-flex mx-auto" onSubmit={handleSearch} style={{ position: 'blocked' }}>
               <FormControl
@@ -81,7 +79,6 @@ const Header = () => {
               </Button>
             </Form>
             {/* Search Ends! */}
-
             <Nav className='ms-auto'>
               {userInfo ? (
                 <>
