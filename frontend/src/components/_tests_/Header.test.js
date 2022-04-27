@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import Header from '../Header';
-import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom'
 import store from "../../store"
 import { Provider } from "react-redux"
