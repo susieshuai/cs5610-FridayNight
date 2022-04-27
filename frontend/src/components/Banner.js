@@ -6,11 +6,8 @@ import Loader from './Loader'
 import Message from './Message'
 import { listTopProducts } from '../actions/productActions'
 
-
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Banner = () => {
-
-
+  
   const dispatch = useDispatch()
 
   const productTopRated = useSelector((state) => state.productTopRated)
@@ -29,9 +26,6 @@ const Banner = () => {
                 <Link to={`/details/${product._id}`}>
                   <Image src={product.cover} alt={product.name} />
                 </Link>
-                  {/* <Carousel.Caption className='carousel-caption'>
-                  <div dangerouslySetInnerHTML={{ __html: `${product.description.substring(0, 60)+'...'}` }} ></div> 
-                  </Carousel.Caption> */}
               </Carousel.Item>
             ))}
           </Carousel>

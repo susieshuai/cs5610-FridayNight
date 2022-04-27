@@ -6,6 +6,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
+    "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "moment": "^2.29.2",
@@ -23,6 +24,7 @@
     "read-more-react": "^1.0.10",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.4.1",
     "web-vitals": "^2.1.4"
   },
@@ -49,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }

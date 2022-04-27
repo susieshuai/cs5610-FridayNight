@@ -20,40 +20,41 @@ import ScrollToTop from "./components/ScrollToTop";
 import OrderScreen from "./screens/OrderScreen";
 import ItemEditScreen from "./screens/ItemEditScreen";
 
+
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <Header />
-      <main>
-        <Container>
-          <Routes>
-            <Route path='/' element={<HomeScreen />} exact />
-            <Route path='/ad' element={<AdScreen />} exact />
-            <Route path='/admin/product' element={<AdminScreen />} exact />
-            <Route path='/admin/product/:id/edit' element={<ItemEditScreen/>} exact />
+      <Router>
+        <ScrollToTop />
+        <Header />
+        <main>
+          <Container>
+            <Routes>
+              <Route path='/' element={<HomeScreen />} exact />
+              <Route path='/ad' element={<AdScreen />} exact />
+              <Route path='/admin/product' element={<AdminScreen />} exact />
+              <Route path='/admin/product/:id/edit' element={<ItemEditScreen />} exact />
 
-            <Route path='/search' element={<SearchScreen />} exact />
-            <Route path='/search/:searchCriteria' element={<SearchScreen />} exact />
+              <Route path='/search' element={<SearchScreen />} exact />
+              <Route path='/search/:searchCriteria' element={<SearchScreen />} exact />
 
-            <Route path='/products' element={<AllProductScreen />} exact />
-            <Route path='/products/top' element={<TopProductScreen />} exact />
-            <Route path='/details/:id' element={<DetailScreen />} exact />
+              <Route path='/products' element={<AllProductScreen />} exact />
+              <Route path='/products/top' element={<TopProductScreen />} exact />
+              <Route path='/details/:id' element={<DetailScreen />} exact />
 
-            <Route path='/cart/' element={<CartScreen />} exact />
-            <Route path='/cart/:id' element={<CartScreen />} exact />
+              <Route path='/cart/' element={<CartScreen />} exact />
+              <Route path='/cart/:id' element={<CartScreen />} exact />
 
-            <Route path='/order/:id' element={<OrderScreen />} exact />
-            <Route path='/checkout' element={<CheckoutScreen />} exact />
+              <Route path='/order/:id' element={<OrderScreen />} exact />
+              <Route path='/checkout' element={<CheckoutScreen />} exact />
 
-            <Route path='/login' element={<LoginScreen />} exact />
-            <Route path='/register' element={<RegisterScreen />} exact />
-            <Route path='/profile' element={<ProfileScreen />} exact />
-          </Routes>
-        </Container>
-      </main>
-      <Footer />
-    </Router>
+              <Route path='/login' element={<LoginScreen />} exact />
+              <Route path='/register' element={<RegisterScreen />} exact />
+              <Route path='/profile' element={<ProfileScreen />} exact />
+            </Routes>
+          </Container>
+        </main>
+        <Footer />
+      </Router>
   );
 }
 
