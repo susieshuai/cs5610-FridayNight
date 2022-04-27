@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 
 const Rating = ({ value, text, color }) => {
   return (
-    <div className='rating text-muted' style={{fontSize:'16px'}}>
+    <div className='rating text-muted' style={{ fontSize: '16px' }}>
       <span>
         <i
           style={{ color }}
@@ -41,7 +41,7 @@ const Rating = ({ value, text, color }) => {
         ></i>
       </span>
       <span>
-        <i
+        <i data-testid='forth-star'
           style={{ color }}
           className={
             value >= 4
@@ -65,7 +65,7 @@ const Rating = ({ value, text, color }) => {
 
         ></i>
       </span>
-      <span style={{color:'#FFCC33'}}>{text && text}</span>
+      <span style={{ color: '#FFCC33' }}>{text && text}</span>
     </div>
   )
 }
