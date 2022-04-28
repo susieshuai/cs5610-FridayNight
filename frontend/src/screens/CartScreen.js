@@ -14,6 +14,7 @@ import {
 } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from "../actions/cartActions";
+import Meta from "../components/Meta";
 
 
 const CartScreen = () => {
@@ -77,6 +78,7 @@ const CartScreen = () => {
         </Message>
       ) : (
         <>
+        <Meta title={'Your Shopping Cart'} />
           <Col md={8}>
             <h5>Shopping Cart</h5>
             <b style={{

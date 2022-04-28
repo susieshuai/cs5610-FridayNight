@@ -5,6 +5,7 @@ import { Row, Col, ListGroup, Image, Button, Table, } from 'react-bootstrap'
 import Message from '../components/Message'
 import { createOrder } from '../actions/orderAction'
 import { ORDER_CREATE_RESET } from "../constants/orderConstants"
+import Meta from "../components/Meta";
 
 const CheckoutScreen = () => {
     const dispatch = useDispatch()
@@ -49,6 +50,8 @@ const CheckoutScreen = () => {
                         <Message>Cart is empty</Message>
                     ) : (
                         //  cart items list
+                        <>
+                        <Meta title={'Please to Checkout your items'} />
                         <ListGroup variant='flush'>
                             {cart.cartItems.map((item, index) => (
                                 <ListGroup.Item key={index}>
@@ -73,6 +76,7 @@ const CheckoutScreen = () => {
                                 </ListGroup.Item>
                             ))}
                         </ListGroup>
+                        </>
                     )}
                 </ListGroup.Item>
                 <ListGroup.Item>
