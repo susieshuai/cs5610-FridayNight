@@ -4,6 +4,8 @@ FridayNight is an online store specialized in selling computer game virtual item
 
 🎮 This app is deployed on [Heroku](https://friday-night-886.herokuapp.com/)
 
+⏯️ Demo video is on [YouTube](https://youtu.be/1Sek3Y4pgDo)
+
 👉 Test Accounts
 1. Admin Account
     - admin@test.com 123456
@@ -250,6 +252,15 @@ node backend/database/clear.js
 ![orderpage](/frontend/public/images/screenshot6.jpg)
 ![orderpage](/frontend/public/images/screenshot7.jpg)
 ![orderpage](/frontend/public/images/screenshot8.jpg)
+
+### 7. Admin page
+
+- Only admin users have authorization to this page
+- create a product
+- edit a product
+- delete a product
+
+![orderpage](/frontend/public/images/screenshot9.jpg)
 
 ## Environment Variable
 Create a file name .env then add:
