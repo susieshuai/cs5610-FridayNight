@@ -6,13 +6,15 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import DetailScreen from '../DetailScreen'
 
+global.scrollTo = jest.fn()
+
 beforeEach(() => {
   render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <DetailScreen />
-        </Provider>
-      </MemoryRouter>
+    <MemoryRouter>
+      <Provider store={store}>
+        <DetailScreen />
+      </Provider>
+    </MemoryRouter>
   )
 })
 
